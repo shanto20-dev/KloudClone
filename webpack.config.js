@@ -1,7 +1,11 @@
+const path = require('path');
+
 module.exports = {
+    context: __dirname,
     entry: './frontend/kloud_clone.jsx',
     output: {
-        filename: 'app/assets/javascripts/bundle.js',
+        path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+        filename: 'bundle.js'
     },
     module: {
         rules: [
