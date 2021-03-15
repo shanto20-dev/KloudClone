@@ -36,5 +36,5 @@ export const login = (user) => (dispatch) => postSession(user)
     .then(user => dispatch(receiveCurrentUser(user)));
 
 export const logout = () => (dispatch) => deleteSession()
-    .then(() => dispatch(logoutCurrentUser()));
+    .then((user) => dispatch(logoutCurrentUser()));
 

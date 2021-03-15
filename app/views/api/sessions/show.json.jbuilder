@@ -1,1 +1,1 @@
-json.currentUserId @user.id
+# json.userId @user.id
