@@ -16,6 +16,7 @@ export const receiveCurrentUser = (user) => {
 };
 
 export const logoutCurrentUser = () => {
+    debugger
     return {
         type: LOGOUT_CURRENT_USER
     };
@@ -36,5 +37,6 @@ export const login = (user) => (dispatch) => postSession(user)
     .then(user => dispatch(receiveCurrentUser(user)));
 
 export const logout = () => (dispatch) => deleteSession()
-    .then((user) => dispatch(logoutCurrentUser()));
+    .then(() => dispatch(logoutCurrentUser()));
+
 
