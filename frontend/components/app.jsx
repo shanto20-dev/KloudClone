@@ -10,6 +10,7 @@ import {
 import NavBarContainer from "./navbar/navbar_container"
 import SignupContainer from "./session/signup_container"
 import LoginContainer from "./session/login_container"
+import {AuthRoute} from "../utils/route_util"
 
 
 const App = () => {
@@ -22,8 +23,8 @@ const App = () => {
         <NavBarContainer />
     </header>
     <Switch>
-        <Route exact path="/signup" component={SignupContainer} />
-        <Route exact path="/login" component={LoginContainer} />
+        <AuthRoute exact path="/signup" component={SignupContainer} />
+        <AuthRoute exact path="/login" component={LoginContainer} />
     </Switch>
     </>)
 };
