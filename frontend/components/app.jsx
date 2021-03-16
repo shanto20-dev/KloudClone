@@ -23,11 +23,11 @@ const App = () => {
         </Link>
         <NavBarContainer />
     </header>
+    <Route path="/" component={Splash}/>
     <Switch>
         <AuthRoute exact path="/signup" component={SignupContainer} />
         <AuthRoute exact path="/login" component={LoginContainer} />
         <Route exact path="/discover"/>
-        <Route exact path="/" component={Splash}/>
     </Switch>
     </>)
 };
