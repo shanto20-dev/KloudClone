@@ -28,6 +28,10 @@ class Login extends React.Component {
         this.props.login({username: "demouser", password: "demo1234"});
     }
     render() {
+        let errormessage
+        if (this.props.errors) {
+            errormessage = this.props.errors;
+        }
         return (
             <div className='session-form'>
                 <button onClick={this.handleDemo}>Continue with Demo User</button>
@@ -46,6 +50,7 @@ class Login extends React.Component {
                     <br/>
                     <button onClick={this.handleSubmit}>Sign In</button>
                 </form>
+                <p>{errormessage}</p>
             </div>
         );
     }

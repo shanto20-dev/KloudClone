@@ -29,7 +29,12 @@ class Signup extends React.Component {
         this.props.login({ username: "demouser", password: "demo1234"});
     }
     render() {
+        let errormessage
+        if (this.props.errors) {
+            errormessage = this.props.errors;
+        }
         return (
+            <>
             <div className='session-form'>
                 <button onClick={this.handleDemo}>Continue with Demo User</button>
                 <form>
@@ -52,8 +57,10 @@ class Signup extends React.Component {
                     <p>By signing up I accept the Terms of Use. I have read and understood the Privacy Policy and Cookies Policy.</p>
                     <button onClick={this.handleSubmit}>Accept and Continue</button>
                 </form>
-
+                <p>{errormessage}</p>
             </div>
+            
+            </>
         );
     }
 };
