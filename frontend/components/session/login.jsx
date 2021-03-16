@@ -33,25 +33,29 @@ class Login extends React.Component {
             errormessage = this.props.errors;
         }
         return (
-            <div className='session-form'>
-                <button onClick={this.handleDemo}>Continue with Demo User</button>
+            <>
+            <section className="modal-screen"></section>
+
+            <div className='session-form modal-box'>
+                <button onClick={this.handleDemo} className="demobutton">Continue with Demo User</button>
                 <form>
-                    <label> Username
                     <br />
-                        <input type="text" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your email address or profile URL" />
-                    </label>
+                        <input className="login-input" type="text" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your email address or profile URL" />
                     <br />
                     <br />
                     <label>
                         <br />
-                        <input type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Your Password"/>
+                        <input type="password" className="login-input" value={this.state.password} onChange={this.handleInput('password')} placeholder="Your Password"/>
                     </label>
                     <br/>
                     <br/>
                     <button onClick={this.handleSubmit}>Sign In</button>
                 </form>
                 <p>{errormessage}</p>
+                    <p className="legalese">We may use your email and devices for updates and tips on KloudClone's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
+                        We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.</p>
             </div>
+            </>
         );
     }
 };

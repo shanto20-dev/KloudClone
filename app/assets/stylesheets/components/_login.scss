@@ -1,0 +1,54 @@
+.modal-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    background: hsla(0,0%,94.9%,.9)
+}
+
+.modal-box {
+    position: absolute;
+    margin: 0 auto;
+    top: 250px;
+    z-index: 3000;
+    display:flex;
+    flex-direction: column;
+    // align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    left: 40%;
+    padding: 25px;
+}
+
+.demobutton {
+    color: #fff;
+    border-color: #3578e5;
+    background-color: #3578e5;
+    line-height: 18px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 3px;
+    border-style: solid;
+    width: 80%;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.legalese{
+    color: lightgray;
+    font-size: 12px;
+
+}
+
+.login-input{
+    width: 400px;
+    height: 40px;
+    border: 1px lightgray solid;
+    border-radius: 5px;
+    font-size: 18px;
+}
