@@ -53,6 +53,9 @@ class Navbar extends React.Component{
                         <button className="dropdown-button" >Profile</button>
                         <button className="dropdown-button" >Likes</button>
                         <button className="dropdown-button" >Playlists</button>
+                        <button className="dropdown-button" >Stations</button>
+                        <button className="dropdown-button" >Following</button>
+                        <button className="dropdown-button" >Try Pro</button>
                     </div>
             </div>
             <button className="bell"></button>
