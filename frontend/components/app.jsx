@@ -18,12 +18,10 @@ const App = () => {
     return (
     <>
      <header>
-        <Link to="/">
             <h1 className="logo"></h1>
-        </Link>
         <NavBarContainer />
     </header>
-    <Route path="/" component={Splash}/>
+    <AuthRoute path="/" component={Splash}/>
     <Switch>
         <AuthRoute exact path="/signup" component={SignupContainer} />
         <AuthRoute exact path="/login" component={LoginContainer} />

@@ -40,3 +40,36 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.splash-buttons{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+}
+.splashbutton1{
+    border-color: #666;
+    background-color: transparent;
+    color: white;
+    margin-right: 22px;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 2px 11px 2px 11px;
+    height: 45px;
+    width: 155px;
+    font: 14px,Arial,sans-serif;
+    z-index: 10000;
+}
+
+.splashbutton2{
+    background-color: #f50;
+    color: white;
+    border-color: #f50;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 2px 11px 2px 11px;
+    height: 45px;
+    width: 155px;
+    font: 14px,Arial,sans-serif;
+}
