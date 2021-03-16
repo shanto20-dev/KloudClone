@@ -4,7 +4,7 @@ import Login from './login';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        errors: state.errors,
+        errors: state.errors.session,
     }
 
 }

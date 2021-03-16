@@ -9,6 +9,7 @@ class Signup extends React.Component {
             password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     handleInput(type) {
@@ -23,9 +24,14 @@ class Signup extends React.Component {
         e.preventDefault();
         this.props.createNewUser(this.state);
     }
+
+    handleDemo(e) {
+        this.props.login({ username: "demouser", password: "demo1234"});
+    }
     render() {
         return (
             <div className='session-form'>
+                <button onClick={this.handleDemo}>Continue with Demo User</button>
                 <form>
                     <label> Username
                     <br/>
