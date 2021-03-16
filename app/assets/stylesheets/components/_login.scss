@@ -26,7 +26,7 @@
 }
 
 .demobutton {
-    color: #fff;
+    color: white;
     border-color: #3578e5;
     background-color: #3578e5;
     line-height: 18px;
@@ -46,9 +46,29 @@
 }
 
 .login-input{
-    width: 400px;
+    width: 370px;
     height: 40px;
     border: 1px lightgray solid;
     border-radius: 5px;
     font-size: 18px;
+}
+
+.signinbutton{
+    background-color: #f50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    width: 370px;
+    height: 40px;
+    border-radius: 3px;
+    border-color: lightgray;
+    border-style: solid;
+
+}
+.error{
+    color: #cf0000;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    margin: 3px;
+    margin-bottom: 20px;
 }

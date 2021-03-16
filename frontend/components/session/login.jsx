@@ -42,16 +42,16 @@ class Login extends React.Component {
                     <br />
                         <input className="login-input" type="text" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your email address or profile URL" />
                     <br />
-                    <br />
                     <label>
                         <br />
                         <input type="password" className="login-input" value={this.state.password} onChange={this.handleInput('password')} placeholder="Your Password"/>
                     </label>
                     <br/>
                     <br/>
-                    <button onClick={this.handleSubmit}>Sign In</button>
+                        <p className="error">{errormessage}</p>
+                    <button className="signinbutton" onClick={this.handleSubmit}>Sign In</button>
                 </form>
-                <p>{errormessage}</p>
+                
                     <p className="legalese">We may use your email and devices for updates and tips on KloudClone's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
                         We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.</p>
             </div>
