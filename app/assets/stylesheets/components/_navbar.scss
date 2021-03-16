@@ -121,8 +121,6 @@ a{
     top: 23px;
     right: 10px;
     background: white;
-    // padding: 20px;
-    // padding-right: 60px;
     border: solid 1px lightgray;
     z-index: 100;
     width: 120px;
@@ -149,4 +147,9 @@ a{
 }
 .logout-button:hover{
     background-color: #f2f2f2;
+}
+
+button{
+    outline: none;
+    cursor: pointer;
 }
