@@ -18,7 +18,7 @@ const App = () => {
     <>
      <header>
         <Link to="/">
-            <h1>KloudClone</h1>
+            <h1 className="logo"></h1>
         </Link>
         <NavBarContainer />
     </header>

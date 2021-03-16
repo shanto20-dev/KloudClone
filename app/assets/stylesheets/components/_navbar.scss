@@ -1,0 +1,72 @@
+
+
+header{
+    background-color: #333;
+    height: 46px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font: 100 14px/1.5 Interstate,Lucida Grande,Arial,sans-serif;
+    color: white;
+}
+
+.login-signup{
+    position: relative;
+    margin: 0;
+    border-radius: 3px;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    float: right;
+    right: 460px;
+    top: 10px;
+}
+.loginbutton{
+    border-color: #666;
+    background-color: transparent;
+    color: white;
+    margin-right: 22px;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 2px 11px 2px 11px;
+    height: 26px;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+}
+
+.signupbutton{
+    background-color: #f50;
+    color: white;
+    border-color: #f50;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 2px 11px 2px 11px;
+    height: 26px;
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.logo{
+    position: absolute;
+    width: 184px;
+    height: 46px;
+    background-image: image_url('textlogo.png');
+    z-index: 10000;
+    content: "";
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 350px;
+    
+}
+
+

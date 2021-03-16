@@ -13,8 +13,8 @@ class Navbar extends React.Component{
      sessionLinks(){
         return(
         <nav className="login-signup">
-            <button><Link to="/login"> Sign In </Link></button>
-            <button><Link to="/signup"> Create Account </Link></button>
+                <Link to="/login"> <button className="loginbutton" to="/login" > Sign In </button></Link>
+                <Link to="/signup"><button className="signupbutton"> Create Account </button></Link>
         </nav>
          )
     }
