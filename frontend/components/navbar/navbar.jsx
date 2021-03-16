@@ -10,6 +10,7 @@ class Navbar extends React.Component{
             dropdown: false
         }
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.handleClick = this.handleClick.bind(this);
 
     }
 
@@ -17,7 +18,10 @@ class Navbar extends React.Component{
         this.setState({dropdown: !this.state.dropdown})
     }
 
-  
+    handleClick(){
+        this.props.logout()
+        this.toggleDropdown()
+    }
     
      sessionLinks(){
         return(
@@ -40,7 +44,7 @@ class Navbar extends React.Component{
             <div className="dropdown">
             <button className="dropdown-button" onClick={this.toggleDropdown}></button>
                 <div className={dropdownclass}>
-                    <button className="logout-button" onClick={this.props.logout}>Sign Out</button>
+                    <button className="logout-button" onClick={this.handleClick} >Sign Out</button>
                 </div>
             </div>
         </hgroup>
