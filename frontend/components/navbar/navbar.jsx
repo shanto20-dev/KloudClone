@@ -7,20 +7,25 @@ class Navbar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            dropdown: false
+            logoutDropdown: false,
+            profileDropdown: false
         }
-        this.toggleDropdown = this.toggleDropdown.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.toggleLogoutDropdown = this.toggleLogoutDropdown.bind(this);
+        this.toggleProfileDropdown = this.toggleProfileDropdown.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
 
     }
 
-    toggleDropdown(){
-        this.setState({dropdown: !this.state.dropdown})
+    toggleLogoutDropdown(){
+        this.setState({ logoutDropdown: !this.state.logoutDropdown, profileDropdown: false})
     }
 
-    handleClick(){
+    toggleProfileDropdown() {
+        this.setState({ profileDropdown: !this.state.profileDropdown, logoutDropdown: false })
+    }
+    handleLogout(){
         this.props.logout()
-        this.toggleDropdown()
+        this.toggleLogoutDropdown()
     }
     
      sessionLinks(){
@@ -34,18 +39,28 @@ class Navbar extends React.Component{
 
 
     personal(){
+        let profdropdownclass
         let dropdownclass
-        this.state.dropdown ? dropdownclass = "dropdown-active" : dropdownclass="dropdown-inactive";
+        this.state.profileDropdown ? profdropdownclass = "prof-dropdown-active" : profdropdownclass = "dropdown-inactive";
+        this.state.logoutDropdown ? dropdownclass = "dropdown-active" : dropdownclass="dropdown-inactive";
         window.onclick = this.windowClick;
 
         return(
         <hgroup className="navbar-right-group">
-            <button className="user-button">{this.props.currentUser.username}</button>
-            <div className="dropdown">
-            <button className="dropdown-button" onClick={this.toggleDropdown}></button>
-                <div className={dropdownclass}>
-                    <button className="logout-button" onClick={this.handleClick} >Sign Out</button>
-                </div>
+            <div className="divdropdown">
+                <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
+                    <div className={profdropdownclass}>
+                        <button className="dropdown-button" >Profile</button>
+                        <button className="dropdown-button" >Likes</button>
+                        <button className="dropdown-button" >Playlists</button>
+                    </div>
+            </div>
+            <button className="bell"></button>
+            <div className="divdropdown">
+                <button className="options-button" onClick={this.toggleLogoutDropdown}></button>
+                    <div className={dropdownclass}>
+                        <button className="dropdown-button" onClick={this.handleLogout} >Sign Out</button>
+                    </div>
             </div>
         </hgroup>
         )
