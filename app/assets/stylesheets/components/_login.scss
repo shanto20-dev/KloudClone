@@ -25,7 +25,10 @@
     padding: 25px;
 }
 
-.demobutton {
+.create-form{
+    padding-left: 12px;
+}
+.demo-button {
     color: white;
     border-color: #3578e5;
     background-color: #3578e5;
@@ -35,8 +38,33 @@
     border-radius: 3px;
     border-style: solid;
     width: 80%;
-    font-weight: bold;
-    margin-top: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.google-button {
+    color: black;
+    border-color: lightgray;
+    background-color: white;
+    line-height: 18px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 3px;
+    border-style: solid;
+    width: 80%;
+    cursor: pointer;
+}
+.apple-button {
+    color: white;
+    border-color: black;
+    background-color: black;
+    line-height: 18px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 3px;
+    border-style: solid;
+    width: 80%;
+    cursor: pointer;
 }
 
 .legalese{

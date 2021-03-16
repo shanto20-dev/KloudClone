@@ -35,29 +35,26 @@ class Signup extends React.Component {
         }
         return (
             <>
-            <div className='session-form'>
-                <button onClick={this.handleDemo}>Continue with Demo User</button>
-                <form>
-                    <label> Username
+            <section className="modal-screen"></section>
+                <div className='session-form modal-box'>
+                    <button onClick={this.handleDemo} className="demo-button">Continue with Demo User</button>
+                    <button className="google-button">Continue with Google</button>
+                    <button className="apple-button">Continue with Apple</button>
+                <form className="create-form">
                     <br/>
-                    <input type="text" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your email address or profile URL"/>
-                    </label>
-                    <br/>
-                    <br/>
-                    <label> Email
-                    <br/>
-                    <input type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Your email address or profile URL" />
-                    </label>
+                    <input type="text" className="login-input" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your email address or profile URL"/>
                     <br/>
                     <br/>
-                    <label> Choose a password
-                        <br/>
-                    <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
-                    </label>
-                    <p>By signing up I accept the Terms of Use. I have read and understood the Privacy Policy and Cookies Policy.</p>
-                    <button onClick={this.handleSubmit}>Accept and Continue</button>
+                    <input type="text" className="login-input" value={this.state.email} onChange={this.handleInput('email')} placeholder="Your email address or profile URL" />
+                    <br/>
+                    <br/>
+                    <input className="login-input" type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Choose a password" />
+                    <p className="error">{errormessage}</p>
+                    <p className="legalese" >By signing up I accept the Terms of Use. I have read and understood the Privacy Policy and Cookies Policy.</p>
+                    <br/>
+                        <button className="signinbutton" onClick={this.handleSubmit}>Accept and Continue</button>
                 </form>
-                <p>{errormessage}</p>
+               
             </div>
             
             </>
