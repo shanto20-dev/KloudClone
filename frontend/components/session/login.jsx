@@ -27,6 +27,7 @@ class Login extends React.Component {
     handleDemo(e){
         this.props.login({username: "demouser", password: "demo1234"});
     }
+
     render() {
         let errormessage
         if (this.props.errors) {
