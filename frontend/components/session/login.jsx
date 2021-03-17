@@ -41,7 +41,7 @@ class Login extends React.Component {
             errormessage = this.props.errors;
         }
         if (this.props.modal){
-            window.onclick = this.handleModal
+            window.onclick = this.handleModal;
         }
         if (this.props.modal) {
         return (
@@ -50,8 +50,8 @@ class Login extends React.Component {
 
             <div className='session-form modal-box'>
                 <button onClick={this.handleDemo} className="demo-button">Continue with Demo User</button>
-                <button className="google-button">Continue with Google</button>
-                <button className="apple-button">Continue with Apple</button>
+                {/* <button className="google-button">Continue with Google</button> */}
+                {/* <button className="apple-button">Continue with Apple</button> */}
                 <form>
                     <br />
                     <input className="login-input" type="text" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your email address or profile URL" />

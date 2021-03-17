@@ -50,8 +50,8 @@ class Signup extends React.Component {
             <section className="modal-screen"></section>
                 <div className='session-form modal-box'>
                     <button onClick={this.handleDemo} className="demo-button">Continue with Demo User</button>
-                    <button className="google-button">Continue with Google</button>
-                    <button className="apple-button">Continue with Apple</button>
+                    {/* <button className="google-button">Continue with Google</button> */}
+                    {/* <button className="apple-button">Continue with Apple</button> */}
                 <form className="create-form">
                     <br/>
                     <input type="text" className="login-input" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your profile URL"/>

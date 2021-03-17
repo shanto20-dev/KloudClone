@@ -19,11 +19,19 @@
     align-items: center;
     justify-content: space-between;
     width: 400px;
-    height: 500px;
+    height: 350px;
     background-color: white;
     left: 40%;
     padding: 25px;
+    animation-name: animatetop;
+    animation-duration: 0.4s
 }
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 80px; opacity: 1}
+}
+
 
 .create-form{
     padding-left: 12px;
@@ -105,4 +113,3 @@
     margin: 3px;
     margin-bottom: 20px;
 }
-
