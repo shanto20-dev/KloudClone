@@ -31,6 +31,7 @@ class Signup extends React.Component {
     }
 
     handleModal(e) {
+        console.log(e.target)
         if (e.target.className === 'modal-screen') {
             this.props.closeModal()
         }
@@ -44,6 +45,7 @@ class Signup extends React.Component {
         if (this.props.modal) {
             window.onclick = this.handleModal
         }
+        console.log(this.props.errors);
         if (this.props.modal){
         return (
             <>
