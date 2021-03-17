@@ -4,6 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import {createNewUser, login, logout, receiveCurrentUser, logoutCurrentUser} from './actions/session_actions'
 import { postSession, postUser } from './utils/session_api_util';
+import { receiveSignupModal, receiveLoginModal} from './actions/ui_actions'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logoutCurrentUser = logoutCurrentUser;
     window.postSession= postSession;
     window.postUser= postUser;
+    window.receiveSignupModal = receiveSignupModal;
+    window.receiveLoginModal = receiveLoginModal;
 
 });
 

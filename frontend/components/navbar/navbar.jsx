@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginContainer from '../session/login_container';
+import SignupContainer from '../session/signup_container';
 
 
 
@@ -13,6 +15,7 @@ class Navbar extends React.Component{
         this.toggleLogoutDropdown = this.toggleLogoutDropdown.bind(this);
         this.toggleProfileDropdown = this.toggleProfileDropdown.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleModal = this.handleModal.bind(this);
 
     }
 
@@ -27,13 +30,24 @@ class Navbar extends React.Component{
         this.props.logout()
         this.toggleLogoutDropdown()
     }
+
+    handleModal(e){
+        if (e.target !== document.getElementsByClassName('modal-box') && (this.props.loginModal || this.props.signupModal)) {
+            this.props.closeModal()
+        }
+    }
+    
     
      sessionLinks(){
         return(
+        <>
         <nav className="login-signup">
-                <Link to="/login"> <button className="loginbutton" to="/login" > Sign In </button></Link>
-                <Link to="/signup"><button className="signupbutton"> Create Account </button></Link>
+                <button className="loginbutton" to="/login" onClick={this.props.loginModal}> Sign In </button>
+                <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
         </nav>
+        <LoginContainer />
+        <SignupContainer />
+        </>
          )
     }
 
@@ -43,7 +57,6 @@ class Navbar extends React.Component{
         let dropdownclass
         this.state.profileDropdown ? profdropdownclass = "prof-dropdown-active" : profdropdownclass = "dropdown-inactive";
         this.state.logoutDropdown ? dropdownclass = "dropdown-active" : dropdownclass="dropdown-inactive";
-        window.onclick = this.windowClick;
 
         return(
         <hgroup className="navbar-right-group">
@@ -71,7 +84,7 @@ class Navbar extends React.Component{
 
     render(){
         if (!this.props.currentUser) {
-            return this.sessionLinks()
+            return (this.sessionLinks())
         }else{
             return this.personal()
         }

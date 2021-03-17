@@ -33,6 +33,7 @@ class Signup extends React.Component {
         if (this.props.errors) {
             errormessage = this.props.errors;
         }
+        if (this.props.modal){
         return (
             <>
             <section className="modal-screen"></section>
@@ -58,7 +59,9 @@ class Signup extends React.Component {
             </div>
             
             </>
-        );
+        )}else{
+            return null;
+        }
     }
 };
 

@@ -9,6 +9,7 @@ class Login extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.handleModal = this.handleModal.bind(this);
     }
 
     handleInput(type) {
@@ -28,11 +29,24 @@ class Login extends React.Component {
         this.props.login({username: "demouser", password: "demo1234"});
     }
 
+    handleModal(e) {
+        console.log("we hit the function")
+        console.log(e.target)
+        if (e.target.className === 'modal-screen') {
+            console.log("we hit the screen")
+            this.props.closeModal()
+        }
+    }
+
     render() {
         let errormessage
         if (this.props.errors) {
             errormessage = this.props.errors;
         }
+        if (this.props.modal){
+            window.onclick = this.handleModal
+        }
+        if (this.props.modal) {
         return (
             <>
             <section className="modal-screen"></section>
@@ -57,7 +71,10 @@ class Login extends React.Component {
                         We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.</p>
             </div>
             </>
-        );
+        )} else{
+            return null;
+        };
+       
     }
 };
 

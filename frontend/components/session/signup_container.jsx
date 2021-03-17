@@ -6,6 +6,7 @@ import Login from './login';
 const mapStateToProps = (state, ownProps) => {
     return {
         errors: state.errors.session,
+        modal: state.ui.signupModal
     }
 
 }

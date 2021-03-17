@@ -21,10 +21,10 @@ const App = () => {
             <h1 className="logo"></h1>
         <NavBarContainer />
     </header>
-    <AuthRoute path="/" component={Splash}/>
     <Switch>
-        <AuthRoute exact path="/signup" component={SignupContainer} />
-        <AuthRoute exact path="/login" component={LoginContainer} />
+        <AuthRoute path="/" component={Splash}/>
+        {/* <AuthRoute exact path="/signup" component={SignupContainer} /> */}
+        {/* <AuthRoute exact path="/login" component={LoginContainer} /> */}
         <Route exact path="/discover"/>
     </Switch>
     </>)
