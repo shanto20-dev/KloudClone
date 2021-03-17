@@ -14,8 +14,8 @@ class Splash extends React.Component {
                     <h1 className="maintitle">Discover more with KloudClone Go+</h1>
                     <h2 className="subtitle">KloudClone Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</h2>
                     <div className='splash-buttons'>
-                    <button className='splashbutton1'>Learn More</button>
-                    <button className='splashbutton2'>Purchase Now</button>
+                    <a href="https://www.linkedin.com/in/sayeefalam/" target="-blank"><button className='splashbutton1'>LinkedIn</button></a>
+                    <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2'>Github</button></a>
                     </div>
                    <div className='splashimg'></div>
                 </div>

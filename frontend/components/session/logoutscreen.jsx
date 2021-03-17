@@ -15,7 +15,7 @@ class Logoutscreen extends React.Component {
                     <h2 className="subtitle">If you'd like to get in contact, please check out my LinkedIn or Github profiles below.</h2>
                     <div className='splash-buttons'>
                         <a href="https://www.linkedin.com/in/sayeefalam/" target="-blank"><button className='splashbutton1'>LinkedIn</button></a>
-                        <a href="github.com/shanto20-dev/" target="-blank"><button className='splashbutton2'>Github</button></a>
+                        <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2'>Github</button></a>
                     </div>
                     <div className='splashimg2'></div>
                 </div>
