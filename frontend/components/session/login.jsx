@@ -30,10 +30,7 @@ class Login extends React.Component {
     }
 
     handleModal(e) {
-        console.log("we hit the function")
-        console.log(e.target)
         if (e.target.className === 'modal-screen') {
-            console.log("we hit the screen")
             this.props.closeModal()
         }
     }
