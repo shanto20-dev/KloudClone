@@ -10,6 +10,7 @@ class Signup extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.handleModal = this.handleModal.bind(this);
     }
 
     handleInput(type) {
@@ -28,10 +29,20 @@ class Signup extends React.Component {
     handleDemo(e) {
         this.props.login({ username: "demouser", password: "demo1234"});
     }
+
+    handleModal(e) {
+        if (e.target.className === 'modal-screen') {
+            this.props.closeModal()
+        }
+    }
+    
     render() {
         let errormessage
         if (this.props.errors) {
             errormessage = this.props.errors;
+        }
+        if (this.props.modal) {
+            window.onclick = this.handleModal
         }
         if (this.props.modal){
         return (

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createNewUser } from '../../actions/session_actions';
 import Signup from './signup';
-import Login from './login';
+import { closeModal } from '../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         createNewUser: (user) => dispatch(createNewUser(user)),
-        login: (user) => dispatch(login(user))
+        login: (user) => dispatch(login(user)),
+        closeModal: () => dispatch(closeModal()),
     }
 }
 
