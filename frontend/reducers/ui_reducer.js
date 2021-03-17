@@ -16,7 +16,7 @@ const uiReducer = (state = _default, action) => {
         case CLOSE_MODAL:
             return { loginModal: false, signupModal: false };
         default:
-            return state;
+            return { loginModal: false, signupModal: false };
     }
 };
 

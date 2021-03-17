@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginContainer from '../session/login_container';
 import SignupContainer from '../session/signup_container';
+import {Redirect} from 'react-router-dom'
 
 
 
@@ -27,8 +28,9 @@ class Navbar extends React.Component{
         this.setState({ profileDropdown: !this.state.profileDropdown, logoutDropdown: false })
     }
     handleLogout(){
-        this.props.logout()
-        this.toggleLogoutDropdown()
+        this.props.logout().then(() => <Redirect to='/logout' />);
+        this.toggleLogoutDropdown();
+        
     }
 
     handleModal(e){
@@ -39,9 +41,15 @@ class Navbar extends React.Component{
     
     
      sessionLinks(){
+         let searchbar
+         if (this.props.location.pathname === '/discover') {
+                 searchbar = <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar"/>
+         }
         return(
         <>
+        
         <nav className="login-signup">
+                {searchbar}
                 <button className="loginbutton" to="/login" onClick={this.props.loginModal}> Sign In </button>
                 <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
         </nav>
@@ -57,9 +65,16 @@ class Navbar extends React.Component{
         let dropdownclass
         this.state.profileDropdown ? profdropdownclass = "prof-dropdown-active" : profdropdownclass = "dropdown-inactive";
         this.state.logoutDropdown ? dropdownclass = "dropdown-active" : dropdownclass="dropdown-inactive";
+        let searchbar
+        if (this.props.location.pathname === '/discover'){
+            searchbar = <input type="text" placeholder="Search" className="searchbar"/>
+        }
 
         return(
+        <>
+        
         <hgroup className="navbar-right-group">
+            {searchbar}
             <div className="divdropdown">
                 <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
                     <div className={profdropdownclass}>
@@ -75,10 +90,11 @@ class Navbar extends React.Component{
             <div className="divdropdown">
                 <button className="options-button" onClick={this.toggleLogoutDropdown}></button>
                     <div className={dropdownclass}>
-                        <button className="dropdown-button" onClick={this.handleLogout} >Sign Out</button>
+                        <Link to="/logout"><button className="dropdown-button" onClick={this.handleLogout} >Sign Out</button></Link>
                     </div>
             </div>
         </hgroup>
+        </>
         )
     };
 

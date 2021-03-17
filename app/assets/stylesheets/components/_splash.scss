@@ -15,12 +15,25 @@
     margin: 0 auto;
 }
 
+.splashimg2{
+    background-image: image_url('splashimage2.jpg');
+    height: 450px;
+    width: 75%;
+    position: absolute;
+    content: "";
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 240px;
+    margin: 0 auto;
+}
+
 .maintitle{
     font-size: 36px;
     font-weight: 100;
     color: white;
     margin: 0 auto;
-    z-index: 10000;
+    z-index: 5000;
     font: Arial,sans-serif;
     position: absolute;
     top: 20%;
@@ -33,7 +46,7 @@
     font-weight: 100;
     color: white;
     margin: 0 auto;
-    z-index: 10000;
+    z-index: 5000;
     font: Arial,sans-serif;
     position: absolute;
     top: 25%;
