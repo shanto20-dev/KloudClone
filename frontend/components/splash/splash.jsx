@@ -19,6 +19,9 @@ class Splash extends React.Component {
                     </div>
                    <div className='splashimg'></div>
                 </div>
+                <div className="searchorupload">
+                <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar-splash" /> <h2 className='head2'>or</h2> <button className='splashbutton2'>Upload your own</button>
+                </div>
             </>
         );
     }

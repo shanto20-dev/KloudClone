@@ -31,7 +31,9 @@ class Login extends React.Component {
 
     handleModal(e) {
         if (e.target.className === 'modal-screen') {
-            this.props.closeModal()
+            let modal = document.getElementsByClassName("modal-box")[0];
+            modal.classList.add("modal-exit");
+            setTimeout(() => this.props.closeModal(), 300)
         }
     }
 

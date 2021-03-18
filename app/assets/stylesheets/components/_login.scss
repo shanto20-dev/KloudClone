@@ -32,6 +32,16 @@
   to {top: 80px; opacity: 1}
 }
 
+.modal-exit{
+    animation-name: animateexit;
+    animation-duration: 0.4s;
+}
+
+@keyframes animateexit {
+    from {top: 80px; opacity :1}
+    to {top: -300px; opacity: 0}
+}
+
 
 .create-form{
     padding-left: 12px;

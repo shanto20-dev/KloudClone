@@ -50,7 +50,7 @@ class Navbar extends React.Component{
         
         <nav className="login-signup">
                 {searchbar}
-                <button className="loginbutton" to="/login" onClick={this.props.loginModal}> Sign In </button>
+                <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
                 <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
         </nav>
         <LoginContainer />
