@@ -48,6 +48,7 @@ class Navbar extends React.Component{
         return(
         <>
         <header>
+        <Link to='/'><h1 className="logo"></h1></Link>
         <nav className="login-signup">
                 {searchbar}
                 <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
@@ -74,7 +75,7 @@ class Navbar extends React.Component{
         return(
         <>
         <header>
-        
+        <Link to='/'><h1 className="logo"></h1></Link>
         <hgroup className="navbar-right-group">
             {searchbar}
             <div className="divdropdown">

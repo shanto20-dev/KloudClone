@@ -12,7 +12,8 @@ class Splash extends React.Component {
     render() {
         return (
             <>
-             <nav className="login-signup">
+             <nav className="login-signup splash-header">
+                <h1 className="splashlogo"></h1>
                 <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
                 <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
             </nav>
@@ -32,7 +33,7 @@ class Splash extends React.Component {
                     <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar-splash" /> <p className='head2'>or</p> <button className='splashbutton2 searchbutton'>Upload your own</button>
                 </div>
                     <h3 className="trendingtitle">Hear what’s trending for free in the SoundCloud community</h3>
-                    <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2 explore'>Explore trending playlists</button></a>
+                    <button className='splashbutton2 explore'>Explore trending playlists</button>
             </div>
             </>
         );

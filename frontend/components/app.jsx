@@ -17,7 +17,6 @@ import Logoutscreen from './session/logoutscreen'
 const App = () => {
     return (
     <> 
-    <Link to='/'><h1 className="logo"></h1></Link>
     <Route path="/" component={NavBarContainer}/>
     <Switch>
         <AuthRoute exact path="/" component={SplashContainer}/>

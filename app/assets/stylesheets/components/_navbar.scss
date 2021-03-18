@@ -69,6 +69,19 @@ a{
     
 }
 
+.splashlogo{
+    
+    width: 184px;
+    height: 40px;
+    background-image: image_url('textlogo.png');
+    z-index: 10000;
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 700px;
+}
+
 .navbar-right-group{
     position: relative;
     display: inline-block;
