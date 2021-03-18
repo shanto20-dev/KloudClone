@@ -38,7 +38,7 @@ class User < ApplicationRecord
         self.session_token
     end
 
-    has_many :songs
+    has_many :songs, foreign_key: :artist_id, class_name: :Song
 
     has_many :comments
 

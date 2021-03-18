@@ -12,3 +12,8 @@ user3 = User.create({ username: 'Charm', password: 'bananas', email: 'charm@uwu.
 user4 = User.create({ username: 'Ariton', password: 'deepit', email: 'deep@it.com' })
 user5 = User.create({ username: 'RaySounds', password: 'dokidoki', email: 'ray@gmail.com' })
 user6 = User.create({ username: 'Kloud', password: 'tiffany4ever', email: 'fffan@gmail.com' })
+user7 = User.create({ username: 'fusq', password: 'moeshopblush', email: 'fusq@gmail.com' })
+
+
+song1 = Song.create({ artist_id: 32, title: 'Vibe Frog', description: 'Come vibe with us!'})
+song2 = Song.create({ artist_id: 37, title: 'Blush'})

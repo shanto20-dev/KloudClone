@@ -1,0 +1,63 @@
+.discover{
+    padding-top: 40px;
+    display: block;
+    width: 1240px;
+    margin: 0 auto;
+    background: white;
+    min-width: 1240px;
+    padding-bottom: 65px;
+}
+.discoverContent{
+    margin-left: 35px;
+}
+
+.discoverTitle{
+    font-size: 23px;
+    font-weight: lighter;
+}
+
+.discoverSubTitle{
+    font-weight: lighter;
+    font-size: 14px;
+    color: rgb(158, 153, 153);
+    margin-top: 10px;
+
+}
+
+.songlist{
+    width: 800px;
+    height: 215px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 30px;
+    display: flex;
+    padding-bottom: 40px;
+    
+}
+
+.songlist li {
+    display: inline;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.songcover {
+    height: 175px;
+    width: 175px;
+}
+
+.songcover:hover{
+    opacity:0.5;
+    background-color:#ffffff;
+    background-image: image_url('play_button.png');
+    z-index: 100;
+}
+.songtitle{
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.songartist{
+    font-size: 12px;
+    font-weight: lighter;
+    color: rgb(158, 153, 153);;
+}

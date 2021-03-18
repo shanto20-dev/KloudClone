@@ -5,6 +5,8 @@ import configureStore from './store/store';
 import {createNewUser, login, logout, receiveCurrentUser, logoutCurrentUser} from './actions/session_actions'
 import { postSession, postUser } from './utils/session_api_util';
 import { receiveSignupModal, receiveLoginModal} from './actions/ui_actions'
+import { fetchSong, fetchSongs, postSong } from './utils/song_api_util';
+import { createNewSong, getSong, getSongs } from './actions/song_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.postUser= postUser;
     window.receiveSignupModal = receiveSignupModal;
     window.receiveLoginModal = receiveLoginModal;
-
+    window.fetchSong = fetchSong;
+    window.fetchSongs = fetchSongs;
+    window.postSong = postSong;
+    window.createNewSong = createNewSong;
+    window.getSongs = getSongs;
+    window.getSong = getSong;
 });
 

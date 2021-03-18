@@ -13,6 +13,7 @@ import LoginContainer from "./session/login_container"
 import {AuthRoute} from "../utils/route_util"
 import SplashContainer from './splash/splash_container'
 import Logoutscreen from './session/logoutscreen'
+import Discover from './discover/discover';
 
 const App = () => {
     return (
@@ -21,7 +22,7 @@ const App = () => {
     <Switch>
         <AuthRoute exact path="/" component={SplashContainer}/>
         <Route exact path="/logout" component={Logoutscreen} />
-        <Route exact path="/discover"/>
+        <Route exact path="/discover" component={Discover}/>
     </Switch>
     </>)
 };
