@@ -47,7 +47,7 @@ class Navbar extends React.Component{
          }
         return(
         <>
-        
+        <header>
         <nav className="login-signup">
                 {searchbar}
                 <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
@@ -55,6 +55,7 @@ class Navbar extends React.Component{
         </nav>
         <LoginContainer />
         <SignupContainer />
+        </header>
         </>
          )
     }
@@ -72,6 +73,7 @@ class Navbar extends React.Component{
 
         return(
         <>
+        <header>
         
         <hgroup className="navbar-right-group">
             {searchbar}
@@ -94,17 +96,20 @@ class Navbar extends React.Component{
                     </div>
             </div>
         </hgroup>
+        </header>
         </>
         )
     };
 
     render(){
-        if (!this.props.currentUser) {
+        if (this.props.location.pathname === '/'){
+            return null;
+        }
+        else if (!this.props.currentUser) {
             return (this.sessionLinks())
         }else{
             return this.personal()
         }
-
     }
 };
 

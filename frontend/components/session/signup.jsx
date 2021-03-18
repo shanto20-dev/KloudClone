@@ -23,10 +23,14 @@ class Signup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        let modal = document.getElementsByClassName("modal-box")[0];
+        modal.classList.add("modal-exit");
         this.props.createNewUser(this.state);
     }
 
     handleDemo(e) {
+        let modal = document.getElementsByClassName("modal-box")[0];
+        modal.classList.add("modal-exit");
         this.props.login({ username: "demouser", password: "demo1234"});
     }
 

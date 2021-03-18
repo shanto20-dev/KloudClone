@@ -1,4 +1,6 @@
 import React from 'react';
+import LoginContainer from '../session/login_container';
+import SignupContainer from '../session/signup_container';
 
 class Splash extends React.Component {
     constructor(props) {
@@ -10,6 +12,13 @@ class Splash extends React.Component {
     render() {
         return (
             <>
+             <nav className="login-signup">
+                <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
+                <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
+            </nav>
+            <LoginContainer />
+            <SignupContainer />
+            <div className='splash'>
                 <div className='splashtop'>
                     <h1 className="maintitle">Discover more with KloudClone Go+</h1>
                     <h2 className="subtitle">KloudClone Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</h2>
@@ -20,8 +29,11 @@ class Splash extends React.Component {
                    <div className='splashimg'></div>
                 </div>
                 <div className="searchorupload">
-                <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar-splash" /> <h2 className='head2'>or</h2> <button className='splashbutton2'>Upload your own</button>
+                    <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar-splash" /> <p className='head2'>or</p> <button className='splashbutton2 searchbutton'>Upload your own</button>
                 </div>
+                    <h3 className="trendingtitle">Hear what’s trending for free in the SoundCloud community</h3>
+                    <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2 explore'>Explore trending playlists</button></a>
+            </div>
             </>
         );
     }
