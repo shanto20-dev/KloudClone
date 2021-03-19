@@ -4,6 +4,9 @@ class Player extends React.Component{
     
     constructor(props){
         super(props)
+        this.state = {
+            timeCounter: 0
+        }
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
         this.listener = this.listener.bind(this);
@@ -55,15 +58,21 @@ class Player extends React.Component{
         }
     }
 
+    timeCounter(){
+        if (this.props.songPlaying){
+            setInterval(() => this.setState({timeCounter: Math.floor(this.audioEl.current.currentTime)}), 1000)
+        }
+
+    }
+
 
     render(){
         this.listener();
+        this.timeCounter();
         let songActionContent;
         let muteContent;
         let duration;
-        let currentTime;
-        this.audioEl.current ? currentTime = this.audioEl.current.currentTime : currentTime = 0;
-        this.audioEl.current ? duration = this.audioEl.current.duration : duration = 0;
+        this.audioEl.current ? duration = Math.floor(this.audioEl.current.duration) : duration = 0;
         this.props.songPlaying ? songActionContent = "Pause" : songActionContent = "Play";
         this.props.songMuted ? muteContent = "Unmute" : muteContent = "Mute";
         return(
@@ -72,7 +81,8 @@ class Player extends React.Component{
                 <div className = "controls">
                     <button onClick={this.handleAction} className="playpause"> {songActionContent} </button>
                     <button onClick={this.handleMute} className="mute"> {muteContent} </button>
-                    <p className="currentTime">{currentTime}</p>
+                    <p className="currentTime">{this.state.timeCounter}</p>
+                    <div className="timeline"></div>
                     <br/>
                     <p className="duration">{duration}</p>
                     <button onClick={() => this.handleLowerVolume()}>Lower Volume</button>

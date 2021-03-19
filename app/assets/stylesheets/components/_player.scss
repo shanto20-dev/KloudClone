@@ -26,9 +26,15 @@
 }
 
 .currentTime {
-    color: black;
+    color: rgb(226, 62, 12);
     font-size: 12px;
+    margin-right: 5px;
 
+}
+
+.timeline{
+    border: .5px solid lightgray;
+    width: 500px;
 }
 
 .controls{
