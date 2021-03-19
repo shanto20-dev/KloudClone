@@ -1,10 +1,13 @@
 .player{
-    border-top: 1px solid rgb(177, 173, 173);
+    border-top: 1px solid #b1adad;
     width: 100%;
-    background-color: rgb(248, 244, 244);
+    background-color: #f8f4f4;
     height: 48px;
     position: fixed;
     bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .playpause{
@@ -13,4 +16,23 @@
 
 .mute{
     margin-right: 20px;
+}
+
+.duration {
+    color: black;
+    font-size: 12px;
+    float: right;
+
+}
+
+.currentTime {
+    color: black;
+    font-size: 12px;
+
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-content: baseline;
 }

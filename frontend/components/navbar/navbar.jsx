@@ -42,7 +42,7 @@ class Navbar extends React.Component{
     
      sessionLinks(){
          let searchbar
-         if (this.props.location.pathname === '/discover') {
+         if (this.props.location.pathname === '/discover' || this.props.location.pathname === '/logout') {
                  searchbar = <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar"/>
          }
         return(
@@ -68,7 +68,7 @@ class Navbar extends React.Component{
         this.state.profileDropdown ? profdropdownclass = "prof-dropdown-active" : profdropdownclass = "dropdown-inactive";
         this.state.logoutDropdown ? dropdownclass = "dropdown-active" : dropdownclass="dropdown-inactive";
         let searchbar
-        if (this.props.location.pathname === '/discover'){
+        if (this.props.location.pathname === '/discover' || this.props.location.pathname === '/logout'){
             searchbar = <input type="text" placeholder="Search" className="searchbar"/>
         }
 
@@ -103,7 +103,7 @@ class Navbar extends React.Component{
     };
 
     render(){
-        if (this.props.location.pathname === '/'){
+        if (this.props.location.pathname === '/' || this.props.location.pathname === '/logout'){
             return null;
         }
         else if (!this.props.currentUser) {
