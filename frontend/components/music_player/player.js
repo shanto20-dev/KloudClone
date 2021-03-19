@@ -8,6 +8,8 @@ class Player extends React.Component{
         this.handleAction = this.handleAction.bind(this);
         this.listener = this.listener.bind(this);
         this.handleMute = this.handleMute.bind(this);
+        this.handleHigherVolume = this.handleHigherVolume.bind(this)
+        this.handleLowerVolume = this.handleLowerVolume.bind(this)
     }
 
     handleAction(){
@@ -17,6 +19,18 @@ class Player extends React.Component{
         } else {
             this.props.playSong()
             this.audioEl.current.play()
+        }
+    }
+
+    handleLowerVolume(){
+        if (this.audioEl.current.volume > .1){
+        this.audioEl.current.volume = (this.audioEl.current.volume - .1)
+        }
+    }
+
+    handleHigherVolume() {
+        if (this.audioEl.current.volume < .9){
+        this.audioEl.current.volume = (this.audioEl.current.volume + .1)
         }
     }
 
@@ -53,6 +67,9 @@ class Player extends React.Component{
                 <audio src={vibeFrogUrl} ref={this.audioEl}></audio>
                 <button onClick={this.handleAction} className="playpause"> {songActionContent} </button>
                 <button onClick={this.handleMute} className="mute"> {muteContent} </button>
+                <button onClick={() => console.log(this.audioEl.current.currentTime)}>Current Time</button>
+                <button onClick={() => this.handleLowerVolume()}>Lower Volume</button>
+                <button onClick={() => this.handleHigherVolume()}>Higher Volume</button>
             </div>
 
         )
