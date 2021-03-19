@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+def audio_url(source, options = {})
+  url_to_asset(source, { type: :audio }.merge!(options))
+end
+
 User.destroy_all
 Song.destroy_all
 
@@ -18,5 +23,5 @@ user6 = User.create({ username: 'Kloud', password: 'tiffany4ever', email: 'fffan
 user7 = User.create({ username: 'fusq', password: 'moeshopblush', email: 'fusq@gmail.com' })
 
 
-song1 = Song.create({ artist_id: user3.id, title: 'Vibe Frog', description: 'Come vibe with us!'})
-song2 = Song.create({ artist_id: user7.id, title: 'Blush'})
+song1 = Song.create({ artist_id: user3.id, title: 'Vibe Frog', description: 'Come vibe with us!',})
+song2 = Song.create({ artist_id: user7.id, title: 'Blush',})

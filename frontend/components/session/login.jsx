@@ -22,10 +22,12 @@ class Login extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let modal = document.getElementsByClassName("modal-box")[0];
-        modal.classList.add("modal-exit");
+        if (!this.props.errors){
+            let modal = document.getElementsByClassName("modal-box")[0];
+            modal.classList.add("modal-exit");
+        }
         this.props.login(this.state);
-        setTimeout(() => this.props.closeModal(), 300)
+        // setTimeout(() => this.props.closeModal(), 300)
     }
 
     handleDemo(e){
