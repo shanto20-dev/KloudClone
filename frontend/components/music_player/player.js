@@ -6,6 +6,7 @@ class Player extends React.Component{
         super(props)
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
+        this.listener = this.listener.bind(this);
     }
 
     handleAction(){
@@ -18,9 +19,19 @@ class Player extends React.Component{
         }
     }
 
+    listener(){
+        if (this.audioEl.current){
+            if (!this.props.songPlaying){
+                this.audioEl.current.pause();
+            }else{
+                this.audioEl.current.play()
+            }
+        }
+    }
+
 
     render(){
-        console.log(this.props.songPlaying)
+        this.listener();
         let songActionContent
         this.props.songPlaying ? songActionContent = "Pause" : songActionContent = "Play";
         return(
