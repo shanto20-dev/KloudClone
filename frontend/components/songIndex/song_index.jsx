@@ -10,7 +10,6 @@ class SongIndex extends React.Component {
         this.props.getSongs();
     }
     render(){
-        console.log(this.props);
         let songs = this.props.songs;
         if (songs){
             return (
@@ -20,6 +19,9 @@ class SongIndex extends React.Component {
                         return <SongIndexItem
                             key={index}
                             song={song}
+                            play={this.props.playSong}
+                            pause={this.props.pauseSong}
+                            songPlaying = {this.props.songPlaying}
                         />
                     })}
                 </ul>

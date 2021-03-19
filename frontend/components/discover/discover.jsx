@@ -1,4 +1,5 @@
 import React from 'react';
+import Player_container from '../music_player/player_container';
 import SongIndexContainer from '../songIndex/song_index_container'
 class Discover extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ class Discover extends React.Component {
                         <SongIndexContainer />
                     </div>
                 </div>
+                <Player_container/>
             </>
         );
     }
