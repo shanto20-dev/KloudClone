@@ -7,6 +7,7 @@ class Player extends React.Component{
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
         this.listener = this.listener.bind(this);
+        this.handleMute = this.handleMute.bind(this);
     }
 
     handleAction(){
@@ -16,6 +17,17 @@ class Player extends React.Component{
         } else {
             this.props.playSong()
             this.audioEl.current.play()
+        }
+    }
+
+    handleMute(){
+        console.log(this.props.muted)
+        if (!this.props.songMuted){
+            this.props.muteSong()
+            this.audioEl.current.muted = true;
+        }else if (this.props.songMuted){
+            this.props.muteSong()
+            this.audioEl.current.muted = false;
         }
     }
 
@@ -32,12 +44,15 @@ class Player extends React.Component{
 
     render(){
         this.listener();
-        let songActionContent
+        let songActionContent;
+        let muteContent;
         this.props.songPlaying ? songActionContent = "Pause" : songActionContent = "Play";
+        this.props.songMuted ? muteContent = "Unmute" : muteContent = "Mute";
         return(
             <div className = "player" >
                 <audio src={vibeFrogUrl} ref={this.audioEl}></audio>
-                <button onClick={this.handleAction}> {songActionContent} </button>
+                <button onClick={this.handleAction} className="playpause"> {songActionContent} </button>
+                <button onClick={this.handleMute} className="mute"> {muteContent} </button>
             </div>
 
         )
