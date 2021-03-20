@@ -11,8 +11,9 @@ class Player extends React.Component{
         this.handleAction = this.handleAction.bind(this);
         this.listener = this.listener.bind(this);
         this.handleMute = this.handleMute.bind(this);
-        this.handleHigherVolume = this.handleHigherVolume.bind(this)
-        this.handleLowerVolume = this.handleLowerVolume.bind(this)
+        this.handleHigherVolume = this.handleHigherVolume.bind(this);
+        this.handleLowerVolume = this.handleLowerVolume.bind(this);
+        this.handleTimeinput = this.handleTimeinput.bind(this);
     }
 
     handleAction(){
@@ -57,12 +58,17 @@ class Player extends React.Component{
             }
         }
     }
+    
 
     timeCounter(){
         if (this.props.songPlaying){
-            setInterval(() => this.setState({timeCounter: Math.floor(this.audioEl.current.currentTime)}), 1000)
+            setInterval(() => this.setState({timeCounter: Math.floor(this.audioEl.current.currentTime)}), 70);
         }
 
+    }
+
+    handleTimeinput(e){
+        this.audioEl.current.currentTime = e.target.value;
     }
 
 
@@ -82,7 +88,7 @@ class Player extends React.Component{
                     <button onClick={this.handleAction} className="playpause"> {songActionContent} </button>
                     <button onClick={this.handleMute} className="mute"> {muteContent} </button>
                     <p className="currentTime">{this.state.timeCounter}</p>
-                    <div className="timeline"></div>
+                    <input type='range' className='slider' value={this.state.timeCounter} ref={this.progressSlider} min="0" max={duration} onInput={this.handleTimeinput}/>
                     <br/>
                     <p className="duration">{duration}</p>
                     <button onClick={() => this.handleLowerVolume()}>Lower Volume</button>
