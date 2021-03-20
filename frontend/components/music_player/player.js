@@ -58,7 +58,20 @@ class Player extends React.Component{
             }
         }
     }
+
+    formatTime(){
+        let min = Math.floor((this.state.timeCounter / 60));
+        let sec = Math.floor((this.state.timeCounter - min * 60));
+        let secstring = sec < 10 ? `0${sec}` : '${sec}';
+        return `${min}:${secstring}`;
+    }
     
+    formatDuration(duration) {
+        let min = Math.floor((duration / 60));
+        let sec = Math.floor((duration - min * 60));
+        let secstring = sec < 10 ? `0${sec}` : '${sec}';
+        return `${min}:${secstring}`;
+    }
 
     timeCounter(){
         if (this.props.songPlaying){
@@ -87,10 +100,10 @@ class Player extends React.Component{
                 <div className = "controls">
                     <button onClick={this.handleAction} className="playpause"> {songActionContent} </button>
                     <button onClick={this.handleMute} className="mute"> {muteContent} </button>
-                    <p className="currentTime">{this.state.timeCounter}</p>
+                    <p className="currentTime">{this.formatTime()}</p>
                     <input type='range' className='slider' value={this.state.timeCounter} ref={this.progressSlider} min="0" max={duration} onInput={this.handleTimeinput}/>
                     <br/>
-                    <p className="duration">{duration}</p>
+                    <p className="duration">{this.formatDuration(duration)}</p>
                     <button onClick={() => this.handleLowerVolume()}>Lower Volume</button>
                     <button onClick={() => this.handleHigherVolume()}>Higher Volume</button>
                 </div>
