@@ -5,15 +5,15 @@ class Player extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            timeCounter: 0
+            timeCounter: 0,
+            volume: 50
         }
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
         this.listener = this.listener.bind(this);
         this.handleMute = this.handleMute.bind(this);
-        this.handleHigherVolume = this.handleHigherVolume.bind(this);
-        this.handleLowerVolume = this.handleLowerVolume.bind(this);
         this.handleTimeinput = this.handleTimeinput.bind(this);
+        this.handleVolumeinput = this.handleVolumeinput.bind(this);
     }
 
     handleAction(){
@@ -23,18 +23,6 @@ class Player extends React.Component{
         } else {
             this.props.playSong()
             this.audioEl.current.play()
-        }
-    }
-
-    handleLowerVolume(){
-        if (this.audioEl.current.volume > .1){
-        this.audioEl.current.volume = (this.audioEl.current.volume - .1)
-        }
-    }
-
-    handleHigherVolume() {
-        if (this.audioEl.current.volume < .9){
-        this.audioEl.current.volume = (this.audioEl.current.volume + .1)
         }
     }
 
@@ -80,6 +68,11 @@ class Player extends React.Component{
 
     }
 
+    handleVolumeinput(e){
+        this.audioEl.current.volume = (e.target.value / 100);
+        this.setState({volume: e.target.value});
+    }
+
     handleTimeinput(e){
         this.audioEl.current.currentTime = e.target.value;
     }
@@ -101,11 +94,10 @@ class Player extends React.Component{
                     <button onClick={this.handleAction} className="playpause"> {songActionContent} </button>
                     <button onClick={this.handleMute} className="mute"> {muteContent} </button>
                     <p className="currentTime">{this.formatTime()}</p>
-                    <input type='range' className='slider' value={this.state.timeCounter} ref={this.progressSlider} min="0" max={duration} onInput={this.handleTimeinput}/>
+                    <input type='range' className='progslider' value={this.state.timeCounter} ref={this.progressSlider} min="0" max={duration} onInput={this.handleTimeinput}/>
                     <br/>
                     <p className="duration">{this.formatDuration(duration)}</p>
-                    <button onClick={() => this.handleLowerVolume()}>Lower Volume</button>
-                    <button onClick={() => this.handleHigherVolume()}>Higher Volume</button>
+                    <input type='range' className='volslider' value={this.state.volume} ref={this.volumeSlider} min="0" max="100" onInput={this.handleVolumeinput} />
                 </div>
             </div>
 
