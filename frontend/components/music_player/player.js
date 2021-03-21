@@ -115,7 +115,12 @@ class Player extends React.Component{
                                 </div>
                             : null}
                         </button>
-                        
+                    </div>
+                    <div>
+                        {/* <img src={this.props.currentSong.img_url}></img> */}
+
+
+
                     </div>
                 </div>
             </div>

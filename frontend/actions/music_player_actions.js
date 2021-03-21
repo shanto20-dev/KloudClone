@@ -2,6 +2,8 @@ export const RECEIVE_PLAY = "RECEIVE_PLAY";
 export const RECEIVE_PAUSE = "RECEIVE_PAUSE";
 export const RECEIVE_SKIP = "RECEIVE_SKIP";
 export const RECEIVE_MUTE = "RECEIVE_MUTE";
+export const RECEIVE_CURRENT_SONG = "RECEIVE_CURRENT_SONG"
+export const RECEIVE_NEXT_SONG = "RECEIVE_NEXT_SONG"
 
 export const receivePlay = () => {
     return {
@@ -28,4 +30,17 @@ export const receiveMute = () => {
     }
 }
 
+export const receiveCurrentSong = (songId) => {
+    return {
+        type: RECEIVE_CURRENT_SONG,
+        songId
+    }
+}
+
+export const receiveNextSong = (songId) => {
+    return {
+        type: RECEIVE_NEXT_SONG,
+        songId
+    }
+}
 
