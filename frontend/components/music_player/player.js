@@ -6,7 +6,8 @@ class Player extends React.Component{
         super(props)
         this.state = {
             timeCounter: 0,
-            volume: 50
+            volume: 50,
+            volumeHover: false
         }
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
@@ -85,19 +86,28 @@ class Player extends React.Component{
         let muteContent;
         let duration;
         this.audioEl.current ? duration = Math.floor(this.audioEl.current.duration) : duration = 0;
-        this.props.songPlaying ? songActionContent = "Pause" : songActionContent = "Play";
-        this.props.songMuted ? muteContent = "Unmute" : muteContent = "Mute";
+        this.props.songPlaying ? songActionContent = <i className="fas fa-pause playerpause"></i> : songActionContent = <i className="fas fa-play playerplay"></i>;
+        this.props.songMuted ? muteContent = <i class="fas fa-volume-off playerVol" onClick={this.handleMute}></i> : muteContent = <i class="fas fa-volume-up playerVol" onClick={this.handleMute}></i>;
         return(
             <div className = "player" >
                 <audio src={vibeFrogUrl} ref={this.audioEl}></audio>
                 <div className = "controls">
-                    <button onClick={this.handleAction} className="playpause"> {songActionContent} </button>
-                    <button onClick={this.handleMute} className="mute"> {muteContent} </button>
+                    <button onClick={this.handleAction} className="playpause playerButton"> {songActionContent} </button>
                     <p className="currentTime">{this.formatTime()}</p>
                     <input type='range' className='progslider' value={this.state.timeCounter} ref={this.progressSlider} min="0" max={duration} onInput={this.handleTimeinput}/>
                     <br/>
                     <p className="duration">{this.formatDuration(duration)}</p>
-                    <input type='range' className='volslider' value={this.state.volume} ref={this.volumeSlider} min="0" max="100" onInput={this.handleVolumeinput} />
+                    <div onMouseEnter={() => this.setState({volumeHover: true})} onMouseLeave={() => this.setState({volumeHover:false})} className="volumeControl">
+                        <button className="playerButton"> {muteContent}
+                            {this.state.volumeHover ? 
+                                <div className="volume-bar">
+                                    <input type='range' className='volslider' value={this.state.volume} ref={this.volumeSlider} min="0" max="100" onInput={this.handleVolumeinput} /> 
+                                    <div className="arrow-down"></div>
+                                </div>
+                            : null}
+                        </button>
+                        
+                    </div>
                 </div>
             </div>
 

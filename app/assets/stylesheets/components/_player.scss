@@ -11,17 +11,19 @@
 }
 
 .playpause{
-    margin-right: 5px;
+    margin-right: 50px;
+    
 }
 
 .mute{
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 .duration {
     color: black;
     font-size: 12px;
     float: right;
+    margin-top: 4px;
 
 }
 
@@ -29,6 +31,7 @@
     color: rgb(226, 62, 12);
     font-size: 12px;
     margin-right: 5px;
+    margin-top: 4px;
 
 }
 
@@ -37,7 +40,7 @@
     height: 1px;
     width: 515px;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 8px;
     margin-right: 5px;
 }
 
@@ -46,8 +49,6 @@
     height: 1px;
     width: 97px;
     cursor: pointer;
-    margin-top: 5px;
-    margin-right: 5px;
 }
 
 
@@ -55,4 +56,60 @@
     display: flex;
     justify-content: center;
     align-content: baseline;
+    width: 850px;
+}
+
+.volumeControl{
+  transform: rotate(-90deg);
+}
+
+.playerVol{
+    transform: rotate(90deg);
+    font-size: 15px;
+    padding-left: 45px;
+}
+
+.playerpause, .playerplay, .playerVol{
+    color: rgb(82, 76, 76);
+}
+
+
+.volume-bar {
+  position: absolute;
+  top: 16px;
+  left: 55px;
+  background-color: #e7e0e0;
+  border: 1px solid lightgray;
+  height: 28px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation-name: fade-in;
+  animation-duration: .75s;
+}
+@keyframes fade-in {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+    
+  }
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  position: absolute;
+  left: -10px;
+  border-right:10px solid #e7e0e0;
+
+}
+
+.playerButton{
+    background-color: transparent;
 }
