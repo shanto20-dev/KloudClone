@@ -41,10 +41,11 @@ class Navbar extends React.Component{
     
     
      sessionLinks(){
-         let searchbar
-         if (this.props.location.pathname === '/discover' || this.props.location.pathname === '/logout') {
-                 searchbar = <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar"/>
+        let searchbar;
+        if (this.props.location.pathname === '/discover' || this.props.location.pathname === '/logout') {
+            searchbar = <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar"/>
          }
+
         return(
         <>
         <header>

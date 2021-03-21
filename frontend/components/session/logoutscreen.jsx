@@ -11,11 +11,13 @@ class Logoutscreen extends React.Component {
     }
 
     render() {
+        let logout;
+        this.props.location.pathname === '/logout' ? logout = " logoutSignin" : logout = ""
         return (
             <>
                 <nav className="login-signup splash-header">
                     <Link to="/"><h1 className="splashlogo"></h1></Link>
-                    <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
+                    <button className={`loginbutton` + logout} onClick={this.props.loginModal}> Sign In </button>
                     <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
                 </nav>
                 <LoginContainer />
@@ -25,7 +27,7 @@ class Logoutscreen extends React.Component {
                         <h1 className="maintitle black">Thanks for visiting KloudClone!</h1>
                         <h2 className="subtitle black">If you'd like to get in contact, please check out my LinkedIn and Github below.</h2>
                         <div className='splash-buttons'>
-                            <a href="https://www.linkedin.com/in/sayeefalam/" target="-blank"><button className='splashbutton1 black'>LinkedIn</button></a>
+                            <a href="https://www.linkedin.com/in/sayeefalam/" target="-blank"><button className={`splashbutton1 black`}>LinkedIn</button></a>
                             <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2 black'>Github</button></a>
                         </div>
                     </div>
