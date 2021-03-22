@@ -24,10 +24,10 @@ user7 = User.create({ username: 'fusq', password: 'moeshopblush', email: 'fusq@g
 user8 = User.create({ username: 'Mannakini', password: 'superkali', email: 'chrismann809@gmail.com' })
 
 
-song1 = Song.create({ artist_id: user3.id, title: 'Vibe Frog', description: 'Come vibe with us!',})
+song1 = Song.create({ artist_id: user3.id, title: 'Vibe Frog', description: 'Come vibe with us!', img_url: "https://i1.sndcdn.com/artworks-kIJcq1OfJQjYZMiI-TbLyRA-t500x500.jpg"})
 song2 = Song.create({ artist_id: user7.id, title: 'Blush',})
-song3 = Song.create({ artist_id: user6.id, title: 'Funky Frog', description: 'Sometimes you just gotta shake yo frog thang'})
-song4 = Song.create({ artist_id: user3.id, title: 'Froggy Facetime', description: "Tell your folks that you love them <3"})
-song6 = Song.create({ artist_id: user8.id, title: 'Yeehaw Froggy', description: 'giddy UP'})
-song7 = Song.create({ artist_id: user4.id, title: 'Froggy Groove', description: "Let's GROOVE tonight"})
-song8 = Song.create({ artist_id: user2.id, title: 'Froggy Sings', description: 'This froggy got PIPES'})
+song3 = Song.create({ artist_id: user6.id, title: 'Funky Frog', description: 'Sometimes you just gotta shake yo frog thang', img_url: "https://i1.sndcdn.com/artworks-000244015492-r9s4p5-t500x500.jpg"})
+song4 = Song.create({ artist_id: user3.id, title: 'Froggy Facetime', description: "Tell your folks that you love them <3", img_url: "https://i1.sndcdn.com/artworks-000205377325-cogbqn-t500x500.jpg"})
+song6 = Song.create({ artist_id: user8.id, title: 'Yeehaw Froggy', description: 'giddy UP', img_url: "https://i1.sndcdn.com/artworks-000292030695-4tru62-t500x500.jpg"})
+song7 = Song.create({ artist_id: user4.id, title: 'Froggy Groove', description: "Let's GROOVE tonight", img_url: "https://i1.sndcdn.com/artworks-000339290526-gzuyfi-t500x500.jpg"})
+song8 = Song.create({ artist_id: user2.id, title: 'Froggy Sings', description: 'This froggy got PIPES', img_url: "https://i1.sndcdn.com/artworks-000154047597-1vwfz6-t500x500.jpg"})

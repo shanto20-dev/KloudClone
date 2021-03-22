@@ -38,7 +38,7 @@ export const receiveCurrentSong = (songId) => {
     }
 }
 
-export const receiveNextSong = (songId) => {
+export const receiveNextSong = () => {
     return {
         type: RECEIVE_NEXT_SONG,
         songId
@@ -51,4 +51,3 @@ export const receiveQueue = (queue) => {
         queue
     }
 }
-

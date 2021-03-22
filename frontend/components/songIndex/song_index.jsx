@@ -9,6 +9,7 @@ class SongIndex extends React.Component {
     componentDidMount(){
         this.props.getSongs();
     }
+
     render(){
         let songs = this.props.songs;
         if (songs){

@@ -18,7 +18,12 @@ class Player extends React.Component{
         this.handleVolumeinput = this.handleVolumeinput.bind(this);
     }
 
+    componentDidMount(){
+        this.props.loadQueue([vibeFrogUrl, funkyFrogUrl, froggyFacetimeUrl, yeehawFroggyUrl, froggyGrooveUrl, froggySingsUrl])
+    }
+
     handleAction(){
+        console.log(this.state.currentQueueId)
         if (this.props.songPlaying) {
             this.props.pauseSong()
             this.audioEl.current.pause();
@@ -54,14 +59,17 @@ class Player extends React.Component{
     formatTime(){
         let min = Math.floor((this.state.timeCounter / 60));
         let sec = Math.floor((this.state.timeCounter - min * 60));
-        let secstring = sec < 10 ? `0${sec}` : '${sec}';
+        let secstring = sec < 10 ? `0${sec}` : `${sec}`;
         return `${min}:${secstring}`;
     }
     
     formatDuration(duration) {
+        if (!duration){
+            duration = 0
+        }
         let min = Math.floor((duration / 60));
         let sec = Math.floor((duration - min * 60));
-        let secstring = sec < 10 ? `0${sec}` : '${sec}';
+        let secstring = sec < 10 ? `0${sec}` : `${sec}`;
         return `${min}:${secstring}`;
     }
 
@@ -93,12 +101,12 @@ class Player extends React.Component{
         this.props.songMuted ? muteContent = <i className="fas fa-volume-off playerVol" onClick={this.handleMute}></i> : muteContent = <i className="fas fa-volume-up playerVol" onClick={this.handleMute}></i>;
         return(
             <div className = "player" >
-                <audio src={vibeFrogUrl} ref={this.audioEl}></audio>
+                <audio src={this.props.songQueue[this.props.currentSongId]} ref={this.audioEl} onEnded={this.props.skipSong}></audio>
                 <div className = "controls">
                     <div className="player-left-buttons">
                         <button className="playerButton"><i className="fas fa-step-backward "></i></button>
                         <button onClick={this.handleAction} className="playpause playerButton"> {songActionContent} </button>
-                        <button className="playerButton"><i className="fas fa-step-forward"></i></button>
+                        <button className="playerButton" onClick={this.props.skipSong}><i className="fas fa-step-forward"></i></button>
                         <button className="playerButton"><i className="fas fa-random"></i></button>
                         <button className="playerButton"><i className="fas fa-redo"></i></button>
                     </div>

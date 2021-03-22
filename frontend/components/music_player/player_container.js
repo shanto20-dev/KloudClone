@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Player from './player';
-import {receivePlay, receivePause, receiveMute, receiveQueue} from "../../actions/music_player_actions"
+import {receivePlay, receivePause, receiveMute, receiveQueue, receiveSkip} from "../../actions/music_player_actions"
 
 const mapStateToProps = (state) => {
     return {
@@ -8,6 +8,8 @@ const mapStateToProps = (state) => {
         nextSong: Object.values(state.entities.songs)[state.session.nextSongId],
         songPlaying: state.musicPlayer.songPlaying,
         songMuted: state.musicPlayer.muted,
+        songQueue: state.musicPlayer.queue,
+        currentSongId: state.musicPlayer.currentSongId
     };
 };
 
@@ -15,7 +17,8 @@ const mapDispatchToProps = dispatch => ({
     playSong: () => dispatch(receivePlay()),
     pauseSong: () => dispatch(receivePause()),
     muteSong: () => dispatch(receiveMute()),
-    loadQueue: () => dispatch(receiveQueue())
+    loadQueue: (queue) => dispatch(receiveQueue(queue)),
+    skipSong: () => dispatch(receiveSkip())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);

@@ -24,10 +24,12 @@ const musicPlayerReducer = (state = defaultState, action) => {
             return Object.assign({}, state, {songPlaying: false});
         case RECEIVE_MUTE:
             return Object.assign({}, state, {muted: !state.muted});
+        case RECEIVE_SKIP:
+            return Object.assign({}, state, {currentSongId: (state.currentSongId + 1) % state.queue.length})
         case RECEIVE_CURRENT_SONG:
             return Object.assign({}, state, {currentSongId: action.songId})
         case RECEIVE_QUEUE:
-            return Object.assign({}, state, {queue: action.queue})
+            return Object.assign({}, state, {queue: action.queue, currentSongId: 0})
         default:
             return state;
     }
