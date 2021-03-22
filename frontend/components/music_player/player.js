@@ -9,6 +9,8 @@ class Player extends React.Component{
             prevVol: 100,
             volume: 100,
             volumeHover: false,
+            shuffle: false,
+            repeat: false
         }
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
@@ -16,6 +18,9 @@ class Player extends React.Component{
         this.handleMute = this.handleMute.bind(this);
         this.handleTimeinput = this.handleTimeinput.bind(this);
         this.handleVolumeinput = this.handleVolumeinput.bind(this);
+        this.handleShuffle = this.handleShuffle.bind(this);
+        this.handleSkip = this.handleSkip.bind(this);
+        this.handleRepeat = this.handleRepeat.bind(this);
     }
 
     componentDidMount(){
@@ -89,6 +94,33 @@ class Player extends React.Component{
         this.audioEl.current.currentTime = e.target.value;
     }
 
+    handleShuffle(){
+        this.setState({shuffle: !this.state.shuffle})
+        let shuffled = !this.state.shuffle
+        let queue = [vibeFrogUrl, funkyFrogUrl, froggyFacetimeUrl, yeehawFroggyUrl, froggyGrooveUrl, froggySingsUrl]
+        if (shuffled){
+            for (let i = queue.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [queue[i], queue[j]] = [queue[j], queue[i]];
+            }
+        }
+        this.props.loadQueue(queue)
+        
+    }
+
+    handleSkip(){
+        if (!this.state.repeat) {
+            this.props.skipSong()
+        }
+        if (this.state.shuffle){
+
+        }
+    }
+
+    handleRepeat(){
+        this.setState({repeat: !this.state.repeat})
+    }
+
 
     render(){
         this.listener();
@@ -96,19 +128,23 @@ class Player extends React.Component{
         let songActionContent;
         let muteContent;
         let duration;
+        let shuffle;
+        let repeat;
+        this.state.shuffle ? shuffle = "shuffle-on" : repeat = "";
+        this.state.repeat ? repeat = "repeat-on" : repeat = "";
         this.audioEl.current ? duration = Math.floor(this.audioEl.current.duration) : duration = 0;
         this.props.songPlaying ? songActionContent = <i className="fas fa-pause playerpause"></i> : songActionContent = <i className="fas fa-play playerplay"></i>;
         this.props.songMuted ? muteContent = <i className="fas fa-volume-off playerVol" onClick={this.handleMute}></i> : muteContent = <i className="fas fa-volume-up playerVol" onClick={this.handleMute}></i>;
         return(
             <div className = "player" >
-                <audio src={this.props.songQueue[this.props.currentSongId]} ref={this.audioEl} onEnded={this.props.skipSong}></audio>
+                <audio src={this.props.songQueue[this.props.currentSongId]} ref={this.audioEl} onEnded={this.handleSkip}></audio>
                 <div className = "controls">
                     <div className="player-left-buttons">
-                        <button className="playerButton"><i className="fas fa-step-backward "></i></button>
+                        <button className="playerButton" onClick={this.props.prevSong}><i className="fas fa-step-backward "></i></button>
                         <button onClick={this.handleAction} className="playpause playerButton"> {songActionContent} </button>
-                        <button className="playerButton" onClick={this.props.skipSong}><i className="fas fa-step-forward"></i></button>
-                        <button className="playerButton"><i className="fas fa-random"></i></button>
-                        <button className="playerButton"><i className="fas fa-redo"></i></button>
+                        <button className="playerButton" onClick={this.handleSkip}><i className="fas fa-step-forward"></i></button>
+                        <button className="playerButton" onClick={this.handleShuffle}><i className={`fas fa-random ${shuffle}`}></i></button>
+                        <button className="playerButton" onClick={this.handleRepeat}><i className={`fas fa-redo ${repeat}`}></i></button>
                     </div>
                     <p className="currentTime">{this.formatTime()}</p>
                     <input type='range' className='progslider' value={this.state.timeCounter} ref={this.progressSlider} min="0" max={duration} onInput={this.handleTimeinput}/>

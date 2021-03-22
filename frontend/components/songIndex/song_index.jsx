@@ -23,6 +23,8 @@ class SongIndex extends React.Component {
                             play={this.props.playSong}
                             pause={this.props.pauseSong}
                             songPlaying = {this.props.songPlaying}
+                            currentSongId = {this.props.currentSongId}
+                            makeCurrent = {this.props.makeCurrent}
                         />
                     })}
                 </ul>

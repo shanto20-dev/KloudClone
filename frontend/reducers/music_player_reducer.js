@@ -5,13 +5,14 @@ import {
     RECEIVE_MUTE,
     RECEIVE_CURRENT_SONG,
     RECEIVE_NEXT_SONG,
-    RECEIVE_QUEUE
+    RECEIVE_QUEUE,
+    RECEIVE_PREV
 } from '../actions/music_player_actions';
 
 const defaultState = {
     songPlaying: false,
     muted: false,
-    currentSongId: null,
+    currentSongId: 0,
     queue: [],
 };
 
@@ -26,10 +27,12 @@ const musicPlayerReducer = (state = defaultState, action) => {
             return Object.assign({}, state, {muted: !state.muted});
         case RECEIVE_SKIP:
             return Object.assign({}, state, {currentSongId: (state.currentSongId + 1) % state.queue.length})
+        case RECEIVE_PREV:
+            return Object.assign({}, state, { currentSongId: state.currentSongId > 0 ? (state.currentSongId - 1) : 0 })
         case RECEIVE_CURRENT_SONG:
             return Object.assign({}, state, {currentSongId: action.songId})
         case RECEIVE_QUEUE:
-            return Object.assign({}, state, {queue: action.queue, currentSongId: 0})
+            return Object.assign({}, state, {queue: action.queue})
         default:
             return state;
     }
