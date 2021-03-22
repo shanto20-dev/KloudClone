@@ -28,7 +28,6 @@ class Player extends React.Component{
     }
 
     handleAction(){
-        console.log(this.state.currentQueueId)
         if (this.props.songPlaying) {
             this.props.pauseSong()
             this.audioEl.current.pause();
