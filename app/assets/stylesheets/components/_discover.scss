@@ -1,14 +1,16 @@
 .discover{
     padding-top: 80px;
-    display: block;
+    display: flex;
     width: 1240px;
     margin: 0 auto;
     background: white;
     min-width: 1240px;
     padding-bottom: 65px;
+    
 }
 .discoverContent{
     margin-left: 35px;
+    display: flex;
 }
 
 .discoverTitle{
@@ -31,6 +33,7 @@
     margin-bottom: 30px;
     display: flex;
     padding-bottom: 40px;
+    overflow: auto;
     
 }
 
@@ -60,4 +63,85 @@
     font-size: 12px;
     font-weight: lighter;
     color: rgb(158, 153, 153);;
+}
+
+// .left-main{
+//     width: 880px
+// }
+
+::-webkit-scrollbar {
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(218, 50, 21, 0.637);
+}
+::-webkit-scrollbar-track { 
+    background-color: #fff; 
+    border-radius: 8px; 
+} 
+
+.right-main{
+    width: 300px;
+    border-left: 1px solid rgb(240, 235, 235);
+    padding-left: 30px;
+    margin-left: 30px;
+}
+
+.right-underline{
+    border-bottom: 1px solid rgb(158, 153, 153); ;
+    cursor: pointer;
+}
+
+.right-headers{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(240, 235, 235) ;
+    padding-bottom: 8px;
+
+    .fa-redo{
+        color:  rgb(158, 153, 153);
+        border-bottom: none;
+    }
+}
+
+.artist{
+    color: black;
+    font-size: 14px;
+    font-weight: lighter;
+    text-decoration: underline;
+
+}
+.who-to-follow{
+}
+
+.who-to-follow li {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.who-to-follow li img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+    
+}
+
+.kloud_img{
+    background-image: url("https://images-ext-1.discordapp.net/external/O3cS3TSlnH564eWm1ugd6IMr5BUsPbWt7isujcdjwv0/https/cdn.myanimelist.net/images/characters/14/112730.webp");
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+    
 }

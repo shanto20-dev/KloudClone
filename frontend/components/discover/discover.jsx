@@ -13,21 +13,48 @@ class Discover extends React.Component {
             <>
                 <div className='discover'>
                     <div className='discoverContent'>
-                        <h2 className="discoverTitle">The Upload</h2>
-                        <h3 className='discoverSubTitle'>  Newly posted tracks. Just for you</h3>
-                        <SongIndexContainer/>
+                        <div className='left-main'>
+                            <div>
+                                <h2 className="discoverTitle">The Upload</h2>
+                                <h3 className='discoverSubTitle'>  Newly posted tracks. Just for you</h3>
+                                <SongIndexContainer/>
+                            </div>
 
-                        <h2 className="discoverTitle">Future Funk</h2>
-                        <h3 className='discoverSubTitle'>Come Groove.</h3>
-                        <SongIndexContainer />
+                            
+                            <div>
+                                <h2 className="discoverTitle">Future Funk</h2>
+                                <h3 className='discoverSubTitle'>Come Groove.</h3>
+                                <SongIndexContainer />
+                            </div>
 
-                        <h2 className="discoverTitle">KloudClone Weekly</h2>
-                        <h3 className='discoverSubTitle'>All of KloudClone. Just for you</h3>
-                        <SongIndexContainer />
+                            <div>
+                                <h2 className="discoverTitle">KloudClone Weekly</h2>
+                                <h3 className='discoverSubTitle'>All of KloudClone. Just for you</h3>
+                                <SongIndexContainer />
+                            </div>
 
-                        <h2 className="discoverTitle">Charts: New & hot</h2>
-                        <h3 className='discoverSubTitle'>Up-and-coming tracks on KloudClone</h3>
-                        <SongIndexContainer />
+                            <div>
+                                <h2 className="discoverTitle">Charts: New & hot</h2>
+                                <h3 className='discoverSubTitle'>Up-and-coming tracks on KloudClone</h3>
+                                <SongIndexContainer />
+                            </div>
+                        </div>
+                        <div className="right-main">
+                            <div className = 'right-headers'>
+                                <h3 className='discoverSubTitle right-underline'>Who to follow</h3>
+                                <h3 className='discoverSubTitle right-underline'> <i className="fas fa-redo"></i> Refresh List</h3>
+                            </div>
+                            <ul className="who-to-follow">
+                                <li>
+                                    <img src="https://cdna.artstation.com/p/assets/images/images/032/882/602/large/n-i-x-e-u-11dc7a49-7c91-4f62-ba7f-c4c543162b31.jpg?1607740422" alt=""/>
+                                    <p className='artist'> Charm </p> </li>
+                                <li> <img src="https://i1.sndcdn.com/avatars-iAKleHvAqRx1Gr3G-5EUbMw-t500x500.jpg" alt="" /> 
+                                     <p className='artist'> Hammad </p></li>
+                                <li> <div className='kloud_img'></div>
+                                    <p className='artist'> Kloud </p></li>
+                            </ul>
+                            
+                        </div>
                     </div>
                 </div>
                 <Player_container/>

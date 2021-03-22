@@ -8,7 +8,7 @@ class Player extends React.Component{
             timeCounter: 0,
             prevVol: 100,
             volume: 100,
-            volumeHover: false
+            volumeHover: false,
         }
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
