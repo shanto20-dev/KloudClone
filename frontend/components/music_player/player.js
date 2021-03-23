@@ -26,7 +26,7 @@ class Player extends React.Component{
     componentDidMount(){
         setTimeout(() => {
             this.props.loadQueue(Object.values(this.props.songs))
-        }, 800);
+        }, 1000);
     }
 
     handleAction(){
@@ -98,7 +98,7 @@ class Player extends React.Component{
     handleShuffle(){
         this.setState({shuffle: !this.state.shuffle})
         let shuffled = !this.state.shuffle
-        let queue = [vibeFrogUrl, funkyFrogUrl, froggyFacetimeUrl, yeehawFroggyUrl, froggyGrooveUrl, froggySingsUrl]
+        let queue = Object.values(this.props.songs)
         if (shuffled){
             for (let i = queue.length - 1; i > 0; i--) {
                 let j = Math.floor(Math.random() * (i + 1));
@@ -112,9 +112,6 @@ class Player extends React.Component{
     handleSkip(){
         if (!this.state.repeat) {
             this.props.skipSong()
-        }
-        if (this.state.shuffle){
-
         }
     }
 
