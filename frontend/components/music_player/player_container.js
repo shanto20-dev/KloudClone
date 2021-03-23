@@ -4,12 +4,13 @@ import {receivePlay, receivePause, receiveMute, receiveQueue, receiveSkip, recei
 
 const mapStateToProps = (state) => {
     return {
-        currentSong: Object.values(state.entities.songs)[state.session.currentSongId],
+        currentSong: Object.values(state.musicPlayer.queue)[state.session.currentSongId],
         nextSong: Object.values(state.entities.songs)[state.session.nextSongId],
         songPlaying: state.musicPlayer.songPlaying,
         songMuted: state.musicPlayer.muted,
         songQueue: state.musicPlayer.queue,
-        currentSongId: state.musicPlayer.currentSongId
+        currentSongId: state.musicPlayer.currentSongId,
+        songs: state.entities.songs
     };
 };
 

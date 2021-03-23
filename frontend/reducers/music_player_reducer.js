@@ -4,7 +4,6 @@ import {
     RECEIVE_SKIP,
     RECEIVE_MUTE,
     RECEIVE_CURRENT_SONG,
-    RECEIVE_NEXT_SONG,
     RECEIVE_QUEUE,
     RECEIVE_PREV
 } from '../actions/music_player_actions';

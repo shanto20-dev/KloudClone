@@ -13,6 +13,7 @@ class SongIndexItem extends React.Component {
     }
 
     songAction(){
+        if (this.props)
         if (this.props.songPlaying){
             this.props.pause()
         }else{

@@ -24,7 +24,9 @@ class Player extends React.Component{
     }
 
     componentDidMount(){
-        this.props.loadQueue([vibeFrogUrl, funkyFrogUrl, froggyFacetimeUrl, yeehawFroggyUrl, froggyGrooveUrl, froggySingsUrl])
+        setTimeout(() => {
+            this.props.loadQueue(Object.values(this.props.songs))
+        }, 800);
     }
 
     handleAction(){
@@ -124,6 +126,10 @@ class Player extends React.Component{
     render(){
         this.listener();
         this.timeCounter();
+        let songUrl
+        this.props.songQueue.length ? songUrl = (this.props.songQueue[this.props.currentSongId]).songUrl : songUrl = "";
+        let currentSong
+        this.props.songQueue.length ? currentSong = (this.props.songQueue[this.props.currentSongId]) : currentSong = "";
         let songActionContent;
         let muteContent;
         let duration;
@@ -136,7 +142,7 @@ class Player extends React.Component{
         this.props.songMuted ? muteContent = <i className="fas fa-volume-off playerVol" onClick={this.handleMute}></i> : muteContent = <i className="fas fa-volume-up playerVol" onClick={this.handleMute}></i>;
         return(
             <div className = "player" >
-                <audio src={this.props.songQueue[this.props.currentSongId]} ref={this.audioEl} onEnded={this.handleSkip}></audio>
+                <audio src={songUrl} ref={this.audioEl} onEnded={this.handleSkip}></audio>
                 <div className = "controls">
                     <div className="player-left-buttons">
                         <button className="playerButton" onClick={this.props.prevSong}><i className="fas fa-step-backward "></i></button>
@@ -159,11 +165,12 @@ class Player extends React.Component{
                             : null}
                         </button>
                     </div>
-                    <div>
-                        {/* <img src={this.props.currentSong.img_url}></img> */}
-
-
-
+                    <div className = "playerInfo">
+                        <img className="playerCover" src={currentSong.img_url}></img>
+                        <div className="songInfo">
+                        <p className="artist-player">{currentSong.artist}</p>
+                        <p className="title-player">{currentSong.title}</p>
+                        </div>
                     </div>
                 </div>
             </div>
