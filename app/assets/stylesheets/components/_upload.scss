@@ -1,0 +1,48 @@
+.upload-page{
+    padding-top: 80px;
+    width: 1240px;
+    margin: 0 auto;
+    background: white;
+    min-width: 1240px;
+    padding-bottom: 65px;
+    margin: 0 auto;
+}
+
+.uploadButton{
+    background-color: #f50;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    width: 393px;
+    height: 40px;
+    border-radius: 3px;
+
+}
+
+.uploadTitle{
+    font-size: 22px;
+    font-weight: lighter;
+}
+
+.upload-box{
+    width: 805px;
+    height: 390px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin: 195px auto;
+    border: solid 1px #f2f2f2;
+}
+
+.upload-content{
+    margin: 100px 0;
+}
+
+.hidden{
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    width: 390px;
+    height: 40px;
+    cursor: pointer;
+}
