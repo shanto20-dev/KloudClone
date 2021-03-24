@@ -1,8 +1,11 @@
 export const postSong = song => {
+    debugger
     return $.ajax({
-        url: '/api/songs',
-        method: 'POST',
-        data: { song }
+        url: '/api/songs/',
+        method: "POST",
+        data: song,
+        contentType: false,
+        processData: false,
     })
 };
 

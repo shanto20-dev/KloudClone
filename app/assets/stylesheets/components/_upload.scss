@@ -46,3 +46,24 @@
     height: 40px;
     cursor: pointer;
 }
+
+.detail-input{
+    height: 23px;
+    width: 468px;
+    padding: 1px 2px;
+    font-size: 14px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+
+}
+.details-content{
+    display: flex;
+    margin-top: 80px;
+}
+
+.details-pic {
+    height: 260px;
+    width: 260px;
+    background: linear-gradient(to top right, rgb(233, 94, 51), #da4e0d);
+    position: relative;
+}

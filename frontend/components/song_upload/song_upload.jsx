@@ -26,9 +26,18 @@ class SongUpload extends React.Component {
         }
     }
 
+
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createNewSong(this.state);
+        const formData = new FormData();
+        formData.append('song[title]', this.state.title);
+        formData.append('song[genre]', this.state.genre);
+        formData.append('song[description]', this.state.description);
+        formData.append('song[img_url]', this.state.img_url);
+        formData.append('song[artist_id]', this.state.artist_id);
+        formData.append('song[audio]', this.state.songFile);
+        this.props.createNewSong(formData);
+        
     }
 
     handleInput(field) {

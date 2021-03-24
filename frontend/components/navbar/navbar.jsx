@@ -49,12 +49,15 @@ class Navbar extends React.Component{
         return(
         <>
         <header>
-        <Link to='/'><h1 className="logo"></h1></Link>
-        <nav className="login-signup">
-                {searchbar}
-                <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
-                <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
-        </nav>
+            <div className="nav-bar-container">
+                <Link to='/'><h1 className="logo"></h1></Link>
+                <nav className="login-signup">
+                    {searchbar}
+                    <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
+                    <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
+                </nav>
+            </div>
+        
         <LoginContainer />
         <SignupContainer />
         </header>
@@ -76,28 +79,30 @@ class Navbar extends React.Component{
         return(
         <>
         <header>
-        <Link to='/'><h1 className="logo"></h1></Link>
-        <hgroup className="navbar-right-group">
-            {searchbar}
-            <div className="divdropdown">
-                <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
-                    <div className={profdropdownclass}>
-                        <button className="dropdown-button" >Profile</button>
-                        <button className="dropdown-button" >Likes</button>
-                        <button className="dropdown-button" >Playlists</button>
-                        <button className="dropdown-button" >Stations</button>
-                        <button className="dropdown-button" >Following</button>
-                        <button className="dropdown-button" >Try Pro</button>
-                    </div>
-            </div>
-            <button className="bell"></button>
-            <div className="divdropdown">
-                <button className="options-button" onClick={this.toggleLogoutDropdown}></button>
-                    <div className={dropdownclass}>
-                        <Link to="/logout"><button className="dropdown-button" onClick={this.handleLogout} >Sign Out</button></Link>
-                    </div>
-            </div>
-        </hgroup>
+        <div className = "nav-bar-container">
+            <Link to='/'><h1 className="logo"></h1></Link>
+            <hgroup className="navbar-right-group">
+                {searchbar}
+                <div className="divdropdown">
+                    <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
+                        <div className={profdropdownclass}>
+                            <button className="dropdown-button" >Profile</button>
+                            <button className="dropdown-button" >Likes</button>
+                            <button className="dropdown-button" >Playlists</button>
+                            <button className="dropdown-button" >Stations</button>
+                            <button className="dropdown-button" >Following</button>
+                            <button className="dropdown-button" >Try Pro</button>
+                        </div>
+                </div>
+                <button className="bell"></button>
+                <div className="divdropdown">
+                    <button className="options-button" onClick={this.toggleLogoutDropdown}></button>
+                        <div className={dropdownclass}>
+                            <Link to="/logout"><button className="dropdown-button" onClick={this.handleLogout} >Sign Out</button></Link>
+                        </div>
+                </div>
+            </hgroup>
+        </div>
         </header>
         </>
         )
