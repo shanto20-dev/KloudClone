@@ -34,6 +34,13 @@
     border: solid 1px #f2f2f2;
 }
 
+.details-box{
+    height: 600px;
+
+
+}
+
+
 .upload-content{
     margin: 100px 0;
 }
@@ -48,22 +55,66 @@
 }
 
 .detail-input{
+    display: block;
     height: 23px;
     width: 468px;
     padding: 1px 2px;
     font-size: 14px;
     border: 1px solid lightgray;
     border-radius: 2px;
+    margin-bottom: 20px;
 
 }
 .details-content{
     display: flex;
     margin-top: 80px;
+    border-bottom: 1px solid rgb(235, 226, 226);
+    padding-bottom: 40px;
 }
 
 .details-pic {
     height: 260px;
     width: 260px;
-    background: linear-gradient(to top right, rgb(233, 94, 51), #da4e0d);
+    background-image: linear-gradient(to bottom right, rgb(160, 139, 236), #f1824e);
     position: relative;
+}
+
+.label{
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+.details-form{
+    text-align: left;
+    margin-left: 20px;
+}
+
+.description-box{
+    width: 468px;
+    resize: vertical;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.details-title{
+    margin-top: 30px;
+    margin-left: 30px;
+    color: #f50;
+    font-size: 24px;
+    line-height: 1.6px;
+    border-bottom: 1px solid #f50;
+    height: 20px;
+    width: 150px;
+}
+
+.save-button{
+    background-color: #f50;
+    color: white;
+    font-size: 14px;
+    width: 50px;
+    height: 26px;
+    border-radius: 3px;
+    margin-right: 30px;
+    margin-top: 20px;
+    float: right;
 }

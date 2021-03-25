@@ -10,7 +10,6 @@ header{
     font: 14px,Arial,sans-serif;
     color: white;
     margin-bottom: 10px;
-    z-index: 1000;
 }
 
 .login-signup{
@@ -61,15 +60,15 @@ a{
 
 
 .logo{
-    float: left;
+    position: absolute;
     width: 70px;
     height: 46px;
     background-image: image_url('orangelogo.png');
-    z-index: 1000;
+    z-index: 10000;
     background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
-    margin-left: 200px;
+    left: 350px;
     
 }
 
@@ -82,27 +81,23 @@ a{
     background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
-    margin-right: 300px;
+    margin-right: 700px;
     float: left;
 
 }
 
 .navbar-right-group{
-    position: fixed;
-    display: inline-flex;
+    position: relative;
+    display: inline-block;
     justify-content: space-between;
-    align-items: center;
-    align-content: center;
     border-radius: 3px;
     color: #333;
     font-size: 14px;
     text-align: center;
     box-sizing: border-box;
     float: right;
+    right: 460px;
     top: 5px;
-    margin-left: 200px;
-    min-width: 700px;
-    white-space: nowrap
 }
 
 .user-button{

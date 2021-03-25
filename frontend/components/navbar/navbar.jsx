@@ -72,7 +72,7 @@ class Navbar extends React.Component{
         this.state.profileDropdown ? profdropdownclass = "prof-dropdown-active" : profdropdownclass = "dropdown-inactive";
         this.state.logoutDropdown ? dropdownclass = "dropdown-active" : dropdownclass="dropdown-inactive";
         let searchbar
-        if (this.props.location.pathname === '/discover' || this.props.location.pathname === '/logout'){
+        if (this.props.location.pathname !== '/'){
             searchbar = <input type="text" placeholder="Search" className="searchbar"/>
         }
 
@@ -83,6 +83,7 @@ class Navbar extends React.Component{
             <Link to='/'><h1 className="logo"></h1></Link>
             <hgroup className="navbar-right-group">
                 {searchbar}
+                <Link to="/upload"><button className="user-button"> Upload </button></Link>
                 <div className="divdropdown">
                     <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
                         <div className={profdropdownclass}>
@@ -94,7 +95,6 @@ class Navbar extends React.Component{
                             <button className="dropdown-button" >Try Pro</button>
                         </div>
                 </div>
-                <button className="bell"></button>
                 <div className="divdropdown">
                     <button className="options-button" onClick={this.toggleLogoutDropdown}></button>
                         <div className={dropdownclass}>

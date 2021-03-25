@@ -163,7 +163,7 @@ class Player extends React.Component{
                         </button>
                     </div>
                     <div className = "playerInfo">
-                        <img className="playerCover" src={currentSong.img_url}></img>
+                        <img className="playerCover" src={currentSong.img_url || "https://i1.sndcdn.com/artworks-000265843283-72z293-t500x500.jpg" }></img>
                         <div className="songInfo">
                         <p className="artist-player">{currentSong.artist}</p>
                         <p className="title-player">{currentSong.title}</p>
