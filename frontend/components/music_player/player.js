@@ -26,7 +26,7 @@ class Player extends React.Component{
     componentDidMount(){
         setTimeout(() => {
             this.props.loadQueue(Object.values(this.props.songs))
-        }, 1000);
+        }, 800);
     }
 
     handleAction(){
@@ -137,6 +137,7 @@ class Player extends React.Component{
         this.audioEl.current ? duration = Math.floor(this.audioEl.current.duration) : duration = 0;
         this.props.songPlaying ? songActionContent = <i className="fas fa-pause playerpause"></i> : songActionContent = <i className="fas fa-play playerplay"></i>;
         this.props.songMuted ? muteContent = <i className="fas fa-volume-off playerVol" onClick={this.handleMute}></i> : muteContent = <i className="fas fa-volume-up playerVol" onClick={this.handleMute}></i>;
+        // if (this.props.location.pathname === '/' || this.props.location.pathname === '/logout') return null;
         return(
             <div className = "player" >
                 <audio src={songUrl} ref={this.audioEl} onEnded={this.handleSkip}></audio>

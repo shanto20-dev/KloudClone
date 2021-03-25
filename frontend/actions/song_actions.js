@@ -7,6 +7,7 @@ import {
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const RECEIVE_SONG = "RECEIVE_SONG";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS"
 
 export const receiveSongs = (songs) => {
     return {
@@ -28,6 +29,10 @@ export const receiveErrors = (errors) => {
         errors
     }
 
+}
+
+export const clearErrors = () => {
+    return {type: CLEAR_ERRORS}
 }
 
 export const createNewSong = (song) => (dispatch) => postSong(song)

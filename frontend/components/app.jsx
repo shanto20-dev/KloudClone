@@ -17,11 +17,13 @@ import Discover from './discover/discover';
 import Player from './music_player/player'
 import LogoutContainer from './session/logoutscreen_container';
 import SongUploadContainer from './song_upload/song_upload_container';
+import PlayerContainer from './music_player/player_container';
 
 const App = () => {
     return (
     <> 
-    <Route path="/" component={NavBarContainer} />
+    <Route path="/" component={NavBarContainer}/>
+    {/* <Route path="/" component={PlayerContainer} /> */}
     <Switch>
         <AuthRoute exact path="/" component={SplashContainer}/>
         <Route exact path="/logout" component={LogoutContainer} />

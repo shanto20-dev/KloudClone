@@ -7,6 +7,10 @@ class DetailsSection extends React.Component {
     }
 
     render() {
+        let errormessage
+        if (this.props.errors) {
+            errormessage = this.props.errors;
+        }
         if (this.props.currentStep === 2) {
         return (
             <div className="upload-box details-box">
@@ -15,7 +19,7 @@ class DetailsSection extends React.Component {
                     <div className="details-pic">
                     </div>
                     <div className="details-form">
-                        <p className="label">Title</p>
+                        <p className="label">Title*</p>
                         <input type="text" value={this.props.title} onChange={this.props.handleInput('title')} className="detail-input"/>
                         <br />
                         <p className="label">Image URL</p>
@@ -39,6 +43,7 @@ class DetailsSection extends React.Component {
                         <br/>
                     </div>
                 </div>
+                    <p className="error">{errormessage}</p>
                     <button onClick={(e) => this.props.handleSubmit(e)} className="save-button">Save</button>
             </div>
         )} else{

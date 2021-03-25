@@ -48,6 +48,10 @@ class SongUpload extends React.Component {
         };
     }
 
+    componentWillUnmount(){
+        this.props.clearErrors();
+    }
+
     render() {
         let errormessage
         if (this.props.errors) {
@@ -65,6 +69,7 @@ class SongUpload extends React.Component {
                     title = {this.state.title}
                     handleInput = {this.handleInput}
                     handleSubmit = {this.handleSubmit}
+                    errors = {this.props.errors}
                 />
             </div>
 

@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
         songMuted: state.musicPlayer.muted,
         songQueue: state.musicPlayer.queue,
         currentSongId: state.musicPlayer.currentSongId,
-        songs: state.entities.songs
+        songs: state.entities.songs,
     };
 };
 

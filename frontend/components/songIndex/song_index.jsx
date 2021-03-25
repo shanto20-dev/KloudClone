@@ -19,6 +19,7 @@ class SongIndex extends React.Component {
                     {songs.map((song, index) => {
                         return <SongIndexItem
                             key={index}
+                            index={index}
                             song={song}
                             play={this.props.playSong}
                             pause={this.props.pauseSong}

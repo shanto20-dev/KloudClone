@@ -13,11 +13,15 @@ class SongIndexItem extends React.Component {
     }
 
     songAction(){
-        if (this.props)
-        if (this.props.songPlaying){
-            this.props.pause()
+        if (this.props.currentSongId !== this.props.index){
+            this.props.makeCurrent(this.props.index);
+            this.props.play();
         }else{
-            this.props.play()
+            if (this.props.songPlaying){
+                this.props.pause()
+            }else{
+                this.props.play()
+            }
         }
     }
 

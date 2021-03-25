@@ -10,7 +10,7 @@ class Api::SongsController < ApplicationController
         if @song.save
             render :show
         else
-            render json: @song.errors.full_messages, status: 422
+            render json: ["Song upload unsuccessful, please make sure you have inputted all required fields."], status: 401
         end
     end
 
