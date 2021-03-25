@@ -34,6 +34,17 @@
     border: solid 1px #f2f2f2;
 }
 
+.hidden-box{
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    width: 805px;
+    height: 390px;
+    margin: auto;
+    top: 280px;
+    display: block;
+}
+
 .details-box{
     height: 600px;
 
@@ -47,7 +58,7 @@
 
 .hidden{
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     opacity: 0;
     width: 390px;
     height: 40px;

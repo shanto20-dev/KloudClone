@@ -46,10 +46,11 @@ class Discover extends React.Component {
                             </div>
                             <ul className="who-to-follow">
                                 <li>
-                                    <img src="https://cdna.artstation.com/p/assets/images/images/032/882/602/large/n-i-x-e-u-11dc7a49-7c91-4f62-ba7f-c4c543162b31.jpg?1607740422" alt=""/>
+                                    <div className='charm_img'></div>
                                     <p className='artist'> Charm </p> </li>
-                                <li> <img src="https://i1.sndcdn.com/avatars-iAKleHvAqRx1Gr3G-5EUbMw-t500x500.jpg" alt="" /> 
-                                     <p className='artist'> Hammad </p></li>
+                                <li>
+                                    <div className='hammad_img'></div> 
+                                    <p className='artist'> Hammad </p></li>
                                 <li> <div className='kloud_img'></div>
                                     <p className='artist'> Kloud </p></li>
                             </ul>

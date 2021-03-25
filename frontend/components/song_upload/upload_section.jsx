@@ -10,6 +10,8 @@ class UploadSection extends React.Component {
         return(
         <div className="upload-box">
             <div className="upload-content">
+                <input className="hidden-box" type="file"
+                    accept="audio/mpeg" onClick={e => e.preventDefault()} onChange={this.props.handleSongUpload} />
                 <h1 className="uploadTitle">Drag and drop your tracks here</h1>
                 <br />
                 <input className="hidden" type="file"
