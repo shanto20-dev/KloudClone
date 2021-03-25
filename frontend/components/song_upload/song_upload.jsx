@@ -1,6 +1,7 @@
 import React from 'react';
 import UploadSection from './upload_section'
 import DetailsSection from './details_section'
+import UploadComplete from './upload_complete';
 
 class SongUpload extends React.Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class SongUpload extends React.Component {
         formData.append('song[img_url]', this.state.img_url);
         formData.append('song[artist_id]', this.state.artist_id);
         formData.append('song[audio]', this.state.songFile);
-        this.props.createNewSong(formData);
+        this.props.createNewSong(formData).then(() => this.setState({currentStep: 3}));
         
     }
 
@@ -70,6 +71,13 @@ class SongUpload extends React.Component {
                     handleInput = {this.handleInput}
                     handleSubmit = {this.handleSubmit}
                     errors = {this.props.errors}
+                />
+                <UploadComplete
+                    currentStep={this.state.currentStep}
+                    title={this.state.title}
+                    artist={this.state.artist}
+                    description={this.state.description}
+                    photo={this.state.img_url}
                 />
             </div>
 

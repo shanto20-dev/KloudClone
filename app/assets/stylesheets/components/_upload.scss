@@ -118,6 +118,17 @@
     width: 150px;
 }
 
+.details-title-success{
+    margin-top: 30px;
+    margin-left: 30px;
+    color: #f50;
+    font-size: 24px;
+    line-height: 1.6px;
+    border-bottom: 1px solid #f50;
+    height: 20px;
+    width: 250px;
+}
+
 .save-button{
     background-color: #f50;
     color: white;
@@ -128,4 +139,24 @@
     margin-right: 30px;
     margin-top: 20px;
     float: right;
+}
+
+.details-pic-complete {
+    height: 260px;
+    width: 260px;
+    position: relative;
+}
+
+.photo-complete{
+    height: 130px;
+    width: 130px;
+}
+
+.complete-title{
+    font-size: 16px;
+}
+
+.complete-desc{
+    font-size: 14px;
+    color: rgb(185, 185, 185);
 }

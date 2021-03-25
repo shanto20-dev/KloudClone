@@ -51,8 +51,7 @@
 .songcover:hover{
     opacity:0.5;
     background-color:#ffffff;
-    background-image: image_url('play_button.png');
-    z-index: 100;
+    z-index: 1;
 }
 .songtitle{
     font-size: 14px;
