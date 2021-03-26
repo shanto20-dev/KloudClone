@@ -21,8 +21,8 @@ KloudClone was built with a Ruby on Rails framework back-end and a React/Redux f
 * Redux.js
 * PostgreSQL
 * Webpack
-* My brilliant mind
 * Amazon AWS S3
+* ~~My brilliant mind
 
 
 ## User Auth
