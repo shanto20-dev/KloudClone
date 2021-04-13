@@ -83,7 +83,6 @@ class Player extends React.Component{
         if (this.props.songPlaying){
             setInterval(() => this.setState({timeCounter: Math.floor(this.audioEl.current.currentTime)}), 70);
         }
-
     }
 
     handleVolumeinput(e){
@@ -120,6 +119,7 @@ class Player extends React.Component{
     }
 
 
+
     render(){
         this.listener();
         this.timeCounter();
@@ -137,7 +137,10 @@ class Player extends React.Component{
         this.audioEl.current ? duration = Math.floor(this.audioEl.current.duration) : duration = 0;
         this.props.songPlaying ? songActionContent = <i className="fas fa-pause playerpause"></i> : songActionContent = <i className="fas fa-play playerplay"></i>;
         this.props.songMuted ? muteContent = <i className="fas fa-volume-off playerVol" onClick={this.handleMute}></i> : muteContent = <i className="fas fa-volume-up playerVol" onClick={this.handleMute}></i>;
-        // if (this.props.location.pathname === '/' || this.props.location.pathname === '/logout') return null;
+        if (this.props.location.pathname === '/logout'){
+            this.props.pauseSong();
+            return null;
+        } 
         return(
             <div className = "player" >
                 <audio src={songUrl} ref={this.audioEl} onEnded={this.handleSkip}></audio>

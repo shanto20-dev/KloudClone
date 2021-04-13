@@ -23,7 +23,7 @@ const App = () => {
     return (
     <> 
     <Route path="/" component={NavBarContainer}/>
-    {/* <Route path="/" component={PlayerContainer} /> */}
+    <Route path="/" component={PlayerContainer} />
     <Switch>
         <AuthRoute exact path="/" component={SplashContainer}/>
         <Route exact path="/logout" component={LogoutContainer} />

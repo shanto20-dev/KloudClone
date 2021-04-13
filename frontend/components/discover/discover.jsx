@@ -58,7 +58,7 @@ class Discover extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Player_container/>
+                {/* <Player_container/> */}
             </>
         );
     }
