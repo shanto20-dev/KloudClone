@@ -48,7 +48,11 @@ class Login extends React.Component {
     render() {
         let errormessage
         if (this.props.errors) {
-            errormessage = this.props.errors;
+            errormessage = <ul> {
+                Object.keys(this.props.errors).map((error, i) => (
+                <li key={`error-${i}`}>{this.props.errors[error]}</li>
+                ))}
+             </ul>
         }
         if (this.props.modal){
             window.onclick = this.handleModal;
