@@ -162,3 +162,29 @@ body{
     padding-right: 10px;
     color: rgb(85, 82, 82);
 }
+
+.splash-bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+
+.songlist-splashlist{
+    width: 1200px;
+    height: 215px;
+    margin-bottom: 30px;
+    display: flex;
+    padding-bottom: 40px;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+.songlist-splashlist li{
+    margin-left: 2%;
+    margin-right: 2%;
+
+}

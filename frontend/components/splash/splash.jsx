@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginContainer from '../session/login_container';
 import SignupContainer from '../session/signup_container';
+import SongIndexContainerSplash from '../songIndex/song_index_splash_container'
 
 class Splash extends React.Component {
     constructor(props) {
@@ -28,11 +29,16 @@ class Splash extends React.Component {
                     <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2'>Github</button></a>
                     </div>
                 </div>
-                <div className="searchorupload">
-                        <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar-splash" /><button className="splashSearch"><i className="fas fa-search navsearch"></i></button> <p className='head2'>or</p> <button className='splashbutton2 searchbutton'>Upload your own</button>
-                </div>
+                <div className='splash-bottom'>
+                    <div className="searchorupload">
+                            <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar-splash" /><button className="splashSearch"><i className="fas fa-search navsearch"></i></button> <p className='head2'>or</p> <button className='splashbutton2 searchbutton'>Upload your own</button>
+                    </div>
                     <h3 className="trendingtitle">Hear what’s trending for free in the SoundCloud community</h3>
                     <button className='splashbutton2 explore'>Explore trending playlists</button>
+                    <div className="splashIndex">
+                        <SongIndexContainerSplash />
+                    </div>
+                </div>
             </div>
             </>
         );
