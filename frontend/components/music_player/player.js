@@ -12,6 +12,7 @@ class Player extends React.Component{
             shuffle: false,
             repeat: false
         }
+        this.intervals = [];
         this.audioEl = React.createRef();
         this.handleAction = this.handleAction.bind(this);
         this.listener = this.listener.bind(this);
@@ -81,7 +82,12 @@ class Player extends React.Component{
 
     timeCounter(){
         if (this.props.songPlaying){
-            setInterval(() => this.setState({timeCounter: Math.floor(this.audioEl.current.currentTime)}), 70);
+            let interval = setInterval(() => {
+                if (this.props.songPlaying){
+                    this.setState({timeCounter: Math.floor(this.audioEl.current.currentTime)}), 70;
+                }
+            })
+            this.intervals.push(interval);
         }
     }
 
@@ -138,6 +144,7 @@ class Player extends React.Component{
         this.props.songPlaying ? songActionContent = <i className="fas fa-pause playerpause"></i> : songActionContent = <i className="fas fa-play playerplay"></i>;
         this.props.songMuted ? muteContent = <i className="fas fa-volume-off playerVol" onClick={this.handleMute}></i> : muteContent = <i className="fas fa-volume-up playerVol" onClick={this.handleMute}></i>;
         if (this.props.location.pathname === '/logout'){
+            clearInterval(this.intervals[0]);
             this.props.pauseSong();
             return null;
         } 
