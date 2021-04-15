@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => {
         createNewUser: (user) => dispatch(createNewUser(user)),
         login: (user) => dispatch(login(user)),
         closeModal: () => dispatch(closeModal()),
+        loginModal: () => dispatch(receiveLoginModal()),
     }
 }
 

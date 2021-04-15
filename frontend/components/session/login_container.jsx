@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => {
     return {
         login: (user) => dispatch(login(user)),
         closeModal: () => dispatch(closeModal()),
+        signupModal: () => dispatch(receiveSignupModal()),
     }
 }
 

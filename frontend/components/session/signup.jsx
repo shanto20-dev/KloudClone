@@ -11,6 +11,7 @@ class Signup extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
         this.handleModal = this.handleModal.bind(this);
+        this.switchModal = this.switchModal.bind(this);
     }
 
     handleInput(type) {
@@ -43,6 +44,11 @@ class Signup extends React.Component {
             modal.classList.add("modal-exit");
             setTimeout(() => this.props.closeModal(), 300)
         }
+    }
+
+    switchModal(){
+        this.props.closeModal();
+        this.props.loginModal();
     }
     
     render() {
@@ -79,6 +85,7 @@ class Signup extends React.Component {
                     <br/>
                         <button className="signinbutton" onClick={this.handleSubmit}>Accept and Continue</button>
                 </form>
+                <p onClick={this.switchModal} className="switch-modal">Already have an account? Login</p>
                
             </div>
             

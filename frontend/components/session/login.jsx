@@ -10,6 +10,7 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
         this.handleModal = this.handleModal.bind(this);
+        this.switchModal = this.switchModal.bind(this);
     }
 
     handleInput(type) {
@@ -45,6 +46,13 @@ class Login extends React.Component {
         }
     }
 
+
+
+    switchModal(){
+        this.props.closeModal();
+        this.props.signupModal();
+    }
+
     render() {
         let errormessage
         if (this.props.errors) {
@@ -77,6 +85,7 @@ class Login extends React.Component {
                         <p className="error">{errormessage}</p>
                     <button className="signinbutton" onClick={this.handleSubmit}>Sign In</button>
                 </form>
+                <p onClick={this.switchModal} className="switch-modal">Need to register? Sign Up</p>
                 
                     <p className="legalese">We may use your email and devices for updates and tips on KloudClone's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
                         We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.</p>
