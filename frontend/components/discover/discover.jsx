@@ -54,7 +54,12 @@ class Discover extends React.Component {
                                 <li> <div className='kloud_img'></div>
                                     <p className='artist'> Kloud </p></li>
                             </ul>
-                            
+                            <div className='footerlinks-discover'>
+                                <a href="https://github.com/shanto20-dev/" target='blank'>GitHub</a>
+                                <a href="https://www.linkedin.com/in/sayeefalam/" target='blank'>LinkedIn</a>
+                                <a href="https://angel.co/u/sayeef-alam" target='blank'>AngelList</a>
+                                <a href="http://www.sayeefalam.com/" target='blank'>Portfolio</a>
+                            </div>
                         </div>
                     </div>
                 </div>
