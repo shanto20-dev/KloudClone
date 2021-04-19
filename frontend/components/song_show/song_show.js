@@ -20,9 +20,14 @@ class SongShow extends React.Component {
     }
 
     songAction(){
-        if (this.props.currentSongId !== this.props.index){
-            this.props.makeCurrent(this.state.id);
-            this.props.playSong();
+        if (this.props.currentSongId !== this.state.id){
+            if (!this.props.songPlaying){
+                this.props.makeCurrent(0);
+                this.props.playSong();
+            }
+            else{
+                this.props.pauseSong();
+            }
         }else{
             if (this.props.songPlaying){
                 this.props.pauseSong()
@@ -34,8 +39,10 @@ class SongShow extends React.Component {
 
 
     render() {
-        let songInfoPlayButton
-        this.props.songPlaying ? songInfoPlayButton = <i className="fas fa-pause showpagemedia"></i> : songInfoPlayButton = <i className="fas fa-play showpagemedia"></i>
+        let songInfoPlayButton;
+        let currentSongInfo = (this.props.currentQueue[this.props.currentSongId]);
+        if (currentSongInfo) console.log(currentSongInfo.id);
+        (this.props.songPlaying) ? songInfoPlayButton = <i className="fas fa-pause showpagemedia"></i> : songInfoPlayButton = <i className="fas fa-play showpagemedia"></i>
         let songcover;
         console.log(this.state);
         if (this.state.img_url) {
@@ -48,7 +55,7 @@ class SongShow extends React.Component {
                 <div className='song-info-container'>
                     <div className='song-show-details'>
                         <div className='song-player-info'>
-                            <button className='song-show-play'>{songInfoPlayButton}</button>
+                            <button className='song-show-play' onClick={this.songAction}>{songInfoPlayButton}</button>
                             <div className='song-artist-title'>
                                 <h3 className="song-show-artist">{this.state.artist}</h3>
                                 <h3 className="song-show-title">{this.state.title}</h3>

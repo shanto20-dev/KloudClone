@@ -9,6 +9,8 @@ const mapStateToProps = (state) => {
         songPlaying: state.musicPlayer.songPlaying,
         currentSongId: state.musicPlayer.currentSongId,
         thisSong: Object.values(state.entities.songs)[0],
+        currentQueue: state.musicPlayer.queue
+        // currentSongTrueId: state.musicPlayer.queue[state.musicPlayer.currentSongId].id
     };
 };
 
