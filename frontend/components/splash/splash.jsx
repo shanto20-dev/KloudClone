@@ -13,15 +13,16 @@ class Splash extends React.Component {
     render() {
         return (
             <>
-             <nav className="login-signup splash-header">
-                <h1 className="splashlogo"></h1>
-                <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
-                <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
-            </nav>
+
             <LoginContainer />
             <SignupContainer />
             <div className='splash'>
                 <div className='splashtop'>
+                <nav className="login-signup splash-header">
+                    <h1 className="splashlogo"></h1>
+                    <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
+                    <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
+                </nav>
                     <h1 className="maintitle">Discover more with KloudClone Go+</h1>
                     <h2 className="subtitle">KloudClone Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</h2>
                     <div className='splash-buttons'>

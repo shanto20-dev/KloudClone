@@ -11,7 +11,7 @@ const songsReducer = (state = defaultState, action) => {
         case RECEIVE_SONGS:
             return Object.assign({}, state, action.songs);
         case RECEIVE_SONG:
-            return Object.assign({}, state, action.songs);
+            return Object.assign({}, state, action.song);
         default:
             return state;
     }

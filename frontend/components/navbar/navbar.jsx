@@ -39,31 +39,6 @@ class Navbar extends React.Component{
         }
     }
     
-    
-     sessionLinks(){
-        let searchbar;
-        if (this.props.location.pathname === '/discover' || this.props.location.pathname === '/logout') {
-            searchbar = <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar"/>
-         }
-
-        return(
-        <>
-        <header>
-            <div className="nav-bar-container">
-                <Link to='/'><h1 className="logo"></h1></Link>
-                <nav className="login-signup">
-                    {searchbar}
-                    <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
-                    <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
-                </nav>
-            </div>
-        
-        <LoginContainer />
-        <SignupContainer />
-        </header>
-        </>
-         )
-    }
 
 
     personal(){
@@ -80,28 +55,28 @@ class Navbar extends React.Component{
         <>
         <header>
         <div className = "nav-bar-container">
-            <Link to='/'><h1 className="logo"></h1></Link>
-            <hgroup className="navbar-right-group">
+            <div className='nav-stuff'>
+                <Link to='/' className='logo-link'><h1 className="logo"></h1></Link>
                 {searchbar}
                 <Link to="/upload"><button className="user-button"> Upload </button></Link>
-                <div className="divdropdown">
-                    <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
-                        <div className={profdropdownclass}>
-                            <button className="dropdown-button" >Profile</button>
-                            <button className="dropdown-button" >Likes</button>
-                            <button className="dropdown-button" >Playlists</button>
-                            <button className="dropdown-button" >Stations</button>
-                            <button className="dropdown-button" >Following</button>
-                            <button className="dropdown-button" >Try Pro</button>
-                        </div>
-                </div>
+                    <div className="divdropdown">
+                        <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
+                            <div className={profdropdownclass}>
+                                <button className="dropdown-button" >Profile</button>
+                                <button className="dropdown-button" >Likes</button>
+                                <button className="dropdown-button" >Playlists</button>
+                                <button className="dropdown-button" >Stations</button>
+                                <button className="dropdown-button" >Following</button>
+                                <button className="dropdown-button" >Try Pro</button>
+                            </div>
+                    </div>
                 <div className="divdropdown">
                     <button className="options-button" onClick={this.toggleLogoutDropdown}></button>
                         <div className={dropdownclass}>
                             <Link to="/logout"><button className="dropdown-button" onClick={this.handleLogout} >Sign Out</button></Link>
                         </div>
                 </div>
-            </hgroup>
+            </div>
         </div>
         </header>
         </>
@@ -111,9 +86,6 @@ class Navbar extends React.Component{
     render(){
         if (this.props.location.pathname === '/' || this.props.location.pathname === '/logout'){
             return null;
-        }
-        else if (!this.props.currentUser) {
-            return (this.sessionLinks())
         }else{
             return this.personal()
         }

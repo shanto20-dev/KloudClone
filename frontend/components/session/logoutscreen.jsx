@@ -15,14 +15,15 @@ class Logoutscreen extends React.Component {
         this.props.location.pathname === '/logout' ? logout = " logoutSignin" : logout = ""
         return (
             <>
-                <nav className="login-signup splash-header">
+
+                <LoginContainer />
+                <SignupContainer />
+                <div className='splash'>
+                <nav className="login-signup logout-header">
                     <Link to="/"><h1 className="splashlogo"></h1></Link>
                     <button className={`loginbutton` + logout} onClick={this.props.loginModal}> Sign In </button>
                     <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
                 </nav>
-                <LoginContainer />
-                <SignupContainer />
-                <div className='splash'>
                     <div className='logouttop'>
                         <h1 className="maintitle black">Thanks for visiting KloudClone!</h1>
                         <h2 className="subtitle black">If you'd like to get in contact, please check out my LinkedIn and Github below.</h2>

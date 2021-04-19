@@ -8,16 +8,13 @@ import {
     HashRouter
 } from 'react-router-dom';
 import NavBarContainer from "./navbar/navbar_container"
-import SignupContainer from "./session/signup_container"
-import LoginContainer from "./session/login_container"
 import {AuthRoute} from "../utils/route_util"
 import SplashContainer from './splash/splash_container'
-import Logoutscreen from './session/logoutscreen'
 import Discover from './discover/discover';
-import Player from './music_player/player'
 import LogoutContainer from './session/logoutscreen_container';
 import SongUploadContainer from './song_upload/song_upload_container';
 import PlayerContainer from './music_player/player_container';
+import SongShowContainer from './song_show/song_show_container';
 
 const App = () => {
     return (
@@ -29,6 +26,7 @@ const App = () => {
         <Route exact path="/logout" component={LogoutContainer} />
         <Route exact path="/discover" component={Discover}/>
         <Route exact path="/upload" component={SongUploadContainer}/>
+        <Route exact path="/songs/:id" component={SongShowContainer} />
     </Switch>
     </>)
 };

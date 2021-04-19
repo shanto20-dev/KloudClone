@@ -12,9 +12,15 @@ header{
     margin-bottom: 10px;
 }
 
+.nav-bar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .login-signup{
     position: relative;
-    margin: 0;
     border-radius: 3px;
     color: #333;
     font-size: 14px;
@@ -25,10 +31,10 @@ header{
     text-align: center;
     vertical-align: baseline;
     box-sizing: border-box;
-    float: right;
-    right: 460px;
-    top: 10px;
+    padding-top: 2%;
+    margin-left: 3%;
 }
+
 .loginbutton{
     border-color: #666;
     background-color: transparent;
@@ -47,9 +53,15 @@ header{
     border-color: #f50;
     border-radius: 3px;
     border-style: solid;
-    padding: 2px 11px 2px 11px;
+    padding: 5px 11px 2px 11px;
     height: 26px;
     font: 14px,Arial,sans-serif;
+}
+
+.logout-header{
+    padding-top: 1%;
+    padding-left: 1%;
+    position: fixed
 }
 
 a{
@@ -57,10 +69,16 @@ a{
     color: white;
 }
 
-
+.nav-stuff{
+    display: flex;
+    justify-content: space-around;
+    width: 45%;
+    height: 60%;
+    align-content: center;
+    align-items: center;
+}
 
 .logo{
-    position: absolute;
     width: 70px;
     height: 46px;
     background-image: image_url('orangelogo.png');
@@ -68,7 +86,6 @@ a{
     background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
-    left: 350px;
     
 }
 
@@ -86,28 +103,16 @@ a{
 
 }
 
-.navbar-right-group{
-    position: relative;
-    display: inline-block;
-    justify-content: space-between;
-    border-radius: 3px;
-    color: #333;
-    font-size: 14px;
-    text-align: center;
-    box-sizing: border-box;
-    float: right;
-    right: 460px;
-    top: 5px;
-}
 
 .user-button{
     background-color: transparent;
     color: lightgray;
-    margin-right: 22px;
+    margin-right: 3%;
     border-radius: 3px;
     border-style: none;
     padding: 12px 28px 12px 10px;
     height: 26px;
+    margin-bottom: 16px;
 }
 
 .options-button{
@@ -134,8 +139,8 @@ a{
 .dropdown-active{
     display: block;
     position: absolute;
-    top: 29px;
-    right: 10px;
+    top: 25px;
+    right: 5px;
     background: white;
     border: solid 1px lightgray;
     z-index: 1000000;
@@ -145,21 +150,22 @@ a{
     padding-bottom: 12px;
 }
 
+
 .divdropdown{
     position: relative;
-    display: inline-block;
+    display: flex;
 }
 .dropdown-button{
     background-color: white;
     color: black;
-    margin-right: 0px;
     border-style: none;
     margin-top: 5px;
-    padding: 12px 28px 12px 10px;
+    padding: 12px 28px 12px;
     height: 26px;
-    width: 90%;
+    width: 100%;
     padding-bottom: 25px;
     z-index: 100000;
+    text-align: center;
     
 }
 .dropdown-button:hover{
@@ -175,8 +181,8 @@ button{
 .prof-dropdown-active{
     display: block;
     position: absolute;
-    top: 41px;
-    right: 30px;
+    top: 42px;
+    right: 5px;
     background: white;
     border: solid 1px lightgray;
     z-index: 100;
@@ -186,16 +192,8 @@ button{
     padding-bottom: 12px;
 }
 
-.bell{
-    content: "";
-    background: image_url('bellicon.png');
-    background-repeat: no-repeat;
-    outline: none;
-    width: 30px;
-    height: 15px;
-    background-size: 50%;
-    background-position: center;
-    margin-right: 50px;
+.prof-dropdown-active button{
+    margin-left: auto;
 }
 
 .searchbar{
@@ -207,8 +205,9 @@ button{
     line-height: 20px;
     border-radius: 3px;
     width: 400px;
-    margin-right: 28px;
+    margin-right: 1%;
     outline: none;
+    margin-left: 3%;
 
 }
 .searchbar:focus{
