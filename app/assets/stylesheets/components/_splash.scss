@@ -5,7 +5,8 @@ body{
 
 
 .splash{
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 1240px;
     margin: 0 auto;
     background: white;
@@ -18,6 +19,8 @@ body{
     background-image: image_url('splashimage1.jpg');
     height: 450px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .logouttop{
@@ -30,42 +33,35 @@ body{
     margin-bottom: 230px;
 }
 
-
+.splash-top-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
 
 
 .maintitle{
-    display: block;
-    margin: 0 auto;
     font-size: 36px;
     font-weight: 100;
     color: white;
     margin: 0 auto;
     z-index: 5000;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .subtitle{
-    display: block;
-    margin: 0 auto;
     font-size: 20px;
+    margin-top: 1%;
     font-weight: 100;
     color: white;
-    margin: 0 auto;
     z-index: 5000;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .splash-buttons{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 2%;
     z-index: 500;
 }
 .logout-buttons{

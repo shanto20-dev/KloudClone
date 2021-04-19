@@ -23,12 +23,15 @@ class Splash extends React.Component {
                     <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
                     <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
                 </nav>
-                    <h1 className="maintitle">Discover more with KloudClone Go+</h1>
-                    <h2 className="subtitle">KloudClone Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</h2>
-                    <div className='splash-buttons'>
-                    <a href="https://www.linkedin.com/in/sayeefalam/" target="-blank"><button className='splashbutton1'>LinkedIn</button></a>
-                    <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2'>Github</button></a>
+                    <div className='splash-top-text'>
+                        <h1 className="maintitle">Discover more with KloudClone Go+</h1>
+                        <h2 className="subtitle">KloudClone Go+ lets you listen offline, ad-free, with over 150 million tracks — and growing.</h2>
+                        <div className='splash-buttons'>
+                            <a href="https://www.linkedin.com/in/sayeefalam/" target="-blank"><button className='splashbutton1'>LinkedIn</button></a>
+                            <a href="https://www.github.com/shanto20-dev/" target="-blank"><button className='splashbutton2'>Github</button></a>
+                        </div>
                     </div>
+
                 </div>
                 <div className='splash-bottom'>
                     <div className="searchorupload">
