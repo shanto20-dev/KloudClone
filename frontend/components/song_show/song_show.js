@@ -17,6 +17,8 @@ class SongShow extends React.Component {
         this.editModal = this.editModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.closeEdit = this.closeEdit.bind(this);
+        this.handleModal = this.handleModal.bind(this);
 
     }
 
@@ -51,6 +53,10 @@ class SongShow extends React.Component {
 
     }
 
+    closeEdit(){
+        this.setState({editModal: false});
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
@@ -64,7 +70,9 @@ class SongShow extends React.Component {
                 this.setState({songDataEdit: Object.values(song.song)[0]})
             }); 
         }); 
-        this.setState({editModal: false});
+        let modal = document.getElementsByClassName("modal-box")[0];
+        modal.classList.add("modal-exit");
+        setTimeout(() => this.closeEdit(), 300)
     }
 
     handleInput(field) {
@@ -75,6 +83,14 @@ class SongShow extends React.Component {
                 songDataEdit: songDataCopy
             });
         };
+    }
+
+    handleModal(e) {
+        if (e.target.className === 'modal-screen') {
+            let modal = document.getElementsByClassName("modal-box")[0];
+            modal.classList.add("modal-exit");
+            setTimeout(() => this.closeEdit(), 300)
+        }
     }
 
 
@@ -126,6 +142,8 @@ class SongShow extends React.Component {
                         description={this.state.songDataEdit.description}
                         handleInput={this.handleInput}
                         handleSubmit={this.handleSubmit}
+                        closeEdit = {this.closeEdit}
+                        handleModal = {this.handleModal}
                     />
                 </div>
             )
