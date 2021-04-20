@@ -8,7 +8,7 @@ class SongShow extends React.Component {
         super(props);
         this.state = {}
         this.songAction = this.songAction.bind(this);
-
+        this.deleteSong = this.deleteSong.bind(this);
     }
 
     componentWillMount() {
@@ -30,6 +30,13 @@ class SongShow extends React.Component {
         }
     }
 
+    deleteSong(){
+        this.props.deleteSong(this.state.id).then(() => {
+            this.props.history.push('/');
+        })
+
+    }
+
 
     render() {
         let songInfoPlayButton;
@@ -41,6 +48,11 @@ class SongShow extends React.Component {
         }else{
             songcover = "https://i1.sndcdn.com/artworks-000265843283-72z293-t500x500.jpg"
         }
+        let deleteButton
+        if (this.props.currentUserId === this.state.artist_id) {
+            deleteButton = <button onClick={this.deleteSong}> Delete </button>
+        }
+
         if (this.state) {
             return(
                 <div className='song-show-container'>
@@ -57,6 +69,10 @@ class SongShow extends React.Component {
                                 <img className='song-show-cover' src={`${songcover}`} alt=""/>
                             </div>
                         </div>
+                    </div>
+                    <div className='song-buttons-div'>
+                        {deleteButton}
+
                     </div>
     
                 </div>

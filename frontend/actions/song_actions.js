@@ -1,13 +1,15 @@
 import {
     postSong,
     fetchSongs,
-    fetchSong
+    fetchSong,
+    destroySong
 } from '../utils/song_api_util'
 
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const RECEIVE_SONG = "RECEIVE_SONG";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const CLEAR_ERRORS = "CLEAR_ERRORS"
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const REMOVE_SONG = "REMOVE_SONG";
 
 export const receiveSongs = (songs) => {
     return {
@@ -31,6 +33,13 @@ export const receiveErrors = (errors) => {
 
 }
 
+export const removeSong = (songId) => {
+    return {
+        type: REMOVE_SONG,
+        songId
+    }
+}
+
 export const clearErrors = () => {
     return {type: CLEAR_ERRORS}
 }
@@ -45,3 +54,6 @@ export const getSong = (song) => (dispatch) => fetchSong(song)
     .then((song) => dispatch(receiveSong(song)));
 
 
+
+export const deleteSong = (songId) => (dispatch) => destroySong(songId)
+    .then(() => dispatch(removeSong(songId)));

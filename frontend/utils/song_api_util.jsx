@@ -22,4 +22,11 @@ export const fetchSong = songId => {
     })
 };
 
+export const destroySong = songId => {
+    return $.ajax({
+        url: `/api/songs/${songId}`,
+        method: 'DELETE',
+    })
+};
+
 
