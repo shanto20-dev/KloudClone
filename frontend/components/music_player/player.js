@@ -116,7 +116,7 @@ class Player extends React.Component{
 
     handleSkip(){
         if (!this.state.repeat) {
-            this.props.skipSong()
+            this.props.removeFromQueue()
         }
     }
 

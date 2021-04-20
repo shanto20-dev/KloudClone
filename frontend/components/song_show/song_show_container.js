@@ -21,6 +21,7 @@ const mapDispatchToProps = dispatch => ({
     loadQueue:  (queue) => dispatch(receiveQueue(queue)),
     makeCurrent: (songId) => dispatch(receiveCurrentSong(songId)),
     playThisSong: (song) => dispatch(playThisSong(song)),
+    removeFromQueue: () => dispatch(removeFromQueue()),
     
 });
 

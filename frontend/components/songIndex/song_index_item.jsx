@@ -15,6 +15,7 @@ class SongIndexItem extends React.Component {
 
     songAction(){
         if (this.props.currentSongId !== this.props.song.id){
+            this.props.removeFromQueue();
             this.props.playThisSong(this.props.song);
             this.props.play();
         }else{

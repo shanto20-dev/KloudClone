@@ -27,6 +27,7 @@ class SongIndex extends React.Component {
                             currentSongId = {this.props.currentSongId}
                             makeCurrent = {this.props.makeCurrent}
                             playThisSong = {this.props.playThisSong}
+                            removeFromQueue = {this.props.removeFromQueue}
                         />
                     })}
                 </ul>
