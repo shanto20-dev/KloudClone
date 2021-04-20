@@ -30,7 +30,6 @@ export const destroySong = songId => {
 };
 
 export const patchSong = (song, songId) => {
-    console.log(songId)
     return $.ajax({
         url: `/api/songs/${songId}`,
         method: 'PATCH',

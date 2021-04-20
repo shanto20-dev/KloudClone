@@ -58,7 +58,13 @@ class SongShow extends React.Component {
         formData.append('song[genre]', this.state.songDataEdit.genre);
         formData.append('song[description]', this.state.songDataEdit.description);
         formData.append('song[img_url]', this.state.songDataEdit.img_url);
-        this.props.editSong(formData, this.state.songDataEdit.id); 
+        this.props.editSong(formData, this.state.songDataEdit.id).then( () => {
+            this.props.getSong(this.props.match.params.id).then( (song) => {
+                this.setState({songData: Object.values(song.song)[0]});
+                this.setState({songDataEdit: Object.values(song.song)[0]})
+            }); 
+        }); 
+        this.setState({editModal: false});
     }
 
     handleInput(field) {
