@@ -6,6 +6,7 @@ export const RECEIVE_MUTE = "RECEIVE_MUTE";
 export const RECEIVE_CURRENT_SONG = "RECEIVE_CURRENT_SONG"
 export const RECEIVE_NEXT_SONG = "RECEIVE_NEXT_SONG"
 export const RECEIVE_QUEUE = "RECEIVE_QUEUE"
+export const PLAY_THIS_SONG = "PLAY_THIS_SONG"
 
 export const receivePlay = () => {
     return {
@@ -43,6 +44,13 @@ export const receiveCurrentSong = (songId) => {
     return {
         type: RECEIVE_CURRENT_SONG,
         songId
+    }
+}
+
+export const playThisSong = (song) => {
+    return {
+        type: PLAY_THIS_SONG,
+        song
     }
 }
 

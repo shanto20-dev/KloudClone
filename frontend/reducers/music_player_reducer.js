@@ -5,7 +5,8 @@ import {
     RECEIVE_MUTE,
     RECEIVE_CURRENT_SONG,
     RECEIVE_QUEUE,
-    RECEIVE_PREV
+    RECEIVE_PREV,
+    PLAY_THIS_SONG
 } from '../actions/music_player_actions';
 
 const defaultState = {
@@ -32,6 +33,10 @@ const musicPlayerReducer = (state = defaultState, action) => {
             return Object.assign({}, state, {currentSongId: action.songId})
         case RECEIVE_QUEUE:
             return Object.assign({}, state, {queue: action.queue})
+        case PLAY_THIS_SONG:
+            let queueCopy = state.queue.slice();
+            queueCopy.unshift(action.song); 
+            return Object.assign({}, state, {queue: queueCopy}) 
         default:
             return state;
     }

@@ -18,14 +18,9 @@ class SongShow extends React.Component {
     }
 
     songAction(){
-        if (this.props.currentSongId !== this.state.id){
-            if (!this.props.songPlaying){
-                this.props.makeCurrent(0);
+        if (this.props.currentSongInfo.id !== this.state.id){
+                this.props.playThisSong(this.state);
                 this.props.playSong();
-            }
-            else{
-                this.props.pauseSong();
-            }
         }else{
             if (this.props.songPlaying){
                 this.props.pauseSong()
@@ -38,7 +33,7 @@ class SongShow extends React.Component {
 
     render() {
         let songInfoPlayButton;
-        (this.props.songPlaying) ? songInfoPlayButton = <i className="fas fa-pause showpagemedia"></i> : songInfoPlayButton = <i className="fas fa-play showpagemedia"></i>
+        (this.props.songPlaying && this.props.currentSongInfo.id === this.state.id) ? songInfoPlayButton = <i className="fas fa-pause showpagemedia"></i> : songInfoPlayButton = <i className="fas fa-play showpagemedia"></i>
         let songcover;
         console.log(this.state);
         if (this.state.img_url) {

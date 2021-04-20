@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { receivePlay, receivePause, receiveQueue, receiveCurrentSong } from '../../actions/music_player_actions';
+import { receivePlay, receivePause, receiveQueue, receiveCurrentSong, playThisSong } from '../../actions/music_player_actions';
 import { getSong } from '../../actions/song_actions';
 import SongShow from './song_show'
 
@@ -9,8 +9,8 @@ const mapStateToProps = (state) => {
         songPlaying: state.musicPlayer.songPlaying,
         currentSongId: state.musicPlayer.currentSongId,
         thisSong: Object.values(state.entities.songs)[0],
-        currentQueue: state.musicPlayer.queue
-        // currentSongTrueId: state.musicPlayer.queue[state.musicPlayer.currentSongId].id
+        currentQueue: state.musicPlayer.queue,
+        currentSongInfo: Object.values(state.musicPlayer.queue)[0]
     };
 };
 
@@ -19,7 +19,8 @@ const mapDispatchToProps = dispatch => ({
     playSong: () => dispatch(receivePlay()),
     pauseSong: () => dispatch(receivePause()),
     loadQueue:  (queue) => dispatch(receiveQueue(queue)),
-    makeCurrent: (songId) => dispatch(receiveCurrentSong(songId))
+    makeCurrent: (songId) => dispatch(receiveCurrentSong(songId)),
+    playThisSong: (song) => dispatch(playThisSong(song)),
     
 });
 
