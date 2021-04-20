@@ -2,7 +2,8 @@ import {
     postSong,
     fetchSongs,
     fetchSong,
-    destroySong
+    destroySong,
+    patchSong
 } from '../utils/song_api_util'
 
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
@@ -57,5 +58,5 @@ export const getSong = (song) => (dispatch) => fetchSong(song)
 export const deleteSong = (songId) => (dispatch) => destroySong(songId)
     .then(() => dispatch(removeSong(songId)));
 
-export const editSong = (song) => (dispatch) => patchSong(song)
+export const editSong = (song, songId) => (dispatch) => patchSong(song, songId)
     .then(() => dispatch(receiveSong(song)));

@@ -54,18 +54,16 @@ class SongShow extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('song[title]', this.state.title);
-        formData.append('song[genre]', this.state.genre);
-        formData.append('song[description]', this.state.description);
-        formData.append('song[img_url]', this.state.img_url);
-        this.props.editSong(formData);
-        
+        formData.append('song[title]', this.state.songDataEdit.title);
+        formData.append('song[genre]', this.state.songDataEdit.genre);
+        formData.append('song[description]', this.state.songDataEdit.description);
+        formData.append('song[img_url]', this.state.songDataEdit.img_url);
+        this.props.editSong(formData, this.state.songDataEdit.id); 
     }
 
     handleInput(field) {
         return (e) => {
-            let songDataCopy = Object.assign({}, this.state.songData);
-            console.log(songDataCopy);
+            let songDataCopy = Object.assign({}, this.state.songDataEdit);
             songDataCopy[field] = e.target.value
             this.setState({
                 songDataEdit: songDataCopy

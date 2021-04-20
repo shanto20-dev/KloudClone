@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
     makeCurrent: (songId) => dispatch(receiveCurrentSong(songId)),
     playThisSong: (song) => dispatch(playThisSong(song)),
     deleteSong: (songId) => dispatch(deleteSong(songId)),
-    editSong: (song) => dispatch(editSong(song)),
+    editSong: (song, songId) => dispatch(editSong(song, songId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongShow);
