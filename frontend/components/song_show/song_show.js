@@ -50,7 +50,11 @@ class SongShow extends React.Component {
         }
         let deleteButton
         if (this.props.currentUserId === this.state.artist_id) {
-            deleteButton = <button onClick={this.deleteSong}> Delete </button>
+            deleteButton = <button onClick={this.deleteSong} className='delete-button'> <i class="fa fa-trash" aria-hidden="true"></i> Delete </button>
+        }
+        let editButton
+        if (this.props.currentUserId === this.state.artist_id) {
+            editButton = <button className='edit-button'> <i class="fas fa-pencil-alt"></i> Edit </button>
         }
 
         if (this.state) {
@@ -71,8 +75,8 @@ class SongShow extends React.Component {
                         </div>
                     </div>
                     <div className='song-buttons-div'>
+                        {editButton}
                         {deleteButton}
-
                     </div>
     
                 </div>
