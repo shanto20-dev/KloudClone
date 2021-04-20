@@ -56,3 +56,6 @@ export const getSong = (song) => (dispatch) => fetchSong(song)
 
 export const deleteSong = (songId) => (dispatch) => destroySong(songId)
     .then(() => dispatch(removeSong(songId)));
+
+export const editSong = (song) => (dispatch) => patchSong(song)
+    .then(() => dispatch(receiveSong(song)));

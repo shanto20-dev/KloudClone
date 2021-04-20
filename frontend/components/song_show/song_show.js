@@ -1,25 +1,35 @@
 import React from 'react';
-import Discover from '../discover/discover';
+import SongEditContainer from '../song__edit/song_edit_container'
 
 
 
 class SongShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            songData: {},
+            editModal: false,
+            songDataEdit: {}
+
+        }
         this.songAction = this.songAction.bind(this);
         this.deleteSong = this.deleteSong.bind(this);
+        this.editModal = this.editModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.getSong(this.props.match.params.id).then( (song) => {
-            this.setState(Object.values(song.song)[0]);
+            this.setState({songData: Object.values(song.song)[0]});
+            this.setState({songDataEdit: Object.values(song.song)[0]})
         }); 
     }
 
     songAction(){
-        if (this.props.currentSongInfo.id !== this.state.id){
-                this.props.playThisSong(this.state);
+        if (this.props.currentSongInfo.id !== this.state.songData.id){
+                this.props.playThisSong(this.state.songData);
                 this.props.playSong();
         }else{
             if (this.props.songPlaying){
@@ -30,31 +40,57 @@ class SongShow extends React.Component {
         }
     }
 
+    editModal(){
+        this.setState({editModal: true})
+    }
+
     deleteSong(){
-        this.props.deleteSong(this.state.id).then(() => {
+        this.props.deleteSong(this.state.songData.id).then(() => {
             this.props.history.push('/');
         })
 
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('song[title]', this.state.title);
+        formData.append('song[genre]', this.state.genre);
+        formData.append('song[description]', this.state.description);
+        formData.append('song[img_url]', this.state.img_url);
+        this.props.editSong(formData);
+        
+    }
+
+    handleInput(field) {
+        return (e) => {
+            let songDataCopy = Object.assign({}, this.state.songData);
+            console.log(songDataCopy);
+            songDataCopy[field] = e.target.value
+            this.setState({
+                songDataEdit: songDataCopy
+            });
+        };
+    }
+
 
     render() {
         let songInfoPlayButton;
-        (this.props.songPlaying && this.props.currentSongInfo.id === this.state.id) ? songInfoPlayButton = <i className="fas fa-pause showpagemedia"></i> : songInfoPlayButton = <i className="fas fa-play showpagemedia"></i>
+        (this.props.songPlaying && this.props.currentSongInfo.id === this.state.songData.id) ? songInfoPlayButton = <i className="fas fa-pause showpagemedia"></i> : songInfoPlayButton = <i className="fas fa-play showpagemedia"></i>
         let songcover;
         console.log(this.state);
-        if (this.state.img_url) {
-            songcover = this.state.img_url
+        if (this.state.songData.img_url) {
+            songcover = this.state.songData.img_url
         }else{
             songcover = "https://i1.sndcdn.com/artworks-000265843283-72z293-t500x500.jpg"
         }
         let deleteButton
-        if (this.props.currentUserId === this.state.artist_id) {
-            deleteButton = <button onClick={this.deleteSong} className='delete-button'> <i class="fa fa-trash" aria-hidden="true"></i> Delete </button>
+        if (this.props.currentUserId === this.state.songData.artist_id) {
+            deleteButton = <button onClick={this.deleteSong} className='delete-button'> <i className="fa fa-trash" aria-hidden="true"></i> Delete </button>
         }
         let editButton
-        if (this.props.currentUserId === this.state.artist_id) {
-            editButton = <button className='edit-button'> <i class="fas fa-pencil-alt"></i> Edit </button>
+        if (this.props.currentUserId === this.state.songData.artist_id) {
+            editButton = <button onClick={this.editModal} className='edit-button'> <i className="fas fa-pencil-alt"></i> Edit </button>
         }
 
         if (this.state) {
@@ -65,8 +101,8 @@ class SongShow extends React.Component {
                             <div className='song-player-info'>
                                 <button className='song-show-play' onClick={this.songAction}>{songInfoPlayButton}</button>
                                 <div className='song-artist-title'>
-                                    <h3 className="song-show-artist">{this.state.artist}</h3>
-                                    <h3 className="song-show-title">{this.state.title}</h3>
+                                    <h3 className="song-show-artist">{this.state.songData.artist}</h3>
+                                    <h3 className="song-show-title">{this.state.songData.title}</h3>
                                 </div>
                             </div>
                             <div className='song-cover-container'>
@@ -79,8 +115,15 @@ class SongShow extends React.Component {
                         {deleteButton}
                     </div>
     
+                    <SongEditContainer 
+                        editModal={this.state.editModal}
+                        title={this.state.songDataEdit.title}
+                        img_url={this.state.songDataEdit.img_url}
+                        description={this.state.songDataEdit.description}
+                        handleInput={this.handleInput}
+                        handleSubmit={this.handleSubmit}
+                    />
                 </div>
-    
             )
         }
         else{

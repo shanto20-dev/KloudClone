@@ -19,6 +19,15 @@ class Api::SongsController < ApplicationController
         render :show
     end
 
+    def update
+        @song = Song.find_by(id: params[:id])
+        if @song && @song.update(song_params)
+            render :show
+        else
+            render json: ["Song edit unsuccessful, please make sure have inputted all required fields"], status: 401
+        end
+    end
+
     def destroy
         @song = Song.find_by(id: params[:id])
         @song.destroy!

@@ -29,4 +29,11 @@ export const destroySong = songId => {
     })
 };
 
+export const patchSong = song => {
+    return $.ajax({
+        url: `/api/songs/${song.id}`,
+        method: 'PATCH',
+    })
+}
+
 
