@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,9 +35,9 @@ class SongIndexItem extends React.Component {
             songcover = "https://i1.sndcdn.com/artworks-000265843283-72z293-t500x500.jpg"
         }
         return(
-        <li className="songitem" onClick={this.songAction}>
-                <img className='songcover' src={`${songcover}`} alt=""/>
-                <h3 className="songtitle">{this.props.song.title}</h3>
+        <li className="songitem">
+                <img className='songcover' src={`${songcover}`} alt="" onClick={this.songAction}/>
+                <Link to={`/songs/${this.props.song.id}`}><h3 className="songtitle">{this.props.song.title}</h3></Link>
                 <h3 className="songartist">{this.props.song.artist}</h3>
         </li>
         )
