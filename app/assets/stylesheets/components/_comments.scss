@@ -18,6 +18,7 @@
     outline: none;
     cursor: pointer;
     border: 1px solid #e5e5e5;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .comment-box input:focus{
@@ -25,4 +26,39 @@
     border-color: #999;
     transition: .2s;
 
+}
+
+.num-comments{
+    font-weight: 100;
+    color: #999;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment-index{
+    width: 65%;
+    height: 100%;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1%;
+    padding-top: 1%;
+    border-top: 1px solid lightgray;
+}
+
+.comment-author{
+    font-size: 12px;
+    color: #999;   
+    margin-bottom: 5px;
+    cursor: pointer;
+    width: 15%;
+}
+
+.comment-div{
+    margin-bottom: 5%;
+}
+
+.comments-section{
+    margin-left: 2%;
+    margin-top: 5%;
+    padding-top: 1%;
 }

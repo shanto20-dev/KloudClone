@@ -4,8 +4,6 @@ import CommentIndex from './comment_index'
 
 const mapStateToProps = (state) => {
     return {
-        songComments: Object.values(state.entities.comments),
-        currentUserId: state.session.id
     };
 };
 

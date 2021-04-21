@@ -1,6 +1,7 @@
 import React from 'react';
 import SongEditContainer from '../song__edit/song_edit_container'
 import CreateCommentsContainer from '../create_comments/create_comments_container'
+import CommentIndexContainer from '../comments/comment_index_container'
 
 
 
@@ -149,6 +150,7 @@ class SongShow extends React.Component {
                     <CreateCommentsContainer
                         songId={this.state.songData.id}
                     />
+                    {this.state.songData.comments ? <CommentIndexContainer songComments = {this.state.songData.comments}/> : null}
                 </div>
             )
         }
