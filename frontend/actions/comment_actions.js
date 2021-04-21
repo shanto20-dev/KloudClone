@@ -34,7 +34,7 @@ export const clearErrors = () => {
     return {type: CLEAR_ERRORS}
 }
 
-export const createComment = (comment) => (dispatch) => postComment(song)
+export const createComment = (comment) => (dispatch) => postComment(comment)
     .then(comment => dispatch(receiveComment(comment)), err => dispatch(receiveErrors(err.responseJSON)));
 
 export const deleteComment = (commentId) => (dispatch) => destroyComment(commentId)

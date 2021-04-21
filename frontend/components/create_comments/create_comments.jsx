@@ -4,18 +4,18 @@ class CreateComments extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            songId: 0,
+            song_id: 0,
             body: ""
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit= this.handleSubmit.bind(this);
         this.handleInput= this.handleInput.bind(this);
     }
 
-
-    handleSubmit(e) {
+    handleSubmit(e){
         e.preventDefault();
-        console.log("hit");
-        this.setState({songId: this.props.songId})
+        console.log(this);
+        this.setState({song_id: this.props.songId});
+        console.log(this.state);
         this.props.createComment(this.state).then(() => this.setState({body: ""}));
     }
 
@@ -36,11 +36,12 @@ class CreateComments extends React.Component {
         if (this.props.errors) {
             errormessage = this.props.errors;
         }
-        let commentbox = document.querySelector('.comment-box');
-        if (commentbox){
-            document.onkeydown = function(e) {
-                if (e.keycode === 13){
-                    handleSubmit(e);
+        let commentBox = document.querySelector('.comment-box');
+        let submit = this.handleSubmit;
+        if (commentBox){
+            commentBox.onkeypress = function(e) {
+                if (e.keyCode === 13){
+                    submit(e);
                 }
             }
         }
@@ -50,7 +51,7 @@ class CreateComments extends React.Component {
             <div className='comment-box'>
                 <input type="text" value={this.state.body} onChange={this.handleInput()} className="comment-input" placeholder="Write a comment"/>
             </div>
-
+            {errormessage}
             </>
         )
         

@@ -146,7 +146,9 @@ class SongShow extends React.Component {
                         closeEdit = {this.closeEdit}
                         handleModal = {this.handleModal}
                     />
-                    <CreateCommentsContainer/>
+                    <CreateCommentsContainer
+                        songId={this.state.songData.id}
+                    />
                 </div>
             )
         }

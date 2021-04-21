@@ -1,0 +1,28 @@
+.comment-box{
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    background: #f2f2f2;
+    padding: 5px;
+    width: 65%;
+    margin-top: 1.5%;
+    margin-left: 2%;
+}
+.comment-box input{
+    border-radius: 4px;
+    height: 27px;
+    font-size: 14px;
+    width: 97%;
+    background: #fff;
+    padding: 0 9px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #e5e5e5;
+}
+
+.comment-box input:focus{
+    cursor: text;
+    border-color: #999;
+    transition: .2s;
+
+}
