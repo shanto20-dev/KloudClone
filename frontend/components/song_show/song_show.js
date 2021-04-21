@@ -1,5 +1,6 @@
 import React from 'react';
 import SongEditContainer from '../song__edit/song_edit_container'
+import CreateCommentsContainer from '../create_comments/create_comments_container'
 
 
 
@@ -145,6 +146,7 @@ class SongShow extends React.Component {
                         closeEdit = {this.closeEdit}
                         handleModal = {this.handleModal}
                     />
+                    <CreateCommentsContainer/>
                 </div>
             )
         }

@@ -40,8 +40,8 @@ class User < ApplicationRecord
 
     has_many :songs, foreign_key: :artist_id, class_name: :Song
 
-    has_many :comments
-
     has_one_attached :profile_picture
+
+    has_many :comments, foreign_key: :author_id, class_name: :Comment
 
 end
