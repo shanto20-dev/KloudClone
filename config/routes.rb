@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :users
     resources :songs
     resource :session
-    resource :comments
+    resources :comments
   end
 
   

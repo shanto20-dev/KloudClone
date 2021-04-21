@@ -55,10 +55,20 @@
 
 .comment-div{
     margin-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .comments-section{
     margin-left: 7%;
     margin-top: 5%;
     padding-top: 1%;
+}
+
+.delete-button.comment-delete{
+    background-color: white;
+    border: 1px solid rgb(235, 232, 232);
+}
+.delete-button.comment-delete:hover{
+    border: 1px solid rgb(206, 203, 203);
 }

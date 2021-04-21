@@ -4,6 +4,7 @@ import CommentIndex from './comment_index'
 
 const mapStateToProps = (state) => {
     return {
+        currentUserId: state.session.currentUserId,
     };
 };
 

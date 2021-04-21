@@ -158,7 +158,7 @@ class SongShow extends React.Component {
                         songId={this.state.songData.id}
                         refreshComments = {this.refreshComments}
                     />
-                    {this.state.songData.comments ? <CommentIndexContainer songComments = {this.state.songData.comments}/> : null}
+                    {this.state.songData.comments ? <CommentIndexContainer songComments = {this.state.songData.comments} refreshComments = {this.refreshComments}/> : null}
                 </div>
             )
         }
