@@ -13,10 +13,11 @@ class CreateComments extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        console.log(this);
         this.setState({song_id: this.props.songId});
-        console.log(this.state);
-        this.props.createComment(this.state).then(() => this.setState({body: ""}));
+        this.props.createComment(this.state).then(() => {
+            this.setState({body: ""})
+            this.props.refreshComments();
+        });
     }
 
     handleInput() {

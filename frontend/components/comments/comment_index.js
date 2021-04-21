@@ -3,9 +3,6 @@ import React from 'react';
 class CommentIndex extends React.Component {
     constructor(props){
         super(props)
-        this.state={
-            comments: Object.values(this.props.songComments)
-        }
     }
 
     commentDiv(commentInfo){
@@ -22,14 +19,14 @@ class CommentIndex extends React.Component {
 
     render(){
         console.log(this.state);
-        let numComments = this.state.comments.length
+        let numComments = Object.values(this.props.songComments).length
         let numCommentsText = <p className='num-comments'> {numComments} comments </p>
         return (
         <>  
         <div className='comments-section'>
             {numCommentsText}
                 <ul className="comment-index">
-                    {this.state.comments.map((comment) => {
+                    {Object.values(this.props.songComments).reverse().map((comment) => {
                         return this.commentDiv(comment)
                     })}
                 </ul>

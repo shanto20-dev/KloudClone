@@ -21,6 +21,7 @@ class SongShow extends React.Component {
         this.handleInput = this.handleInput.bind(this);
         this.closeEdit = this.closeEdit.bind(this);
         this.handleModal = this.handleModal.bind(this);
+        this.refreshComments = this.refreshComments.bind(this);
 
     }
 
@@ -29,6 +30,12 @@ class SongShow extends React.Component {
             this.setState({songData: Object.values(song.song)[0]});
             this.setState({songDataEdit: Object.values(song.song)[0]})
         }); 
+    }
+
+    refreshComments(){
+        this.props.getSong(this.props.match.params.id).then((song) => {
+            this.setState({songData: Object.values(song.song)[0]});
+        })
     }
 
     songAction(){
@@ -149,6 +156,7 @@ class SongShow extends React.Component {
                     />
                     <CreateCommentsContainer
                         songId={this.state.songData.id}
+                        refreshComments = {this.refreshComments}
                     />
                     {this.state.songData.comments ? <CommentIndexContainer songComments = {this.state.songData.comments}/> : null}
                 </div>
