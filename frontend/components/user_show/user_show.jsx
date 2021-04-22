@@ -9,7 +9,6 @@ class SongShow extends React.Component {
         super(props);
         this.state = {
             userData: {},
-            userSongs: {}, 
             editModal: false,
             songDataEdit: {}
 
@@ -109,7 +108,7 @@ class SongShow extends React.Component {
             return(
                 <div>
                     <UserSongsContainer
-                        songs={this.state.userSongs}
+                        userSongs={this.state.userSongs}
                     />
                 </div>       
             )

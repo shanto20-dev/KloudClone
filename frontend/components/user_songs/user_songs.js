@@ -7,8 +7,8 @@ class UserSongs extends React.Component {
     }
 
     render(){
-        let songs = this.props.userSongs;
-
+        let songs = Object.values(this.props.userSongs);
+        console.log(songs);
         if (songs){
             console.log(songs);
             return (
