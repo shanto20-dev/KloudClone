@@ -24,6 +24,7 @@ class UserSongs extends React.Component {
                             makeCurrent = {this.props.makeCurrent}
                             playThisSong = {this.props.playThisSong}
                             removeFromQueue = {this.props.removeFromQueue}
+                            currentSongInfo = {this.props.currentSongInfo}
                         />
                     })}
                 </ul>

@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     return {
         songs: Object.values(state.entities.songs),
         songPlaying: state.musicPlayer.songPlaying,
-        currentSongId: state.musicPlayer.currentSongId
+        currentSongId: state.musicPlayer.currentSongId,
+        currentSongInfo: Object.values(state.musicPlayer.queue)[0]
     };
 };
 
