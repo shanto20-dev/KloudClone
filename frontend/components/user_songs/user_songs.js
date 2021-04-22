@@ -1,5 +1,5 @@
 import React from 'react';
-import SongIndexItem from '../songIndex/song_index_item'
+import UserSongsItem from './user_songs_item';
 
 class UserSongs extends React.Component {
     constructor(props){
@@ -13,7 +13,7 @@ class UserSongs extends React.Component {
             <>  
                 <ul className="user-song-list">
                     {songs.map((song, index) => {
-                        return <SongIndexItem
+                        return <UserSongsItem
                             key={index}
                             index={index}
                             song={song}

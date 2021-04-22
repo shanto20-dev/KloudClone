@@ -24,14 +24,50 @@
     margin-left: 5%;
 }
 
+.user-songs-div{
+    margin-left: 2%;
+    margin-top: 1.5%;
+
+}
+
 .user-songs-header{
     border-bottom: 1px solid #f50;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 5%;
+    margin-bottom: 1.5%;
     line-height: 1.8;
     display: inline-flex;
-    margin-left: 2%;
-    margin-top: 1%;
     font-weight: 100;
+}
+
+.recent-header{
+    padding-top: 10px;
+    margin: 12px 0 20px;
+    font-size: 24px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.user-song-item{
+    margin-bottom: 50px;
+    display: flex;
+
+}
+
+.user-song-details{
+    margin-left: 3%;
+    margin-top: .5%;
+}
+
+.user-songtitle{
+    font-size: 15px;
+    line-height: 1.2;
+    color: #333;
+    font-weight: 100;
+
+}
+
+.songartist:hover{
+    color: #333;
 }

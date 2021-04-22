@@ -116,8 +116,9 @@ class SongShow extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div className='user-songs-div'>
                             <h3 className='user-songs-header'>All</h3>
+                            <h3 className='recent-header'> Recent </h3>
                             <UserSongsContainer
                                 userSongs={this.state.userSongs}
                             />
