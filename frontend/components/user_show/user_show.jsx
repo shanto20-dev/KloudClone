@@ -26,7 +26,7 @@ class SongShow extends React.Component {
 
     componentDidMount() {
         this.props.getUser(this.props.match.params.id).then( (user) => {
-            this.setState({userData: (user.user)});
+            this.setState({userData: Object.values(user.user)[0]});
             this.props.receiveSongs(Object.values(user.user)[0].songs);
             this.setState({userSongs: Object.values(user.user)[0].songs})
         }); 
@@ -105,12 +105,25 @@ class SongShow extends React.Component {
 
     render() {
         if (this.state.userSongs){
+            console.log(this.state.userData);
             return(
-                <div>
-                    <UserSongsContainer
-                        userSongs={this.state.userSongs}
-                    />
-                </div>       
+                <>
+                    <div className='user-show-container'>
+                        <div className='user-info-container'>
+                            <div className='user-show-details'>
+                                <div>
+                                    <p className="song-show-title">{this.state.userData.username}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className='user-songs-header'>All</h3>
+                            <UserSongsContainer
+                                userSongs={this.state.userSongs}
+                            />
+                        </div>
+                    </div>
+                </>       
             )
         }else{
             return null

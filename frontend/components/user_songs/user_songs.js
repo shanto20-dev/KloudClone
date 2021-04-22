@@ -8,9 +8,7 @@ class UserSongs extends React.Component {
 
     render(){
         let songs = Object.values(this.props.userSongs);
-        console.log(songs);
         if (songs){
-            console.log(songs);
             return (
             <>  
                 <ul className="user-song-list">
