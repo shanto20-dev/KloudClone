@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CommentIndexItem extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class CommentIndexItem extends React.Component {
             <li>
                 <div className='comment-div'>
                     <div className="comment-data">
-                        <p className='comment-author'>{this.props.commentData.author}</p>
+                        <Link to={`/users/${this.props.commentData.author_id}`}><p className='comment-author'>{this.props.commentData.author}</p></Link>
                         <p className='comment-body'>{this.props.commentData.body}</p>
                     </div>
                     <div className='comment-right-side'>
