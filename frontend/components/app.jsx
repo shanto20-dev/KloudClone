@@ -15,6 +15,7 @@ import LogoutContainer from './session/logoutscreen_container';
 import SongUploadContainer from './song_upload/song_upload_container';
 import PlayerContainer from './music_player/player_container';
 import SongShowContainer from './song_show/song_show_container';
+import UserShowContainer from './user_show/user_show_container';
 
 const App = () => {
     return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route exact path="/discover" component={Discover}/>
         <Route exact path="/upload" component={SongUploadContainer}/>
         <Route exact path="/songs/:id" component={SongShowContainer} />
+        <Route exact path="/users/:id" component={UserShowContainer} />
     </Switch>
     </>)
 };
