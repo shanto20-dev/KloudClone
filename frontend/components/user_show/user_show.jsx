@@ -104,24 +104,54 @@ class SongShow extends React.Component {
 
 
     render() {
-        if (this.state.userSongs){
+        let profPic;
+        if (this.state.userData.img_url) {
+            profPic = this.state.userData.img_url
+        }else{
+            profPic = "https://i1.sndcdn.com/avatars-000039709460-h210g8-t500x500.jpg"
+        }
+        if (this.state.userData){
             return(
                 <>
                     <div className='user-show-container'>
                         <div className='user-info-container'>
                             <div className='user-show-details'>
-                                <div>
+                                <div className='user-show-pic-name'>
+                                    <img className='user-show-pic' src={`${profPic}`} alt=""/>
                                     <p className="song-show-title user-show-name">{this.state.userData.username}</p>
                                 </div>
                             </div>
                         </div>
-                        <div className='user-songs-div'>
-                            <h3 className='user-songs-header'>All</h3>
-                            <h3 className='recent-header'> Recent </h3>
-                            <UserSongsContainer
-                                userSongs={this.state.userSongs}
-                            />
+                        <div className='user-show-bottom-div'>
+                            {this.state.userSongs ?
+                            <div className='user-songs-div'>
+                                <h3 className='user-songs-header'>All Tracks</h3>
+                                <h3 className='recent-header'> Recent </h3>
+                                <UserSongsContainer
+                                    userSongs={this.state.userSongs}
+                                />
+                            </div> : 
+                            <div className='user-songs-div nothing-div'>
+                                <div className='nothing-data'>
+                                    <h1 className='nothing-header'>Nothing to hear here</h1>
+                                    <p className='nothing-p'>{this.state.userData.username} hasn't uploaded any songs yet.</p>
+                                </div>
+                            </div>}
+                            <div className='user-bottom-right'>
+                                <div className='user-tracks-num'>
+                                    <h3 className='tracks-header'>Tracks</h3>
+                                    {this.state.userSongs ? <p className='tracks-count'> {Object.values(this.state.userSongs).length}</p> : <p className='tracks-count'>0</p>}
+                                </div>
+                                <div className='footerlinks-discover user-footer'>
+                                    <a href="https://github.com/shanto20-dev/" target='blank'>GitHub</a>
+                                    <a href="https://www.linkedin.com/in/sayeefalam/" target='blank'>LinkedIn</a>
+                                    <a href="https://angel.co/u/sayeef-alam" target='blank'>AngelList</a>
+                                    <a href="http://www.sayeefalam.com/" target='blank'>Portfolio</a>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
                 </>       
             )
