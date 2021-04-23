@@ -10,7 +10,8 @@ class Player extends React.Component{
             volume: 100,
             volumeHover: false,
             shuffle: false,
-            repeat: false
+            repeat: false,
+            songsPlayed: [],
         }
         this.intervals = [];
         this.audioEl = React.createRef();
@@ -22,6 +23,7 @@ class Player extends React.Component{
         this.handleShuffle = this.handleShuffle.bind(this);
         this.handleSkip = this.handleSkip.bind(this);
         this.handleRepeat = this.handleRepeat.bind(this);
+        this.handlePrev = this.handlePrev.bind(this);
     }
 
     componentDidMount(){
@@ -116,9 +118,19 @@ class Player extends React.Component{
 
     handleSkip(){
         if (!this.state.repeat && this.props.songQueue[1]) {
+            let newSongsPlayed = this.state.songsPlayed.slice();
+            newSongsPlayed.push(this.props.songQueue[0]);
+            this.setState({songsPlayed: newSongsPlayed})
             this.props.removeFromQueue()
+            console.log(this.state.songsPlayed);
         }else{
             this.props.pauseSong();
+        }
+    }
+
+    handlePrev(){
+        if (this.state.songsPlayed.length){
+            this.props.playThisSong(this.state.songsPlayed[this.state.songsPlayed.length - 1]);
         }
     }
 
@@ -155,7 +167,7 @@ class Player extends React.Component{
                 <audio src={songUrl} ref={this.audioEl} onEnded={this.handleSkip}></audio>
                 <div className = "controls">
                     <div className="player-left-buttons">
-                        <button className="playerButton" onClick={this.props.prevSong}><i className="fas fa-step-backward "></i></button>
+                        <button className="playerButton" onClick={this.handlePrev}><i className="fas fa-step-backward "></i></button>
                         <button onClick={this.handleAction} className="playpause playerButton"> {songActionContent} </button>
                         <button className="playerButton" onClick={this.handleSkip}><i className="fas fa-step-forward"></i></button>
                         <button className="playerButton" onClick={this.handleShuffle}><i className={`fas fa-random ${shuffle}`}></i></button>
