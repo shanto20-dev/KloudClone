@@ -130,6 +130,8 @@ class Player extends React.Component{
 
     handlePrev(){
         if (this.state.songsPlayed.length){
+            let newSongsPlayed = this.state.songsPlayed.slice(0,-1)
+            this.setState({songsPlayed: newSongsPlayed});
             this.props.playThisSong(this.state.songsPlayed[this.state.songsPlayed.length - 1]);
         }
     }
