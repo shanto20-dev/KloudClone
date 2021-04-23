@@ -2,9 +2,10 @@ import React from 'react';
 import SongEditContainer from '../song__edit/song_edit_container'
 import user_songs_container from '../user_songs/user_songs_container';
 import UserSongsContainer from '../user_songs/user_songs_container'
+import ProfPicModalContainer from '../prof_pic_modal/prof_pic_modal_container'
 
 
-class SongShow extends React.Component {
+class UserShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,107 +14,70 @@ class SongShow extends React.Component {
             songDataEdit: {}
 
         }
-        // this.songAction = this.songAction.bind(this);
-        // this.deleteSong = this.deleteSong.bind(this);
-        // this.editModal = this.editModal.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.handleInput = this.handleInput.bind(this);
-        // this.closeEdit = this.closeEdit.bind(this);
-        // this.handleModal = this.handleModal.bind(this);
-        // this.refreshComments = this.refreshComments.bind(this);
+        this.editModal = this.editModal.bind(this);
+        this.handleModal = this.handleModal.bind(this); 
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
     componentDidMount() {
         this.props.getUser(this.props.match.params.id).then( (user) => {
             this.setState({userData: Object.values(user.user)[0]});
+            this.setState({userDataEdit: Object.values(user.user)[0]});
             this.props.receiveSongs(Object.values(user.user)[0].songs);
             this.setState({userSongs: Object.values(user.user)[0].songs})
         }); 
     }
 
-    // refreshComments(){
-    //     this.props.getSong(this.props.match.params.id).then((song) => {
-    //         this.setState({songData: Object.values(song.song)[0]});
-    //     })
-    // }
 
-    // songAction(){
-    //     if (this.props.currentSongInfo.id !== this.state.songData.id){
-    //             this.props.playThisSong(this.state.songData);
-    //             this.props.playSong();
-    //     }else{
-    //         if (this.props.songPlaying){
-    //             this.props.pauseSong()
-    //         }else{
-    //             this.props.playSong()
-    //         }
-    //     }
-    // }
+    editModal(){
+        this.setState({editModal: true})
+    }
 
-    // editModal(){
-    //     this.setState({editModal: true})
-    // }
+    closeEdit(){
+        this.setState({editModal: false});
+    }
 
-    // deleteSong(){
-    //     this.props.deleteSong(this.state.songData.id).then(() => {
-    //         this.props.history.push('/');
-    //     })
+    handleSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('user[img_url]', this.state.userDataEdit.img_url);
+        this.props.editUser(formData, this.state.userDataEdit.id).then( () => {
+            this.props.getUser(this.props.match.params.id).then( (user) => {
+                this.setState({userData: Object.values(user.user)[0]});
+                this.setState({userDataEdit: Object.values(user.user)[0]})
+            }); 
+        }); 
+        let modal = document.getElementsByClassName("modal-box")[0];
+        modal.classList.add("modal-exit");
+        setTimeout(() => this.closeEdit(), 300)
+    }
 
-    // }
+    handleInput(field) {
+        return (e) => {
+            let userDataCopy = Object.assign({}, this.state.userDataEdit);
+            userDataCopy[field] = e.target.value
+            this.setState({
+                userDataEdit: userDataCopy
+            });
+        };
+    }
 
-    // closeEdit(){
-    //     this.setState({editModal: false});
-    // }
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append('song[title]', this.state.songDataEdit.title);
-    //     formData.append('song[genre]', this.state.songDataEdit.genre);
-    //     formData.append('song[description]', this.state.songDataEdit.description);
-    //     formData.append('song[img_url]', this.state.songDataEdit.img_url);
-    //     this.props.editSong(formData, this.state.songDataEdit.id).then( () => {
-    //         this.props.getSong(this.props.match.params.id).then( (song) => {
-    //             this.setState({songData: Object.values(song.song)[0]});
-    //             this.setState({songDataEdit: Object.values(song.song)[0]})
-    //         }); 
-    //     }); 
-    //     let modal = document.getElementsByClassName("modal-box")[0];
-    //     modal.classList.add("modal-exit");
-    //     setTimeout(() => this.closeEdit(), 300)
-    // }
-
-    // handleInput(field) {
-    //     return (e) => {
-    //         let songDataCopy = Object.assign({}, this.state.songDataEdit);
-    //         songDataCopy[field] = e.target.value
-    //         this.setState({
-    //             songDataEdit: songDataCopy
-    //         });
-    //     };
-    // }
-
-    // handleModal(e) {
-    //     if (e.target.className === 'modal-screen') {
-    //         let modal = document.getElementsByClassName("modal-box")[0];
-    //         modal.classList.add("modal-exit");
-    //         setTimeout(() => this.closeEdit(), 300)
-    //     }
-    // }
+    handleModal(e) {
+        if (e.target.className === 'modal-screen') {
+            let modal = document.getElementsByClassName("modal-box")[0];
+            modal.classList.add("modal-exit");
+            setTimeout(() => this.closeEdit(), 300)
+        }
+    }
 
 
     render() {
         let editProfPic
         if (this.props.currentUserId === this.state.userData.id){
-            editProfPic = <button className='edit-prof-button'>Update Image</button>
+            editProfPic = <button className='edit-prof-button' onClick={this.editModal}>Update Image</button>
         }
-        let profPic;
-        if (this.state.userData.img_url) {
-            profPic = this.state.userData.img_url
-        }else{
-            profPic = "https://i1.sndcdn.com/avatars-000039709460-h210g8-t500x500.jpg"
-        }
+        let profPic = this.state.userData.img_url;
         if (this.state.userData){
             return(
                 <>
@@ -161,6 +125,12 @@ class SongShow extends React.Component {
                         </div>
 
                     </div>
+                    <ProfPicModalContainer
+                        editModal={this.state.editModal}
+                        handleModal = {this.handleModal}
+                        handleSubmit={this.handleSubmit}
+                        handleInput={this.handleInput}
+                    />
                 </>       
             )
         }else{
@@ -169,4 +139,4 @@ class SongShow extends React.Component {
     }
 }
 
-export default SongShow;
+export default UserShow;

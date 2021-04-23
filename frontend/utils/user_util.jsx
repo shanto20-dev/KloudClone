@@ -4,3 +4,13 @@ export const fetchUser = userId => {
         method: 'GET',
     })
 };
+
+export const patchUser = (user, userId) => {
+    return $.ajax({
+        url: `/api/songs/${userId}`,
+        method: 'PATCH',
+        data: user,
+        contentType: false,
+        processData: false,
+    })
+}

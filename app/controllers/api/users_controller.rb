@@ -16,9 +16,18 @@ class Api::UsersController < ApplicationController
         render :show
     end
 
+    def update
+        @user = User.find_by(id: params[:id])
+        if @user && @user.update(user_params)
+            render :show
+        else
+            render json: ["Could not update - input all required fields"], status: 401
+        end
+    end
+
 
     def user_params
-        params.require(:user).permit(:username, :password, :email)
+        params.require(:user).permit(:username, :password, :email, :img_url)
     end
 
 end

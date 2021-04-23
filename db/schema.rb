@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_21_144613) do
+ActiveRecord::Schema.define(version: 2021_04_23_163108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_04_21_144613) do
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
-    t.string "img_url"
+    t.string "img_url", default: "https://i1.sndcdn.com/avatars-000039709460-h210g8-t500x500.jpg"
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.datetime "created_at", null: false

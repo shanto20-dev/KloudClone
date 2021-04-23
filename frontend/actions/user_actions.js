@@ -19,3 +19,6 @@ export const clearErrors = () => {
 
 export const getUser = (userId) => (dispatch) => fetchUser(userId)
     .then((user) => dispatch(receiveUser(user)));
+
+export const editUser = (user, userId) => (dispatch) => patchUser(user, userId)
+    .then(() => dispatch(receiveUser(user)));
