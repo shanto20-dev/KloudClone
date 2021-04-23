@@ -133,6 +133,7 @@ class SongShow extends React.Component {
                             </div> : 
                             <div className='user-songs-div nothing-div'>
                                 <div className='nothing-data'>
+                                    <i className="fas fa-music music-icon"></i>
                                     <h1 className='nothing-header'>Nothing to hear here</h1>
                                     <p className='nothing-p'>{this.state.userData.username} hasn't uploaded any songs yet.</p>
                                 </div>
