@@ -27,6 +27,7 @@ class SongShow extends React.Component {
 
     componentDidMount() {
         this.props.getSong(this.props.match.params.id).then( (song) => {
+            console.log(song);
             this.setState({songData: Object.values(song.song)[0]});
             this.setState({songDataEdit: Object.values(song.song)[0]})
         }); 
@@ -107,7 +108,6 @@ class SongShow extends React.Component {
         let songInfoPlayButton;
         (this.props.songPlaying && this.props.currentSongInfo.id === this.state.songData.id) ? songInfoPlayButton = <i className="fas fa-pause showpagemedia"></i> : songInfoPlayButton = <i className="fas fa-play showpagemedia"></i>
         let songcover;
-        console.log(this.state);
         if (this.state.songData.img_url) {
             songcover = this.state.songData.img_url
         }else{

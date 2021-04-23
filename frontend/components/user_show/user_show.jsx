@@ -105,14 +105,13 @@ class SongShow extends React.Component {
 
     render() {
         if (this.state.userSongs){
-            console.log(this.state.userData);
             return(
                 <>
                     <div className='user-show-container'>
                         <div className='user-info-container'>
                             <div className='user-show-details'>
                                 <div>
-                                    <p className="song-show-title">{this.state.userData.username}</p>
+                                    <p className="song-show-title user-show-name">{this.state.userData.username}</p>
                                 </div>
                             </div>
                         </div>

@@ -24,7 +24,6 @@ class CommentIndex extends React.Component {
     }
 
     render(){
-        console.log(this.state);
         let numComments = Object.values(this.props.songComments).length
         let numCommentsText = <p className='num-comments'> {numComments} comments </p>
         return (

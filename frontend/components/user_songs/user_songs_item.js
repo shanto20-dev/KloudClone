@@ -14,10 +14,11 @@ class UserSongsItem extends React.Component {
     }
 
     songAction(){
-        if (this.props.currentSongId !== this.props.song.id){
-            this.props.removeFromQueue();
-            this.props.playThisSong(this.props.song);
-            this.props.play();
+        // console.log(this.props.currentSongInfo);
+        console.log(this.props.song);
+        if (this.props.currentSongInfo.id !== this.props.song.id){
+                this.props.playThisSong(this.props.song);
+                this.props.play();
         }else{
             if (this.props.songPlaying){
                 this.props.pause()
@@ -39,7 +40,7 @@ class UserSongsItem extends React.Component {
         }
         return(
         <li className="user-song-item">
-                <img className='songcover' src={`${songcover}`} alt="" onClick={this.songAction}/>
+               <Link to={`/songs/${this.props.song.id}`}> <img className='songcover' src={`${songcover}`} alt=""/> </Link> 
                 <button className='song-show-play userplay' onClick={this.songAction}>{songInfoPlayButton}</button>
                 <div className='user-song-details'>
                     <Link to={`/users/${this.props.song.artist_id}`}><h3 className="songartist">{this.props.song.artist}</h3></Link>

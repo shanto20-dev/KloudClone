@@ -115,8 +115,10 @@ class Player extends React.Component{
     }
 
     handleSkip(){
-        if (!this.state.repeat) {
+        if (!this.state.repeat && this.props.songQueue[1]) {
             this.props.removeFromQueue()
+        }else{
+            this.props.pauseSong();
         }
     }
 
@@ -130,9 +132,9 @@ class Player extends React.Component{
         this.listener();
         this.timeCounter();
         let songUrl
-        this.props.songQueue.length ? songUrl = (this.props.songQueue[this.props.currentSongId]).songUrl : songUrl = "";
+        this.props.songQueue.length ? songUrl = (this.props.songQueue[0]).songUrl : songUrl = "";
         let currentSong
-        this.props.songQueue.length ? currentSong = (this.props.songQueue[this.props.currentSongId]) : currentSong = "";
+        this.props.songQueue.length ? currentSong = (this.props.songQueue[0]) : currentSong = "";
         let songActionContent;
         let muteContent;
         let duration;
