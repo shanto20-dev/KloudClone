@@ -1,6 +1,7 @@
 import React from 'react';
 import Player_container from '../music_player/player_container';
 import SongIndexContainer from '../songIndex/song_index_container'
+import { Link } from 'react-router-dom';
 class Discover extends React.Component {
     constructor(props) {
         super(props);
@@ -45,14 +46,14 @@ class Discover extends React.Component {
                                 <h3 className='discoverSubTitle right-underline'> <i className="fas fa-redo"></i> Refresh List</h3>
                             </div>
                             <ul className="who-to-follow">
-                                <li>
+                                <Link to='/users/37'><li>
                                     <div className='charm_img'></div>
-                                    <p className='artist'> Charm </p> </li>
-                                <li>
+                                    <p className='artist'> Charm </p> </li></Link>
+                                <Link to='/users/36'><li>
                                     <div className='hammad_img'></div> 
-                                    <p className='artist'> Hammad </p></li>
-                                <li> <div className='kloud_img'></div>
-                                    <p className='artist'> Kloud </p></li>
+                                    <p className='artist'> Hammad </p></li></Link>
+                                <Link to='/users/40'><li> <div className='kloud_img'></div>
+                                    <p className='artist'> Kloud </p></li></Link>
                             </ul>
                             <div className='footerlinks-discover'>
                                 <a href="https://github.com/shanto20-dev/" target='blank'>GitHub</a>
