@@ -17,6 +17,7 @@ class UserShow extends React.Component {
         this.editModal = this.editModal.bind(this);
         this.handleModal = this.handleModal.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
 
     }
 
@@ -41,8 +42,8 @@ class UserShow extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('user[img_url]', this.state.userDataEdit.img_url);
-        this.props.editUser(formData, this.state.userDataEdit.id).then( () => {
+        formData.append('user[img_url]', this.state.userData.img_url);
+        this.props.editUser(formData, this.state.userData.id).then( () => {
             this.props.getUser(this.props.match.params.id).then( (user) => {
                 this.setState({userData: Object.values(user.user)[0]});
                 this.setState({userDataEdit: Object.values(user.user)[0]})
@@ -55,10 +56,10 @@ class UserShow extends React.Component {
 
     handleInput(field) {
         return (e) => {
-            let userDataCopy = Object.assign({}, this.state.userDataEdit);
+            let userDataCopy = Object.assign({}, this.state.userData);
             userDataCopy[field] = e.target.value
             this.setState({
-                userDataEdit: userDataCopy
+                userData: userDataCopy
             });
         };
     }
@@ -130,6 +131,7 @@ class UserShow extends React.Component {
                         handleModal = {this.handleModal}
                         handleSubmit={this.handleSubmit}
                         handleInput={this.handleInput}
+                        img_url={this.state.userData.img_url}
                     />
                 </>       
             )

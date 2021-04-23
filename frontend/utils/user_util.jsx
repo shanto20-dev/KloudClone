@@ -7,7 +7,7 @@ export const fetchUser = userId => {
 
 export const patchUser = (user, userId) => {
     return $.ajax({
-        url: `/api/songs/${userId}`,
+        url: `/api/users/${userId}`,
         method: 'PATCH',
         data: user,
         contentType: false,

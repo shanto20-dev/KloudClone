@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { receivePlay, receivePause, receiveQueue, playThisSong} from '../../actions/music_player_actions';
 import {deleteSong, editSong, receiveSongs} from '../../actions/song_actions';
-import { getUser } from '../../actions/user_actions';
+import { editUser, getUser } from '../../actions/user_actions';
 import UserShow from './user_show'
 
 const mapStateToProps = (state) => {
@@ -24,7 +24,8 @@ const mapDispatchToProps = dispatch => ({
     deleteSong: (songId) => dispatch(deleteSong(songId)),
     editSong: (song, songId) => dispatch(editSong(song, songId)),
     getUser: (userId) => dispatch(getUser(userId)),
-    receiveSongs: (songs) => dispatch(receiveSongs(songs))
+    receiveSongs: (songs) => dispatch(receiveSongs(songs)),
+    editUser: (user, userId) => dispatch(editUser(user, userId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserShow);

@@ -200,3 +200,17 @@
 .user-show-pic:hover + .edit-prof-button{
     display: block;
 }
+
+.user-page-modal{
+    height: 300px;
+    width: 500px;
+}
+
+.user-title-modal{
+    margin-top: 30px;
+    color: #f50;
+    font-size: 24px;
+    line-height: 1.6px;
+    border-bottom: 1px solid #f50;
+    height: 20px;
+}

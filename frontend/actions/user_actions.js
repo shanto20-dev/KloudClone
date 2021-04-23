@@ -1,5 +1,6 @@
 import {
-    fetchUser
+    fetchUser,
+    patchUser
 } from '../utils/user_util'
 
 export const RECEIVE_USER = "RECEIVE_USER";
