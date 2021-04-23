@@ -104,6 +104,10 @@ class SongShow extends React.Component {
 
 
     render() {
+        let editProfPic
+        if (this.props.currentUserId === this.state.userData.id){
+            editProfPic = <button className='edit-prof-button'>Update Image</button>
+        }
         let profPic;
         if (this.state.userData.img_url) {
             profPic = this.state.userData.img_url
@@ -117,7 +121,10 @@ class SongShow extends React.Component {
                         <div className='user-info-container'>
                             <div className='user-show-details'>
                                 <div className='user-show-pic-name'>
-                                    <img className='user-show-pic' src={`${profPic}`} alt=""/>
+                                    <div>
+                                        <img className='user-show-pic' src={`${profPic}`} alt=""/>
+                                        {editProfPic}
+                                    </div>
                                     <p className="song-show-title user-show-name">{this.state.userData.username}</p>
                                 </div>
                             </div>
