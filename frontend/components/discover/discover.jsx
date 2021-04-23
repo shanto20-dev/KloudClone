@@ -46,13 +46,13 @@ class Discover extends React.Component {
                                 <h3 className='discoverSubTitle right-underline'> <i className="fas fa-redo"></i> Refresh List</h3>
                             </div>
                             <ul className="who-to-follow">
-                                <Link to='/users/37'><li>
+                                <Link to='/users/3'><li>
                                     <div className='charm_img'></div>
                                     <p className='artist'> Charm </p> </li></Link>
-                                <Link to='/users/36'><li>
+                                <Link to='/users/2'><li>
                                     <div className='hammad_img'></div> 
                                     <p className='artist'> Hammad </p></li></Link>
-                                <Link to='/users/40'><li> <div className='kloud_img'></div>
+                                <Link to='/users/6'><li> <div className='kloud_img'></div>
                                     <p className='artist'> Kloud </p></li></Link>
                             </ul>
                             <div className='footerlinks-discover'>

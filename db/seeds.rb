@@ -10,15 +10,17 @@ require 'open-uri'
 
 User.destroy_all
 Song.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('songs')
 
 user1 = User.create({ username: 'demouser', password: 'demo1234', email: 'demo@kloudclone.com' })
-user2 = User.create({ username: 'Hammad', password: 'charmzz', email: 'hammad@hammad.com' })
-user3 = User.create({ username: 'Charm', password: 'bananas', email: 'charm@uwu.com' })
-user4 = User.create({ username: 'Ariton', password: 'deepit', email: 'deep@it.com' })
-user5 = User.create({ username: 'RaySounds', password: 'dokidoki', email: 'ray@gmail.com' })
-user6 = User.create({ username: 'Kloud', password: 'tiffany4ever', email: 'fffan@gmail.com' })
-user7 = User.create({ username: 'fusq', password: 'moeshopblush', email: 'fusq@gmail.com' })
-user8 = User.create({ username: 'Mannakini', password: 'superkali', email: 'chrismann809@gmail.com' })
+user2 = User.create({ username: 'Hammad', password: 'charmzz', email: 'hammad@hammad.com', img_url: "https://i1.sndcdn.com/avatars-iAKleHvAqRx1Gr3G-5EUbMw-t500x500.jpg"  })
+user3 = User.create({ username: 'Charm', password: 'bananas', email: 'charm@uwu.com', img_url: "https://cdna.artstation.com/p/assets/images/images/032/882/602/large/n-i-x-e-u-11dc7a49-7c91-4f62-ba7f-c4c543162b31.jpg?1607740422" })
+user4 = User.create({ username: 'Ariton', password: 'deepit', email: 'deep@it.com', img_url: "https://i1.sndcdn.com/avatars-4Wj6N8S6WOjzLjVz-XBbb6Q-t500x500.jpg"  })
+user5 = User.create({ username: 'RaySounds', password: 'dokidoki', email: 'ray@gmail.com', img_url: "https://i1.sndcdn.com/avatars-000651691224-w32e14-t200x200.jpg" })
+user6 = User.create({ username: 'Kloud', password: 'tiffany4ever', email: 'fffan@gmail.com', img_url: "https://i1.sndcdn.com/avatars-000690273593-wxkcyb-t500x500.jpg" })
+user7 = User.create({ username: 'fusq', password: 'moeshopblush', email: 'fusq@gmail.com', img_url: "https://i1.sndcdn.com/avatars-tlZcl6yaETXSz3QH-rW1JBA-t500x500.jpg" })
+user8 = User.create({ username: 'Mannakini', password: 'superkali', email: 'chrismann809@gmail.com', img_url:"https://i1.sndcdn.com/avatars-000703365478-vdr0qr-t500x500.jpg"})
 
 
 song1 = Song.create({ artist_id: user3.id, title: 'Vibe Frog', description: 'Come vibe with us!', img_url: "https://i1.sndcdn.com/artworks-kIJcq1OfJQjYZMiI-TbLyRA-t500x500.jpg"})

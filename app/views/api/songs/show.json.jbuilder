@@ -7,6 +7,7 @@ json.set! @song.id do
             json.set! comment.id do
                 json.extract! comment, :id, :body, :author_id, :song_id, :created_at
                 json.author comment.author.username
+                json.author_pic comment.author.img_url
             end
         end
     end
