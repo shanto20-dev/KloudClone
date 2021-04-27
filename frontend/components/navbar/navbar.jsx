@@ -62,7 +62,7 @@ class Navbar extends React.Component{
                     <div className="divdropdown">
                         <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
                             <div className={profdropdownclass}>
-                                <button className="dropdown-button" >Profile</button>
+                                <Link to={`/users/${this.props.currentUser.id}`}><button className="dropdown-button">Profile</button></Link>
                                 <button className="dropdown-button" >Likes</button>
                                 <button className="dropdown-button" >Playlists</button>
                                 <button className="dropdown-button" >Stations</button>
