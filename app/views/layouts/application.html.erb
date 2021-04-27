@@ -7,6 +7,12 @@
     <link rel="icon" href="<%=image_url('orangelogo.png')%>">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <meta name="description" content="KloudClone App" />
+    <meta name="title" property="og:title" content="KloudClone" />
+    <meta property="og:type" content="Website" />
+    <meta name="image" property="og:image" content="https://imgur.com/QuhAGIU" />
+    <meta name="description" property="og:description" content="KloudClone App" />
+    <meta name="author" content="Sayeef Alam" />
     <% if current_user %>
       <script>
         window.currentUser = {
