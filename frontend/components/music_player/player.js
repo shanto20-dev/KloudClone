@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Player extends React.Component{
     
@@ -190,10 +191,10 @@ class Player extends React.Component{
                         </button>
                     </div>
                     <div className = "playerInfo">
-                        <img className="playerCover" src={currentSong.img_url || "https://i1.sndcdn.com/artworks-000265843283-72z293-t500x500.jpg" }></img>
+                    <Link to={`/songs/${currentSong.id}`}><img className="playerCover" src={currentSong.img_url || "https://i1.sndcdn.com/artworks-000265843283-72z293-t500x500.jpg" }></img></Link>
                         <div className="songInfo">
-                        <p className="artist-player">{currentSong.artist}</p>
-                        <p className="title-player">{currentSong.title}</p>
+                        <Link to={`/users/${currentSong.artist_id}`}><p className="artist-player">{currentSong.artist}</p></Link>
+                        <Link to={`/songs/${currentSong.id}`}><p className="title-player">{currentSong.title}</p></Link>
                         </div>
                     </div>
                 </div>
