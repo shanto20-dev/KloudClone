@@ -1,5 +1,4 @@
 class Api::UsersController < ApplicationController
-    before_action :ensure_logged_in, only: [:show, :index]
 
     def create
         @user = User.new(user_params)
