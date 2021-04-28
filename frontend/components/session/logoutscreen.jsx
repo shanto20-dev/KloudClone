@@ -9,8 +9,11 @@ class Logoutscreen extends React.Component {
         this.state = { 
         };
     }
-
+    
     render() {
+        if (this.props.currentUser){
+            this.props.history.push('/discover');
+        }
         let logout;
         this.props.location.pathname === '/logout' ? logout = " logoutSignin" : logout = ""
         return (

@@ -54,6 +54,9 @@ class SongUpload extends React.Component {
     }
 
     render() {
+        if (!this.props.currentUserId){
+            this.props.history.push('/');
+        }
         let errormessage
         if (this.props.errors) {
             errormessage = this.props.errors;

@@ -10,6 +10,9 @@ class Discover extends React.Component {
     }
 
     render() {
+        if (!this.props.currentUser){
+            this.props.history.push('/logout');
+        }
         return (
             <>
                 <div className='discover'>
