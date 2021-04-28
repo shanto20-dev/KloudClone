@@ -31,7 +31,7 @@ class SongEdit extends React.Component {
                             <p className="label">Genre</p>
                             <select onChange={this.props.handleInput('genre')} value={this.props.genre} className="detail-input">
                                 <option value="Ambient">Ambient</option>
-                                <option value="FutureFunk">Disco</option>
+                                <option value="Disco">Disco</option>
                                 <option value="EDM">EDM</option>
                                 <option value="FutureFunk">Future Funk</option>
                                 <option value="FutureBass">Future Bass</option>
