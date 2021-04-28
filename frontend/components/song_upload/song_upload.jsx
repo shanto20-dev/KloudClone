@@ -13,7 +13,8 @@ class SongUpload extends React.Component {
             genre: "",
             description: "",
             img_url: "",
-            artist_id: this.props.currentUserId
+            artist_id: this.props.currentUserId,
+            final_song: {}
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSongUpload = this.handleSongUpload.bind(this);
@@ -37,8 +38,10 @@ class SongUpload extends React.Component {
         formData.append('song[img_url]', this.state.img_url);
         formData.append('song[artist_id]', this.state.artist_id);
         formData.append('song[audio]', this.state.songFile);
-        this.props.createNewSong(formData).then(() => this.setState({currentStep: 3}));
-        
+        this.props.createNewSong(formData).then((song) => {
+            console.log(song);
+            this.setState({currentStep: 3, final_song: Object.values(song.song)[0]})}
+            );
     }
 
     handleInput(field) {
@@ -82,6 +85,7 @@ class SongUpload extends React.Component {
                     artist={this.state.artist}
                     description={this.state.description}
                     photo={this.state.img_url}
+                    finalSong={this.state.final_song}
                 />
             </div>
 

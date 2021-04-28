@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class UploadComplete extends React.Component {
@@ -13,11 +14,11 @@ class UploadComplete extends React.Component {
                     <h1 className="details-title-success">Upload successful</h1>
                     <div className="details-content">
                         <div className="details-pic-complete">
-                            <img src={`${this.props.photo}`} alt="" className="photo-complete"/>
+                            <img src={`${this.props.finalSong.img_url}`} alt="" className="photo-complete"/>
                         </div>
                         <div className="details-form">
                             <p className="complete-desc">{this.props.artist}</p>
-                            <p className="complete-title">{this.props.title}</p>
+                            <Link to={`/songs/${this.props.finalSong.id}`}><p className="complete-title">{this.props.title}</p></Link>
                             <br/>
                             <p className="complete-desc">{this.props.description}</p>
                             <br/>
