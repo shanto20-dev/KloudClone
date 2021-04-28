@@ -89,11 +89,10 @@ class Navbar extends React.Component{
                         <button className="user-button" onClick={this.toggleProfileDropdown}>{this.props.currentUser.username}</button>
                             <div className={profdropdownclass}>
                                 <Link to={`/users/${this.props.currentUser.id}`}><button className="dropdown-button">Profile</button></Link>
-                                <button className="dropdown-button" >Likes</button>
-                                <button className="dropdown-button" >Playlists</button>
-                                <button className="dropdown-button" >Stations</button>
-                                <button className="dropdown-button" >Following</button>
-                                <button className="dropdown-button" >Try Pro</button>
+                                <a href="https://www.linkedin.com/in/sayeefalam/" target='blank'><button className="dropdown-button" >LinkedIn</button></a>
+                                <a href="https://github.com/shanto20-dev/" target='blank'><button className="dropdown-button" >GitHub</button></a>
+                                <a href="https://angel.co/u/sayeef-alam" target='blank'><button className="dropdown-button" >AngelList</button></a>
+                                <a href="http://www.sayeefalam.com/" target='blank'><button className="dropdown-button" >Portfolio</button></a>
                             </div>
                     </div>
                 <div className="divdropdown">
