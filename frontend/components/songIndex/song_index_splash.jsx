@@ -26,6 +26,8 @@ class SongIndexSplash extends React.Component {
                             songPlaying = {this.props.songPlaying}
                             currentSongId = {this.props.currentSongId}
                             makeCurrent = {this.props.makeCurrent}
+                            removeFromQueue = {this.props.removeFromQueue}
+                            playThisSong = {this.props.playThisSong}
                         />
                     })}
                 </ul>

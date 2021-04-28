@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { receivePlay, receivePause, receiveQueue, receiveCurrentSong } from '../../actions/music_player_actions';
+import { receivePlay, receivePause, receiveQueue, receiveCurrentSong, removeFromQueue, playThisSong } from '../../actions/music_player_actions';
 import { getSongs } from '../../actions/song_actions';
 import SongIndexSplash from './song_index_splash'
 
@@ -16,7 +16,9 @@ const mapDispatchToProps = dispatch => ({
     playSong: () => dispatch(receivePlay()),
     pauseSong: () => dispatch(receivePause()),
     loadQueue:  (queue) => dispatch(receiveQueue(queue)),
-    makeCurrent: (songId) => dispatch(receiveCurrentSong(songId))
+    makeCurrent: (songId) => dispatch(receiveCurrentSong(songId)),
+    playThisSong: (song) => dispatch(playThisSong(song)),
+    removeFromQueue: () => dispatch(removeFromQueue()),
     
 });
 
