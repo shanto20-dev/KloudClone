@@ -73,7 +73,7 @@ class Signup extends React.Component {
                     {/* <button className="apple-button">Continue with Apple</button> */}
                 <form className="create-form">
                     <br/>
-                    <input type="text" className="login-input" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your profile URL"/>
+                    <input type="text" className="login-input" value={this.state.username} onChange={this.handleInput('username')} placeholder="Your username"/>
                     <br/>
                     <br/>
                     <input type="text" className="login-input" value={this.state.email} onChange={this.handleInput('email')} placeholder="Your email address" />
