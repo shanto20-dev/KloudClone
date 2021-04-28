@@ -2,7 +2,7 @@ import React from 'react';
 import SongEditContainer from '../song__edit/song_edit_container'
 import CreateCommentsContainer from '../create_comments/create_comments_container'
 import CommentIndexContainer from '../comments/comment_index_container'
-
+import { Link } from 'react-router-dom';
 
 
 class SongShow extends React.Component {
@@ -130,7 +130,7 @@ class SongShow extends React.Component {
                             <div className='song-player-info'>
                                 <button className='song-show-play' onClick={this.songAction}>{songInfoPlayButton}</button>
                                 <div className='song-artist-title'>
-                                    <h3 className="song-show-artist">{this.state.songData.artist}</h3>
+                                    <Link to={`/users/${this.state.songData.artist_id}`}><h3 className="song-show-artist">{this.state.songData.artist}</h3></Link>
                                     <h3 className="song-show-title">{this.state.songData.title}</h3>
                                 </div>
                             </div>
