@@ -20,12 +20,13 @@ class SongEdit extends React.Component {
                     <h1 className="details-title">Basic info</h1>
                     <div className="details-content">
                         <div className="details-pic">
+                            <img className='image-edit' src={`${this.props.img_url}`}/>
                         </div>
                         <div className="details-form">
                             <p className="label">Title*</p>
                             <input type="text" value={this.props.title} onChange={this.props.handleInput('title')} className="detail-input"/>
                             <br />
-                            <p className="label">Image URL</p>
+                            <p className="label" value={this.props.image_url}>Image URL</p>
                             <input type="text" value={this.props.img_url} onChange={this.props.handleInput('img_url')} className="detail-input" />
                             <p className="label">Genre</p>
                             <select onChange={this.props.handleInput('genre')} className="detail-input">
@@ -41,7 +42,7 @@ class SongEdit extends React.Component {
                             </select>
                             <br/>
                             <p className="label">Description</p>
-                            <textarea onChange={this.props.handleInput('description')} className="description-box"></textarea>
+                            <textarea onChange={this.props.handleInput('description')} value={this.props.description} className="description-box"></textarea>
                             <br/>
                             <br/>
                         </div>
