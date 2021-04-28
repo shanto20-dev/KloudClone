@@ -74,6 +74,7 @@ class SongUpload extends React.Component {
                     handleInput = {this.handleInput}
                     handleSubmit = {this.handleSubmit}
                     errors = {this.props.errors}
+                    photo={this.state.img_url}
                 />
                 <UploadComplete
                     currentStep={this.state.currentStep}

@@ -17,6 +17,7 @@ class DetailsSection extends React.Component {
                 <h1 className="details-title">Basic info</h1>
                 <div className="details-content">
                     <div className="details-pic">
+                        <img className='image-edit' src={`${this.props.photo}`}/>
                     </div>
                     <div className="details-form">
                         <p className="label">Title*</p>
