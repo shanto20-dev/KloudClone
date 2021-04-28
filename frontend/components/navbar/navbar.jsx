@@ -40,6 +40,32 @@ class Navbar extends React.Component{
     }
     
 
+    sessionLinks(){
+        let searchbar;
+        if (this.props.location.pathname === '/discover' || this.props.location.pathname === '/logout') {
+            searchbar = <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar"/>
+         }
+
+        return(
+        <>
+        <header>
+        <div className = "nav-bar-container">
+            <div className='nav-stuff'>
+                <Link to='/' className='logo-link'><h1 className="logo"></h1></Link>
+                <div className="login-signup navlogin">
+                    <button className="loginbutton" onClick={this.props.loginModal}> Sign In </button>
+                    <button className="signupbutton" onClick={this.props.signupModal}> Create Account </button>
+                </div>
+            </div>
+        </div>
+        
+        <LoginContainer />
+        <SignupContainer />
+        </header>
+        </>
+         )
+    }
+
 
     personal(){
         let profdropdownclass
@@ -86,7 +112,9 @@ class Navbar extends React.Component{
     render(){
         if (this.props.location.pathname === '/' || this.props.location.pathname === '/logout'){
             return null;
-        }else{
+        }else if (!this.props.currentUser){
+            return (this.sessionLinks());
+        }else {
             return this.personal()
         }
     }
