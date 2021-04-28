@@ -29,7 +29,7 @@ class SongEdit extends React.Component {
                             <p className="label" value={this.props.image_url}>Image URL</p>
                             <input type="text" value={this.props.img_url} onChange={this.props.handleInput('img_url')} className="detail-input" />
                             <p className="label">Genre</p>
-                            <select onChange={this.props.handleInput('genre')} className="detail-input">
+                            <select onChange={this.props.handleInput('genre')} value={this.props.genre} className="detail-input">
                                 <option value="Ambient">Ambient</option>
                                 <option value="FutureFunk">Disco</option>
                                 <option value="EDM">EDM</option>

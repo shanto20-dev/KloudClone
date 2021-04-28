@@ -153,6 +153,7 @@ class SongShow extends React.Component {
                         editModal={this.state.editModal}
                         title={this.state.songDataEdit.title}
                         img_url={this.state.songDataEdit.img_url}
+                        genre={this.state.songDataEdit.genre}
                         description={this.state.songDataEdit.description}
                         handleInput={this.handleInput}
                         handleSubmit={this.handleSubmit}
