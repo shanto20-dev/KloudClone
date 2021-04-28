@@ -27,23 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(<Root store={store} />, root);
 
     // TESTING FUNCTIONS
-    window.store = store;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.createNewUser = createNewUser;
-    window.login = login;
-    window.logout = logout;
-    window.receiveCurrentUser = receiveCurrentUser;
-    window.logoutCurrentUser = logoutCurrentUser;
-    window.postSession= postSession;
-    window.postUser= postUser;
-    window.receiveSignupModal = receiveSignupModal;
-    window.receiveLoginModal = receiveLoginModal;
-    window.fetchSong = fetchSong;
-    window.fetchSongs = fetchSongs;
-    window.postSong = postSong;
-    window.createNewSong = createNewSong;
-    window.getSongs = getSongs;
-    window.getSong = getSong;
+    // window.store = store;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
+    // window.createNewUser = createNewUser;
+    // window.login = login;
+    // window.logout = logout;
+    // window.receiveCurrentUser = receiveCurrentUser;
+    // window.logoutCurrentUser = logoutCurrentUser;
+    // window.postSession= postSession;
+    // window.postUser= postUser;
+    // window.receiveSignupModal = receiveSignupModal;
+    // window.receiveLoginModal = receiveLoginModal;
+    // window.fetchSong = fetchSong;
+    // window.fetchSongs = fetchSongs;
+    // window.postSong = postSong;
+    // window.createNewSong = createNewSong;
+    // window.getSongs = getSongs;
+    // window.getSong = getSong;
 });
 
