@@ -81,7 +81,6 @@ class Signup extends React.Component {
                     <br/>
                     <input className="login-input" type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Choose a password" />
                     <p className="error">{errormessage}</p>
-                    <p className="legalese" >By signing up I accept the Terms of Use. I have read and understood the Privacy Policy and Cookies Policy.</p>
                     <br/>
                         <button className="signinbutton" onClick={this.handleSubmit}>Accept and Continue</button>
                 </form>

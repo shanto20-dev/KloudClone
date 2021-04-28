@@ -35,7 +35,7 @@ class Splash extends React.Component {
                 </div>
                 <div className='splash-bottom'>
                     <div className="searchorupload">
-                            <input type="text" placeholder="Search for artists, bands, tracks, podcasts" className="searchbar-splash" /><button className="splashSearch"><i className="fas fa-search navsearch"></i></button> <p className='head2'>or</p> <button className='splashbutton2 searchbutton'>Upload your own</button>
+                            <input type="text" placeholder="Search for artists, bands, tracks, podcasts (Coming Soon)" className="searchbar-splash" /><button className="splashSearch"><i className="fas fa-search navsearch"></i></button> <p className='head2'>or</p> <button className='splashbutton2 searchbutton'>Upload your own</button>
                     </div>
                     <h3 className="trendingtitle">Hear what’s trending for free in the SoundCloud community</h3>
                     <button className='splashbutton2 explore'>Explore trending playlists</button>

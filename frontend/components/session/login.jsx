@@ -87,8 +87,6 @@ class Login extends React.Component {
                 </form>
                 <p onClick={this.switchModal} className="switch-modal">Need to register? Sign Up</p>
                 
-                    <p className="legalese">We may use your email and devices for updates and tips on KloudClone's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
-                        We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.</p>
             </div>
             </>
         )} else{
