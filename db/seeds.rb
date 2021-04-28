@@ -10,6 +10,7 @@ require 'open-uri'
 
 User.destroy_all
 Song.destroy_all
+Comment.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('songs')
 
@@ -46,3 +47,18 @@ song4.audio.attach(io: froggyFacetime, filename: 'froggy_facetime.mp3')
 song5.audio.attach(io: yeehawFroggy, filename: 'yeehaw_froggy.mp3')
 song6.audio.attach(io: froggyGroove, filename: 'froggy_groove.mp3')
 song7.audio.attach(io: froggySings, filename: 'froggy_sings.mp3')
+
+
+comment1 = Comment.create({author_id: 6, body: "Such a cute song!! I love it", song_id: 1})
+comment2 = Comment.create({author_id: 8, body: "Absolute BANGER city!!!!!", song_id: 3})
+comment3 = Comment.create({author_id: 7, body: "yo this is a vibe", song_id: 4})
+comment4 = Comment.create({author_id: 2, body: "I SEE YOU FUSQ LETS GOOO", song_id: 2})
+comment5 = Comment.create({author_id: 1, body: "I'm in love with this <3 <3 <3", song_id: 7})
+comment6 = Comment.create({author_id: 3, body: "How many bangers are you going to make", song_id: 2})
+comment7 = Comment.create({author_id: 4, body: "This song is perfect", song_id: 5})
+comment8 = Comment.create({author_id: 5, body: "This reminds me of prom in 1973...great times", song_id: 4})
+comment9 = Comment.create({author_id: 5, body: "I'm in unbearable pain", song_id: 3})
+comment10 = Comment.create({author_id: 8, body: "This is the type of song that I would blast while chilling in Washington Square Park", song_id: 2})
+comment11 = Comment.create({author_id: 8, body: "Fantastic song. I would add a little bit more bass though", song_id: 1})
+comment12 = Comment.create({author_id: 1, body: "A spicy song with an even spicier artist", song_id: 6})
+comment13 = Comment.create({author_id: 4, body: "meh, it's okay", song_id: 3})
