@@ -11,7 +11,8 @@ class SongShow extends React.Component {
         this.state = {
             songData: {},
             editModal: false,
-            songDataEdit: {}
+            songDataEdit: {},
+            artistData: {}
 
         }
         this.songAction = this.songAction.bind(this);
@@ -29,7 +30,11 @@ class SongShow extends React.Component {
         this.props.getSong(this.props.match.params.id).then( (song) => {
             console.log(song);
             this.setState({songData: Object.values(song.song)[0]});
-            this.setState({songDataEdit: Object.values(song.song)[0]})
+            this.setState({songDataEdit: Object.values(song.song)[0]});
+            this.props.getUser(Object.values(song.song)[0].artist_id).then((artist) => {
+                console.log(Object.values(artist.user)[0]);
+                this.setState({artistData: Object.values(artist.user)[0]});
+            });
         }); 
     }
 
@@ -158,6 +163,20 @@ class SongShow extends React.Component {
                         songId={this.state.songData.id}
                         refreshComments = {this.refreshComments}
                     />
+
+                    <div className="about-song">
+                        <div className='userInfo'>
+                            <Link to={`/users/${this.state.songData.artist_id}`}><img className='song-show-artist-pic' src={`${this.state.artistData.img_url}`} alt=""/></Link>
+                            <Link to={`/users/${this.state.songData.artist_id}`}><p className='song-show-artist-name'>{this.state.songData.artist}</p></Link>
+                        </div>
+                        <div className='song-desc'>
+                            {this.state.songData.description}
+
+                        </div>
+                    </div>
+
+
+
                     {this.state.songData.comments ? <CommentIndexContainer songComments = {this.state.songData.comments} refreshComments = {this.refreshComments}/> : null}
                 </div>
             )

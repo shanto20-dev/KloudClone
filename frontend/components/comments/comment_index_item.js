@@ -13,7 +13,6 @@ class CommentIndexItem extends React.Component {
 
 
     render() {
-        console.log(this.props.commentData);
         let profPic = this.props.commentData.author_pic;
         let deleteButton
         if (this.props.currentUserId === this.props.commentData.author_id) {
