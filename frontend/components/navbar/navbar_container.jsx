@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createNewUser, login } from '../../actions/session_actions';
+import { createNewUser, login, logout } from '../../actions/session_actions';
 import { receiveLoginModal, receiveSignupModal, closeModal } from '../../actions/ui_actions';
 import Navbar from './navbar';
 
