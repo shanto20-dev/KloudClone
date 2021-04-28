@@ -160,10 +160,13 @@ class SongShow extends React.Component {
                         closeEdit = {this.closeEdit}
                         handleModal = {this.handleModal}
                     />
+                    <div>
+                        {this.props.currentUserId ?
                     <CreateCommentsContainer
                         songId={this.state.songData.id}
                         refreshComments = {this.refreshComments}
-                    />
+                    /> : null}
+                    </div>
 
                     <div className="about-song">
                         <div className='userInfo'>
