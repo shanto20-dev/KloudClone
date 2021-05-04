@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import Login from './login';
-import {closeModal} from '../../actions/ui_actions';
+import {receiveSignupModal, closeModal } from '../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
