@@ -15,7 +15,6 @@ class UserSongsItem extends React.Component {
 
     songAction(){
         // console.log(this.props.currentSongInfo);
-        console.log(this.props.song);
         if (this.props.currentSongInfo.id !== this.props.song.id){
                 this.props.playThisSong(this.props.song);
                 this.props.play();
