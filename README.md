@@ -49,3 +49,15 @@ KloudClone was built with a Ruby on Rails framework back-end and a React/Redux f
 * Upon acceptance of an appropriate file, the form will switch to filling out details regarding the song like Title, Album Art, Genre, and description
 * Upon acceptance of song details, a successful upload screen will render displaying the song details that were filled out by the user.
 
+## Song Page & Comments
+
+* The song show page displays information about the uploader of the song, the album art,  the description of the song, and the ability to pause/play the song immediately on the player
+* The music player persists as you click through different songs
+* Each song has a comment section, where users can add or delete their own comments to songs
+* If you are the owner of a song, you can edit song details with a modal
+
+## User Page
+
+* The user page displays information about the user's uploaded songs and their avatar
+* If the user has no uploaded songs, will display a "nothing to hear here" message
+
