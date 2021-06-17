@@ -4,7 +4,7 @@
 
 [Live Site!](https://kloudclone.herokuapp.com/#/)
 
-![KloudClone](https://user-images.githubusercontent.com/74939594/112639842-1a34ec00-8e17-11eb-8b58-84cdd8270feb.png)
+![image](https://user-images.githubusercontent.com/74939594/122449020-65245280-cf73-11eb-810d-ac4efc6a1242.png)
 
 ## Table of Contents
 
@@ -36,6 +36,8 @@ KloudClone was built with a Ruby on Rails framework back-end and a React/Redux f
 
 ## Discover Page and the Music Player
 
+![image](https://user-images.githubusercontent.com/74939594/122449053-71a8ab00-cf73-11eb-81bc-1721fa27e8ce.png)
+
 * The discover page has indexes of the songs in KloudClone's database
 * The songs are listed with their Title and Artist Name
 * When you click on a song album-cover, that specific song will begin to play
@@ -49,7 +51,10 @@ KloudClone was built with a Ruby on Rails framework back-end and a React/Redux f
 * Upon acceptance of an appropriate file, the form will switch to filling out details regarding the song like Title, Album Art, Genre, and description
 * Upon acceptance of song details, a successful upload screen will render displaying the song details that were filled out by the user.
 
+
 ## Song Page & Comments
+
+![image](https://user-images.githubusercontent.com/74939594/122449171-8edd7980-cf73-11eb-93dd-516d85a365ab.png)
 
 * The song show page displays information about the uploader of the song, the album art,  the description of the song, and the ability to pause/play the song immediately on the player
 * The music player persists as you click through different songs
@@ -57,6 +62,9 @@ KloudClone was built with a Ruby on Rails framework back-end and a React/Redux f
 * If you are the owner of a song, you can edit song details with a modal or delete the song
 
 ## User Page
+
+![image](https://user-images.githubusercontent.com/74939594/122449217-9dc42c00-cf73-11eb-9f1b-28100e964ca0.png)
+
 
 * The user page displays information about the user's uploaded songs and their avatar
 * If the user has no uploaded songs, will display a "nothing to hear here" message
