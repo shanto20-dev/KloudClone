@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Player from './player';
+import Player from './player_hooks';
 import {receivePlay, receivePause, receiveMute, receiveQueue, receiveSkip, receivePrev, playThisSong, removeFromQueue} from "../../actions/music_player_actions"
 
 const mapStateToProps = (state) => {

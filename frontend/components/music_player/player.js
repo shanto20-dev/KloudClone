@@ -33,16 +33,7 @@ class Player extends React.Component{
         }, 800);
     }
 
-    handleAction(){
-        if (this.props.songPlaying) {
-            this.props.pauseSong()
-            this.audioEl.current.pause();
-        } else {
-            this.props.playSong()
-            this.audioEl.current.play()
-        }
-    }
-
+ 
     handleMute(){
         if (!this.props.songMuted){
             this.setState({prevVol: this.audioEl.current.volume * 100})
@@ -140,7 +131,6 @@ class Player extends React.Component{
     handleRepeat(){
         this.setState({repeat: !this.state.repeat})
     }
-
 
 
     render(){
