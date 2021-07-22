@@ -5,7 +5,8 @@ import {
     Redirect,
     Switch,
     Link,
-    HashRouter
+    HashRouter,
+    useHistory
 } from 'react-router-dom';
 import NavBarContainer from "./navbar/navbar_container"
 import {AuthRoute} from "../utils/route_util"
@@ -18,11 +19,21 @@ import SongShowContainer from './song_show/song_show_container';
 import UserShowContainer from './user_show/user_show_container';
 import DiscoverContainer from './discover/discover_container';
 
+const handlePlayerLogout = (pathName) => {
+    if (!pathName === '/logout'){
+        return <Route path="/" component={PlayerContainer} />
+    }
+}
+
 const App = () => {
+    let history = useHistory();
+    const pathName = history.location.pathname;
+
     return (
     <> 
     <Route path="/" component={NavBarContainer}/>
     <Route path="/" component={PlayerContainer} />
+    {/* {handlePlayerLogout(pathName)}; */}
     <Switch>
         <AuthRoute exact path="/" component={SplashContainer}/>
         <Route exact path="/logout" component={LogoutContainer} />

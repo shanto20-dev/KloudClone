@@ -6,9 +6,9 @@ class SongIndex extends React.Component {
         super(props)
     }
 
-    componentDidMount(){
-        this.props.getSongs();
-    }
+    // componentDidMount(){
+    //     this.props.getSongs();
+    // }
 
     render(){
         let songs = this.props.songs;

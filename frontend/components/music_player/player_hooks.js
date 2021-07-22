@@ -20,10 +20,23 @@ const Player = (props) => {
     const volumeSlider = React.createRef();
 
 
+    // first useEffect is to load songs into the player's queue
     useEffect(() => {
-        props.loadQueue(Object.values(props.songs))
-    },[]);
+        props.getSongs().then((songs) => {
+            console.log(Object.values(songs.songs));
+            props.loadQueue(Object.values(songs.songs))
+        })
+    }, []);
 
+    useEffect(() => {
+        return () => {
+            console.log('this is pausing in unmount');
+            props.pauseSong();
+        }
+    }, []);
+
+
+    // pause and play
     const handleAction = () => {
         if (props.songPlaying) {
             props.pauseSong()
@@ -35,6 +48,8 @@ const Player = (props) => {
     }
 
     
+    // if muting, saves the volume into a variable of 'previous volume', sets the volume to zero. 
+    // if unmuting, sets the volume of the player to what the volume was before muting
    const handleMute = () => {
         if (!props.songMuted){
             setPrevVol(audioEl.current.volume * 100)
@@ -48,6 +63,8 @@ const Player = (props) => {
         }
     };
 
+
+    // listener function is used so that when a new song loads up, the music player will know to keep playing music
     const listener = () => {
         if (audioEl.current){
             if (!props.songPlaying){
@@ -56,7 +73,7 @@ const Player = (props) => {
                 audioEl.current.play()
             }
         }
-    };
+    }; 
 
     const formatTime = () => { 
         let min = Math.floor((timeCounter / 60));
@@ -77,14 +94,19 @@ const Player = (props) => {
 
     const timeCounterFunction = () => {
         if (props.songPlaying){
-            let interval = setInterval(() => {
+            const interval = setInterval(() => {
                 if (props.songPlaying){
                     setTimeCounter(Math.floor(audioEl.current.currentTime)), 70;
                 }
             })
             intervals.push(interval);
         }
+        return () => {
+            clearInterval(intervals[0]);
+        }
     }
+
+    useEffect(timeCounterFunction)
 
     const handleVolumeinput = (e) => {
         audioEl.current.volume = (e.target.value / 100);
@@ -131,8 +153,8 @@ const Player = (props) => {
         setRepeat(!repeat);
     }
 
-    useEffect(listener);
-    useEffect(timeCounterFunction, []);
+    useEffect(listener, [audioEl]); // makes sure that the player is "listening" for a song every time a song is loaded - and if it is loaded, it will continue to play
+    // useEffect(timeCounterFunction, []);
 
     let songUrl;
     props.songQueue.length ? songUrl = props.songQueue[0].songUrl : songUrl = "";
@@ -153,6 +175,7 @@ const Player = (props) => {
     let repeatIcon;
     shuffle ? shuffleIcon = "shuffle-on" : shuffleIcon = "";
     repeat ? repeatIcon = "repeat-on" : repeatIcon = "";
+
 
 
     return(
