@@ -136,7 +136,9 @@ const Player = (props) => {
             newSongsPlayed.push(props.songQueue[0]);
             setSongsPlayed(newSongsPlayed);
             props.removeFromQueue()
-        }else{
+        }else if (repeat){
+            setTimeCounter(0);
+        } else {
             props.pauseSong();
         }
     }
