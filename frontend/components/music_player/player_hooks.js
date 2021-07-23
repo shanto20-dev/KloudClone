@@ -59,7 +59,6 @@ const Player = (props) => {
   // listener function is used so that when a new song loads up, the music player will know to keep playing music
   // issue: this is firing off any time any change or interaction is made with the player - how do i get this to run only when song changes?
   const listener = () => {
-    console.log("how often is this firing?");
     if (audioEl.current) {
       if (!props.songPlaying) {
         audioEl.current.pause();
