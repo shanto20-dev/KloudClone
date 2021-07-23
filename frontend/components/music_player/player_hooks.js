@@ -22,7 +22,6 @@ const Player = (props) => {
   // cleans up the player by setting universal state to 'pause' when player is closed
   useEffect(() => {
     props.getSongs().then((songs) => {
-      console.log(Object.values(songs.songs));
       props.loadQueue(Object.values(songs.songs));
     });
     return () => {
