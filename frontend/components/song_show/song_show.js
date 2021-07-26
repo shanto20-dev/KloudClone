@@ -28,11 +28,9 @@ class SongShow extends React.Component {
 
     componentDidMount() {
         this.props.getSong(this.props.match.params.id).then( (song) => {
-            console.log(song);
             this.setState({songData: Object.values(song.song)[0]});
             this.setState({songDataEdit: Object.values(song.song)[0]});
             this.props.getUser(Object.values(song.song)[0].artist_id).then((artist) => {
-                console.log(Object.values(artist.user)[0]);
                 this.setState({artistData: Object.values(artist.user)[0]});
             });
         }); 

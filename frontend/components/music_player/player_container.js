@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import Player from './player';
+import Player from './player_hooks';
 import {receivePlay, receivePause, receiveMute, receiveQueue, receiveSkip, receivePrev, playThisSong, removeFromQueue} from "../../actions/music_player_actions"
+import { getSongs } from '../../actions/song_actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    getSongs: () => dispatch(getSongs()),
     playSong: () => dispatch(receivePlay()),
     pauseSong: () => dispatch(receivePause()),
     muteSong: () => dispatch(receiveMute()),
